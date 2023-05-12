@@ -1,0 +1,2670 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="-//W3C//DTD HTML 4.0//EN">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="ProgId" content="Word.Document">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<!--[if VML]><![if !VMLRender]>
+
+<object id=VMLRender classid="CLSID:10072CEC-8CC1-11D1-986E-00A0C955B42E"
+ width=0 height=0>
+</object>
+
+<style>
+v\:* {behavior:url(#VMLRender);}
+o\:* {behavior:url(#VMLRender);}
+w\:* {behavior:url(#VMLRender);}
+.shape {behavior:url(#VMLRender);}
+
+</style>
+<![endif]><![endif]-->
+<title>COB Editor Extensions version 6 Documentation</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ryan Katri</o:Author>
+  <o:Template>Cob.dot</o:Template>
+  <o:LastAuthor>Randy Wallin</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>491</o:TotalTime>
+  <o:LastPrinted>1995-08-24T22:55:00Z</o:LastPrinted>
+  <o:Created>1998-12-17T22:33:00Z</o:Created>
+  <o:LastSaved>1998-12-17T22:47:00Z</o:LastSaved>
+  <o:Pages>13</o:Pages>
+  <o:Words>3758</o:Words>
+  <o:Characters>21425</o:Characters>
+  <o:Company>COB System Designs, Inc.</o:Company>
+  <o:Bytes>53248</o:Bytes>
+  <o:Lines>178</o:Lines>
+  <o:Paragraphs>42</o:Paragraphs>
+  <o:CharactersWithSpaces>26311</o:CharactersWithSpaces>
+  <o:Version>9.2216</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>6 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:UsePrinterMetrics/>
+   <w:WW6BorderRules/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:AutoSpaceLikeWord95/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:14.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:14.0pt;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-next:Normal;
+	margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right 6.5in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.ChapterTitle, li.ChapterTitle, div.ChapterTitle
+	{mso-style-name:"Chapter Title";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:.25in;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	tab-stops:175.5pt;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:20.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in .8in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-page-numbers:1;
+	mso-title-page:yes;
+	mso-even-header:url("./Cee6_files/header.htm") eh1;
+	mso-header:url("./Cee6_files/header.htm") h1;
+	mso-first-header:url("./Cee6_files/header.htm") fh1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:-2;
+	mso-list-type:simple;
+	mso-list-template-ids:-1060994852;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-text:*;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:0in;
+	text-indent:0in;
+	font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:2133132121;
+	mso-list-type:simple;
+	mso-list-template-ids:775464318;}
+@list l1:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:.25in;
+	mso-level-legacy-space:0in;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";}
+@list l0:level1 lfo1
+	{mso-level-start-at:1;
+	mso-level-number-format:bullet;
+	mso-level-numbering:continue;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:.25in;
+	mso-level-legacy-space:0in;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang="EN-US" link="blue" vlink="purple" style="tab-interval:.5in">
+<div class="Section1">
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:20.0pt;mso-bidi-font-size:10.0pt">COB Editor Extensions<br>
+for<br>
+Visual FoxPro 6.0<o:p/></span></b></p>
+
+<p class="ChapterTitle" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.35pt;
+  padding-bottom:0in;padding-left:9.35pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    align="center"
+    style="text-align:center;border:none;
+  mso-border-alt:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt;
+  mso-element:frame;mso-element-frame-hspace:9.35pt;mso-element-wrap:around;
+  mso-element-anchor-horizontal:column;mso-element-top:bottom;mso-height-rule:
+  exactly"><span
+    style="font-size:10.0pt">DREADED LEGAL, But Necessary, SECTION<o:p/></span></p>
+    <p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.35pt;mso-element-wrap:around;mso-element-anchor-horizontal:column;
+  mso-element-top:bottom;mso-height-rule:exactly"><span
+    style="font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+    <p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.35pt;mso-element-wrap:around;mso-element-anchor-horizontal:column;
+  mso-element-top:bottom;mso-height-rule:exactly"><span
+    style="font-size:10.0pt">COB System Designs, Inc. hereby disclaims all warranties relating
+    to this software, whether expressed or implied, including without limitation any implied
+    warranties of merchantability or fitness for a particular purpose. COB System Designs,
+    Inc. will not be liable for any special, incidental, consequential, indirect or similar
+    damages due to loss of data or any other reason, even if COB System Designs, Inc. or an
+    agent of COB System Designs, Inc. has been advised of the possibility of such damages.<span
+    style="mso-spacerun: yes">&nbsp; </span>In no event shall COB System Designs, Inc.
+    liability for any damages ever exceed the price paid for the license to use this software,
+    regardless of the form of the claim. The person using the software bears all risk as to
+    the quality and performance of the software.<o:p/></span></p>
+    <p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.35pt;mso-element-wrap:around;mso-element-anchor-horizontal:column;
+  mso-element-top:bottom;mso-height-rule:exactly"><span
+    style="font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+    <p class="MsoNormal" align="center"
+    style="text-align:center;border:none;
+  mso-border-alt:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt;
+  mso-element:frame;mso-element-frame-hspace:9.35pt;mso-element-wrap:around;
+  mso-element-anchor-horizontal:column;mso-element-top:bottom;mso-height-rule:
+  exactly"><span
+    style="font-size:10.0pt">END OF DREADED LEGAL SECTION<o:p/></span></p>
+    </div></td>
+  </tr>
+</table>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">COB System Designs, Inc.</span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">1016 North Clemons Street, Suite 302<o:p/></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Jupiter, FL<span
+style="mso-spacerun: yes">&nbsp; </span>33477<o:p/></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b
+style="mso-bidi-font-weight:
+normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;</span></b></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Program &amp; Documentation by:<o:p/></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Ryan Katri &amp; Randy Wallin<o:p/></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:0in"><a name="_Toc326810210"></a></p>
+
+<p class="MsoNormal">In addition to quality Visual FoxPro development tools, COB provides
+custom programming and corporate training.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You may reach COB System Designs for questions, support, and feedback
+through the following mediums:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">E-Mail:<span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a
+href="mailto:cee@cobsystem.com"><span style="font-weight:normal">cee@cobsystem.com</span></a></b></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">Mail:</b><span
+style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1016 North Clemons Street, Suite 302</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Jupiter, FL<span style="mso-spacerun: yes">&nbsp; </span>33477</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">Fax:</b><span
+style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>(561) 744-9836</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><b>Web Site:</b> <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+</span><a href="http://www.cobsystem.com/">http://www.cobsystem.com/</a></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You may also reach us by telephone, although we prefer that you do so
+only as a last resort:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">Telephone:</b><span
+style="mso-tab-count:1">&nbsp; </span>(561) 744-9835</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>8am - 5pm EST (Leave a message if we are not available)</p>
+
+<p class="ChapterTitle"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/><a name="_Toc326084396"></a><a name="_Toc326810212"></a><a
+name="_Toc329758519"></a><a name="_Toc334330632"><span style="mso-bookmark:_Toc329758519"><span
+style="mso-bookmark:_Toc326810212"><span style="mso-bookmark:_Toc326084396"><span
+style="mso-bookmark:_Toc326084347"><span style="mso-bookmark:_Toc326084210"><![if !supportEmptyParas]></span></span></span></span></span></a></p>
+
+<p class="ChapterTitle"><span style="mso-bookmark:_Toc334330632"><span
+style="mso-bookmark:_Toc329758519"><span style="mso-bookmark:_Toc326810212"><span
+style="mso-bookmark:_Toc326084396"><span style="mso-bookmark:_Toc326084347"><span
+style="mso-bookmark:_Toc326084210">Introduction</span></span></span></span></span></span></p>
+
+<p class="MsoNormal">Welcome to CEE 6.0, an updated and enhanced editor extensions
+available for Visual FoxPro.<span style="mso-spacerun: yes">&nbsp; </span>There are a lot
+of new and exciting features in Visual FoxPro--but we still have the same old text editor.<span
+style="mso-spacerun: yes">&nbsp; </span>Fortunately, the COB Editor Extensions provide all
+the same functionality as the original CEE for FP 2.x, and much more.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The following is an overview of some of the features in CEE:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Keyword Expansion</b><br>
+Type a keyword and CEE automatically expands it to a full expression when you press the
+spacebar.<span style="mso-spacerun: yes">&nbsp; </span>Microsoft Word 6.0 users may want
+to think of this as &#147;AutoText on steroids!&#148;<span style="mso-spacerun: yes">&nbsp;
+</span>New to this version is Parameter Expansion.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:0in"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">FLOW</b><br>
+Flow is a mini version of Beautify.<span style="mso-spacerun: yes">&nbsp; </span>Its sole
+task is to re-indent your source code (with tabs or spaces--your preference).<span
+style="mso-spacerun: yes">&nbsp; </span>This is especially important since Beautify is
+longer available via the Program menu.<br style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]><b style="mso-bidi-font-weight:normal"><o:p/></b></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Insert Method Parameters<br>
+</b>Retrieve the parameters of the parent method from within the Class Designer.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]><b style="mso-bidi-font-weight:normal"><o:p/></b></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Tabs to Spaces</b><br>
+CEE can optionally insert spaces in place of a tab when you press the TAB key.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Compressed View</b><br>
+Filter your file to display only selected lines of text with the compressed view.<b
+style="mso-bidi-font-weight:normal"><br style="mso-special-character:
+line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></b></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Quick Variable Scoping<br>
+</b>With the press of a key, create a PRIVATE or LOCAL declaration for a variable.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Upper/Lower/Proper</b><br>
+Change the case of entire blocks of text with a single command.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Quick Comment/Uncomment</b><br>
+Comment and uncomment selected blocks code.<br style="mso-special-character:
+line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Fast Open #include Files<br>
+</b>Open the #include file specified on the current line with the press of a key.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Smart Buffer Cycling<br>
+</b>When cycling through windows, avoid the command window, property sheet, and other
+non-editing windows using CEE&#146;s smart buffer cycling.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Brace Matching</b><br>
+When creating complex expressions, use CEE&#146;s Brace Matching feature to locate the
+opening or closing parenthesis.<br style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Block Indent/Outdent<br>
+</b>Indent or outdent selected text using spaces rather than tabs.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="ChapterTitle"><a name="_Toc326084211"></a><a name="_Toc326084348"></a><a
+name="_Toc326084397"></a><a name="_Toc326810213"></a><a name="_Toc329758520"></a><a
+name="_Toc334330633"><span style="mso-bookmark:_Toc329758520"><span
+style="mso-bookmark:_Toc326810213"><span style="mso-bookmark:_Toc326084397"><span
+style="mso-bookmark:_Toc326084348"><span style="mso-bookmark:_Toc326084211"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></span></span></span></span></a></p>
+
+<p class="ChapterTitle"><span style="mso-bookmark:_Toc334330633"><span
+style="mso-bookmark:_Toc329758520"><span style="mso-bookmark:_Toc326810213"><span
+style="mso-bookmark:_Toc326084397"><span style="mso-bookmark:_Toc326084348"><span
+style="mso-bookmark:_Toc326084211">Installation</span></span></span></span></span></span></p>
+
+<p class="MsoNormal">To install CEE 6.0, unzip the CEE archive into your FoxPro startup
+directory or a</p>
+
+<p class="MsoNormal">directory in your FoxPro path.<span style="mso-spacerun:
+yes">&nbsp;
+</span>We recommend you put it in a directory called \CEE6 beneath your VFP home directory
+(e.g. \VFP98\CEE6).</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+<div
+style="mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+column;mso-element-top:.05pt">
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.0pt;
+  padding-bottom:0in;padding-left:9.0pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:column;mso-element-top:.05pt"><b
+    style="mso-bidi-font-weight:normal">TIP:</b> To set up a path in Visual FoxPro 6.0, go to
+    the Options dialog (via the Tools menu).<span style="mso-spacerun: yes">&nbsp; </span>Under
+    the File Locations tab is a place to set the search path.<span style="mso-spacerun: yes">&nbsp;
+    </span>Be sure to select the Set as Default button before exiting.</p>
+    </div></td>
+  </tr>
+</table>
+</div>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The following files are required by CEE to operate:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in">CEE6.APP</p>
+
+<p class="MsoNormal" style="margin-left:1.0in">CEE6.FLL</p>
+
+<p class="MsoNormal" style="margin-left:1.0in">EXPAND.DBF</p>
+
+<p class="MsoNormal" style="margin-left:1.0in">EXPAND.FPT</p>
+
+<p class="MsoNormal" style="margin-left:1.0in">EXPAND.CDX</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The EXPAND.* files will also be created if they are not found.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">To enable the editor extensions, run the program CEE6.APP. If you
+wish to have CEE load automatically every time you start FoxPro, you will need to modify
+the file VFPSTART.PRG (found in your VFP home directory) to load it.<span
+style="mso-spacerun: yes">&nbsp; </span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="ChapterTitle"><a name="_Toc326084212"></a><a name="_Toc326084349"></a><a
+name="_Toc326084398"></a><a name="_Toc326810214"></a><a name="_Toc329758521"></a><a
+name="_Toc334330634"><span style="mso-bookmark:_Toc329758521"><span
+style="mso-bookmark:_Toc326810214"><span style="mso-bookmark:_Toc326084398"><span
+style="mso-bookmark:_Toc326084349"><span style="mso-bookmark:_Toc326084212"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></span></span></span></span></a></p>
+
+<p class="ChapterTitle"><span style="mso-bookmark:_Toc334330634"><span
+style="mso-bookmark:_Toc329758521"><span style="mso-bookmark:_Toc326810214"><span
+style="mso-bookmark:_Toc326084398"><span style="mso-bookmark:_Toc326084349"><span
+style="mso-bookmark:_Toc326084212">Running CEE</span></span></span></span></span></span></p>
+
+<p class="MsoNormal">To load CEE, simply type DO CEE6 in the VFP command window.<span
+style="mso-spacerun: yes">&nbsp; </span>CEE6.APP must be available in the current
+directory or in your FoxPro path (refer to the Installation section for more information).</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">CEE features (and associated key commands) are only active inside
+editing windows.<span style="mso-spacerun: yes">&nbsp; </span>The table below defines the
+default key assignments. Unfortunately VFP 5 and 6 do not allow us the use of the right
+click menu, so the short cut keys may be the fastest way to work your CEE.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<table border="1" cellspacing="0" cellpadding="0"
+style="margin-left:41.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .75pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt">
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:windowtext;
+  border-left:windowtext;border-bottom:black;border-right:black;border-style:
+  solid;border-width:.75pt;background:#E5E5E5;mso-shading:windowtext;
+  mso-pattern:gray-10 auto;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">Keystroke<o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:solid windowtext .75pt;
+  border-left:none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-left-alt:solid black .75pt;background:#E5E5E5;mso-shading:windowtext;
+  mso-pattern:gray-10 auto;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">Function<o:p/></b></td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+1</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Expansion Macro Help</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+2</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Function/Procedure list</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+4</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Comment/Uncomment selected text</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+5</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Uppercase selected text</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+6</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Create LOCAL declaration of variable at cursor</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+7</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Indent selected text</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+8</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Outdent selected text</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+0</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Quick Reference</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">ALT+F7<o:p/></span></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Insert method parameters</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">ALT+F8<o:p/></span></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Match Brace</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid black .75pt;border-right:solid black .75pt;
+  mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">alt+backspace</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid black .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Unconditionally expand macro left of cursor</td>
+  </tr>
+  <tr>
+    <td width="146" valign="top"
+    style="width:109.8pt;border-top:none;border-left:
+  solid windowtext .75pt;border-bottom:solid windowtext .75pt;border-right:
+  solid black .75pt;mso-border-top-alt:solid black .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal"><span
+    style="text-transform:uppercase">spacebar</span><o:p/></b></td>
+    <td width="396" valign="top"
+    style="width:297.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Expand word left of<span
+    style="mso-spacerun: yes">&nbsp; </span>cursor if it is at beginning of line</td>
+  </tr>
+</table>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">These default key assignments may be overridden with your own
+preferences.<span style="mso-spacerun: yes">&nbsp; </span>Refer to the section
+&#147;Configuring CEE&#148; for instructions.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="ChapterTitle"><a name="_Toc326084213"></a><a name="_Toc326084350"></a><a
+name="_Toc326084399"></a><a name="_Toc326810215"></a><a name="_Toc329758522"></a><a
+name="_Toc334330635"><span style="mso-bookmark:_Toc329758522"><span
+style="mso-bookmark:_Toc326810215"><span style="mso-bookmark:_Toc326084399"><span
+style="mso-bookmark:_Toc326084350"><span style="mso-bookmark:_Toc326084213"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></span></span></span></span></a></p>
+
+<h1><span style="mso-bookmark:_Toc334330635"><span style="mso-bookmark:_Toc329758522"><span
+style="mso-bookmark:_Toc326810215"><span style="mso-bookmark:_Toc326084399"><span
+style="mso-bookmark:_Toc326084350"><span style="mso-bookmark:_Toc326084213">Configuring
+CEE</span></span></span></span></span></span></h1>
+
+<p class="MsoNormal">To configure CEE, you must first load CEE by following the directions
+in the chapter entitled &#147;Running CEE&#148;.<span style="mso-spacerun:
+yes">&nbsp; </span>Then,
+select Configuration from the CEE menu.<span style="mso-spacerun: yes">&nbsp; </span>A
+tabbed options form appears.<span style="mso-spacerun: yes">&nbsp; </span>Each of the tabs
+is documented in the following sections.</p>
+
+<h2><a name="_Toc334330636">Options</a></h2>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">This page contains many miscellaneous CEE options, as detailed below.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">General CEE options:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Expand in Command Window<br>
+</b>Turn this off if you do not want macros to expand in the command window.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Expand on Spacebar</b><br>
+Turn this off if you do not want macro expansions to be invoked when the spacebar is
+pressed.<span style="mso-spacerun: yes">&nbsp; </span>If this is turned off, you must use <span
+style="text-transform:uppercase">alt+backspace</span> to expand macros.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Convert TAB to spaces</b><br>
+CEE can optionally change the behavior of the TAB key to insert spaces rather than a tab
+character.<span style="mso-spacerun: yes">&nbsp; </span>Turn this option on to invoke this
+feature.<br style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Comment string</b><br>
+Select a comment string to use when commenting out code, or type in a custom one of your
+own.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Flow options:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Use tabs for indentation</b><br>
+Select this checkbox to use tab characters when re-indenting code with Flow, or deselect
+it to use spaces for indentation.<br style="mso-special-character:
+line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Warn if target more than x lines</b><br>
+The Flow option of CEE is primarily implemented in Xbase code, thus is no speed demon.<span
+style="mso-spacerun: yes">&nbsp; </span>Therefore, we feel it is necessary to provide a
+caution if you attempt to flow more than a specified number of lines.<span
+style="mso-spacerun: yes">&nbsp; </span>Set this option to 0 to disable warnings.<br>
+<br>
+If you have a large procedure or method you need to flow, we recommend using the
+Documenting Wizard.</p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:skip"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Case Style<br>
+</b>Select one of two different CASE style for Flow to use when re-indenting code.</p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">File Locations:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Local Expansion Table<br>
+</b>Specify the name and location of the primary expansion table--usually EXPAND.DBF. </p>
+
+<p class="MsoNormal" style="margin-left:1.0in;mso-list:skip"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b style="mso-bidi-font-weight:normal">Team Expansion Table<br>
+</b>Specify the name and location of a shared expansion table.<span
+style="mso-spacerun: yes">&nbsp; </span>This is empty by default.<span
+style="mso-spacerun: yes">&nbsp; </span>However, if you work with a team you may have a
+set of macros which are shared by everyone--such as common program and procedure headers.<span
+style="mso-spacerun: yes">&nbsp; </span>This table is normally found on a network drive
+where everyone has access to it.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc334330637">Macros</a></h1>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Under this tab you can maintain your set of macros.<span
+style="mso-spacerun: yes">&nbsp; </span>Use this option group (Local vs. Shared) to switch
+between update your local expansion table and the team expansion table.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Refer to the section titled &#147;Macro Configuration&#148; for
+details on creating your own macros.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc334330638">Key Bindings</a></h1>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Select this page to configure the CEE hotkeys.<span
+style="mso-spacerun: yes">&nbsp; </span>Select the CEE function from the listbox, and then
+press the Assign button to bind it to a key.<span style="mso-spacerun:
+yes">&nbsp; </span>Use
+the Clear button to remove a key binding.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="ChapterTitle"><a name="_Toc326084216"></a><a name="_Toc326084353"></a><a
+name="_Toc326084402"></a><a name="_Toc326810216"></a><a name="_Toc329758523"></a><a
+name="_Toc334330639"><span style="mso-bookmark:_Toc329758523"><span
+style="mso-bookmark:_Toc326810216"><span style="mso-bookmark:_Toc326084402"><span
+style="mso-bookmark:_Toc326084353"><span style="mso-bookmark:_Toc326084216"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></span></span></span></span></a></p>
+
+<p class="ChapterTitle"><span style="mso-bookmark:_Toc334330639"><span
+style="mso-bookmark:_Toc329758523"><span style="mso-bookmark:_Toc326810216"><span
+style="mso-bookmark:_Toc326084402"><span style="mso-bookmark:_Toc326084353"><span
+style="mso-bookmark:_Toc326084216">CEE Reference</span></span></span></span></span></span></p>
+
+<h1><a name="_Toc326084217"></a><a name="_Toc326084354"></a><a name="_Toc326084403"></a><a
+name="_Toc326810217"></a><a name="_Toc329758413"></a><a name="_Toc329758524"></a><a
+name="_Toc334330640"><span style="mso-bookmark:
+_Toc329758524"><span
+style="mso-bookmark:_Toc329758413"><span style="mso-bookmark:
+_Toc326810217"><span
+style="mso-bookmark:_Toc326084403"><span style="mso-bookmark:
+_Toc326084354"><span
+style="mso-bookmark:_Toc326084217">Expansion Macros</span></span></span></span></span></span></a></h1>
+
+<p class="MsoNormal">The heart of CEE are the expansion macros.<span
+style="mso-spacerun: yes">&nbsp; </span>The macros allow you to type a short abbreviation,
+such as &quot;DOC&quot;, and automatically expand it to full text:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>DO CASE<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>CASE<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>CASE<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>ENDCASE<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">CEE tries to do an expansion if <span
+style="text-transform:
+uppercase">spacebar</span> or <span
+style="text-transform:uppercase">alt+backspace</span> is pressed.<span
+style="mso-spacerun: yes">&nbsp; </span>These rules are followed when determining whether
+or not to do an expansion on what was just typed:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>We're in an editing window (includes the command window).</p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:skip"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>There is an abbreviation immediately to the left of the cursor.</p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:skip"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>If &lt;spacebar&gt; was pressed, the abbreviation is the first word on the
+line.</p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:skip"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The character length of the abbreviation is 3 or greater.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">If all of these rules hold true, then CEE checks the EXPAND table to
+determine if there is an expansion for this abbreviation.<span style="mso-spacerun: yes">&nbsp;
+</span>If not, FoxPro continues as normal; otherwise, the abbreviation is expanded.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Note that &lt;spacebar&gt; is a hotkey for expansion only for the
+first word on the line.<span style="mso-spacerun: yes">&nbsp; </span>If you want to expand
+an abbreviation that occurs within a line, use the <span style="text-transform:uppercase">alt+backspace</span>
+keystroke.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The expansion templates of CEE are very flexible.<span
+style="mso-spacerun: yes">&nbsp; </span>We include numerous abbreviations for you to use,
+which may be freely modified (refer to the section &quot;Macro Configuration&quot; for
+help on how to create and edit your own abbreviations).<span style="mso-spacerun: yes">&nbsp;
+</span>However, we suggest you try the following abbreviations to get a feel for what CEE
+can do:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<table border="1" cellspacing="0" cellpadding="0"
+style="margin-left:41.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .75pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt">
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  background:#E5E5E5;mso-shading:windowtext;mso-pattern:gray-10 auto;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">Keyword<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border:solid windowtext .75pt;
+  border-left:none;mso-border-left-alt:solid windowtext .75pt;background:#E5E5E5;
+  mso-shading:windowtext;mso-pattern:gray-10 auto;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">Description
+    (expands to)<o:p/></b></td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">IFF<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">IF/ENDIF construct</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">DOW<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">DO WHILE construct</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">MOC<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">MODIFY COMMAND (execute from the command window</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">BLDA<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">BUILD APP (execute from the command window)</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">HEADER<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">File header</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">PRO<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Procedure header</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">DEFC<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">DEFINE CLASS template</td>
+  </tr>
+  <tr>
+    <td width="92" valign="top"
+    style="width:69.3pt;border:solid windowtext .75pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in"><b style="mso-bidi-font-weight:
+  normal">_ERROR<o:p/></b></td>
+    <td width="433" valign="top"
+    style="width:325.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .75pt;border-right:solid windowtext .75pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt;
+  padding:0in 5.4pt 0in 5.4pt"><p
+    class="MsoNormal" style="margin-left:0in">Error Event template</td>
+  </tr>
+</table>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+<div
+style="mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+column;mso-element-top:.05pt;mso-height-rule:exactly">
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.0pt;
+  padding-bottom:0in;padding-left:9.0pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:column;mso-element-top:.05pt;mso-height-rule:
+  exactly">Note:
+    The macros supplied with CEE use spaces for indentation.<span style="mso-spacerun: yes">&nbsp;
+    </span>If you prefer to indent using tabs then you need to modify the appropriate macros.</p>
+    </div></td>
+  </tr>
+</table>
+</div>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084218"></a><a name="_Toc326084355"></a><a name="_Toc326084404"></a><a
+name="_Toc326810218"></a><a name="_Toc329758414"></a><a name="_Toc329758525"></a><a
+name="_Toc334330641"><span style="mso-bookmark:
+_Toc329758525"><span
+style="mso-bookmark:_Toc329758414"><span style="mso-bookmark:
+_Toc326810218"><span
+style="mso-bookmark:_Toc326084404"><span style="mso-bookmark:
+_Toc326084355"><span
+style="mso-bookmark:_Toc326084218">Parameter Expansions</span></span></span></span></span></span></a></h1>
+
+<p class="MsoNormal">Parameter expansions are a special form of macro expansions.<span
+style="mso-spacerun: yes">&nbsp; </span>A parameter expansion makes it simple to do
+type-checking or set defaults on your parameter lists.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">As an example, suppose you have the following parameter list:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">LPARAMETERS
+cMsg, lWait<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Right below this text you execute the PARAMS macro by typing PARAMS
+and then <span style="text-transform:uppercase">spacebar</span> (this is a macro which is
+supplied in the default expansion table).<span style="mso-spacerun: yes">&nbsp; </span>You
+are then prompted with a dialog box:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><b style="mso-bidi-font-weight:
+normal">Type
+for cMsg:</b></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You type in &#147;C&#148; (without the quotes), and you are prompted
+again--this time for the type for lWait.<span style="mso-spacerun: yes">&nbsp; </span>You
+enter &#147;L&#148;.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The resulting code would be similar to the following:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">IF
+TYPE(&quot;cMsg&quot;) &lt;&gt; &quot;C&quot;<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>WAIT WINDOW &quot;Wrong type passed for cMsg
+('C' expected)&quot;<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>RETURN<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDIF<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">IF
+TYPE(&quot;lWait&quot;) &lt;&gt; &quot;L&quot;<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>WAIT WINDOW &quot;Wrong type passed for
+lWait ('L' expected)&quot;<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>RETURN<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDIF</span><span
+style="font-size:10.0pt"><o:p/></span></p>
+
+<p class="MsoNormal"><span style="font-size:10.0pt"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal">Parameter expansion works equally well for in-line parameters, such
+as the following:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">FUNCTION
+ShowMsg(cMsg, lWait)<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">To learn how to setup and configure your own parameter expansions,
+refer to the &#147;Macro Configuration&#148; section.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084219"></a><a name="_Toc326084356"></a><a name="_Toc326084405"></a><a
+name="_Toc326810219"></a><a name="_Toc329758415"></a><a name="_Toc329758526"></a><a
+name="_Toc334330642"><span style="mso-bookmark:
+_Toc329758526"><span
+style="mso-bookmark:_Toc329758415"><span style="mso-bookmark:
+_Toc326810219"><span
+style="mso-bookmark:_Toc326084405"><span style="mso-bookmark:
+_Toc326084356"><span
+style="mso-bookmark:_Toc326084219">Macro Expansion Help (<span
+style="text-transform:uppercase">alt-1</span>)</span></span></span></span></span></span></a></h1>
+
+<p class="MsoNormal">Once you have all your expansions defined, you may not remember the
+abbreviations for them the first few times you go to use them.<span
+style="mso-spacerun: yes">&nbsp; </span>To combat this problem, we include a pop-up window
+which displays all the defined abbreviations and a short description of each.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">After selecting an abbreviation from the list, the full expansion is
+automatically inserted into your text. </p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084220"></a><a name="_Toc326084357"></a><a name="_Toc326084406"></a><a
+name="_Toc326810220"></a><a name="_Toc329758416"></a><a name="_Toc329758527"></a><a
+name="_Toc334330643"><span style="mso-bookmark:
+_Toc329758527"><span
+style="mso-bookmark:_Toc329758416"><span style="mso-bookmark:
+_Toc326810220"><span
+style="mso-bookmark:_Toc326084406"><span style="mso-bookmark:
+_Toc326084357"><span
+style="mso-bookmark:_Toc326084220">Procedure/Function List (<span
+style="text-transform:uppercase">alt-2)</span></span></span></span></span></span></span></a></h1>
+
+<p class="MsoNormal">This CEE command displays a list of all procedures, functions, and
+classes in the current file.<span style="mso-spacerun: yes">&nbsp; </span>Next to each is
+listed the line number it occurs on.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">A set of checkboxes allows you the option of displaying functions,
+procedures, classes, or any combination of these.<span style="mso-spacerun: yes">&nbsp; </span>Click
+on a checkbox to filter the list to what you are searching for.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">To jump to a specific function, procedure or class, select the Goto
+button.<span style="mso-spacerun: yes">&nbsp; </span>To return to your previous position
+when this command was called, select Cancel.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084222"></a><a name="_Toc326084359"></a><a name="_Toc326084408"></a><a
+name="_Toc326810222"></a><a name="_Toc329758418"></a><a name="_Toc329758529"></a><a
+name="_Toc334330644"><span style="mso-bookmark:
+_Toc329758529"><span
+style="mso-bookmark:_Toc329758418"><span style="mso-bookmark:
+_Toc326810222"><span
+style="mso-bookmark:_Toc326084408"><span style="mso-bookmark:
+_Toc326084359"><span
+style="mso-bookmark:_Toc326084222">Comment/Uncomment Block<span style="mso-spacerun: yes">&nbsp;
+</span>(<span style="text-transform:
+uppercase">alt-4</span>)</span></span></span></span></span></span></a></h1>
+
+<p class="MsoNormal">To comment out a marked block of code, use the Commentor feature of
+CEE.<span style="mso-spacerun: yes">&nbsp; </span>Lines of code are commented out using
+the following comment string:<span style="mso-spacerun:
+yes">&nbsp; </span>*-*</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">To uncomment a block that has been commented out, select the block
+again and press ALT-4.<span style="mso-spacerun: yes">&nbsp; </span>Note that CEE only
+knows how to uncomment those lines that it commented out itself (e.g. those lines preceded
+by '*-*').</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+<div
+style="mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+column;mso-element-top:.05pt">
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.0pt;
+  padding-bottom:0in;padding-left:9.0pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:column;mso-element-top:.05pt"><b
+    style="mso-bidi-font-weight:normal">NOTE:</b> You may define the comment string to your
+    liking through Configuration (found under the CEE menu)</p>
+    </div></td>
+  </tr>
+</table>
+</div>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084224"></a><a name="_Toc326084361"></a><a name="_Toc326084410"></a><a
+name="_Toc326810223"></a><a name="_Toc329758419"></a><a name="_Toc329758530"></a><a
+name="_Toc334330645"><span style="mso-bookmark:
+_Toc329758530"><span
+style="mso-bookmark:_Toc329758419"><span style="mso-bookmark:
+_Toc326810223"><span
+style="mso-bookmark:_Toc326084410"><span style="mso-bookmark:
+_Toc326084361"><span
+style="mso-bookmark:_Toc326084224">Indent/Outdent Block (<span
+style="text-transform:uppercase">alt-7 / alt-8</span>)</span></span></span></span></span></span></a></h1>
+
+<p class="MsoNormal">You can quickly indent or outdent a selected block of text using this
+feature of CEE.<span style="mso-spacerun: yes">&nbsp; </span>Simply mark the text you want
+to move, and then press the appropriate hotkey (<span style="text-transform:uppercase">alt</span>-7
+to indent, <span style="text-transform:uppercase">alt</span>-8 to outdent are the
+defaults).</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">CEE&#146;s indenting uses spaces rather than tabs.<span
+style="mso-spacerun: yes">&nbsp; </span>This is in contrast to VFP&#146;s native
+Indent/Remove Indent options.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+<div
+style="mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+column;mso-element-top:.05pt">
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.0pt;
+  padding-bottom:0in;padding-left:9.0pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:column;mso-element-top:.05pt"><b
+    style="mso-bidi-font-weight:normal">NOTE:</b><span style="mso-spacerun:
+  yes">&nbsp; </span>It
+    is possible to drop characters off the left edge of the screen if you outdent too far.<span
+    style="mso-spacerun: yes">&nbsp; </span>FoxPro&#146;s undo feature (ctrl-z) will recover
+    if you do this on accident!</p>
+    </div></td>
+  </tr>
+</table>
+</div>
+
+<h1><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></h1>
+
+<h1><a name="_Toc329758420"></a><a name="_Toc329758531"></a><a name="_Toc334330646"><span
+style="mso-bookmark:_Toc329758531"><span style="mso-bookmark:_Toc329758420">Insert Method
+Parameters (<span style="text-transform:uppercase">alt-F7</span>)</span></span></a></h1>
+
+<p class="MsoNormal">If you edit a method in the Class Designer, and the base class of
+that method takes parameters, then the parameter list is automatically inserted.<span
+style="mso-spacerun: yes">&nbsp; </span>However, this is not true when overriding methods
+that are not inherent to the base class--you must manually edit the parent class method to
+determine the parameters it takes.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">CEE solves this problem by providing a function which grabs the
+parameters of a method when overriding the method in a subclass.<span
+style="mso-spacerun: yes">&nbsp; </span>CEE will search up the entire class hierarchy to
+grab the parameters.<span style="mso-spacerun: yes">&nbsp; </span>For example, suppose
+your class hierarchy looks like this:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Form<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style="mso-spacerun: yes">&nbsp; </span>|<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>CForm<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style="mso-spacerun: yes">&nbsp; </span>|<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>CModalForm<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style="mso-spacerun: yes">&nbsp; </span>|<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>CDataForm<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Suppose CForm has a method called ShowToolbar, which takes as a
+parameter the toolbar name.<span style="mso-spacerun: yes">&nbsp; </span>You then bring up
+CDataForm in the class designer and wish to override ShowToolbar.<span
+style="mso-spacerun: yes">&nbsp; </span>With the method window open you press ALT-F7 to
+grab the parameters.<span style="mso-spacerun: yes">&nbsp; </span>CEE will search the tree
+for parameters for the ShowToolbar method and then insert it at the current cursor
+position:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>LPARAMETERS cToolbar<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Once you have used this feature a couple of times you&#146;ll wonder
+how you ever got along without it.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc329758421"></a><a name="_Toc329758532"></a><a name="_Toc334330647"><span
+style="mso-bookmark:_Toc329758532"><span style="mso-bookmark:_Toc329758421">Match Brace (<span
+style="text-transform:
+uppercase">alt-F8</span>)</span></span></a></h1>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">When positioned on a brace character -- such as [,(,{,],), or } --
+this function will find the matching closing or opening brace.<span
+style="mso-spacerun: yes">&nbsp; </span>For example, if your cursor is positioned at ^ in
+the following line:</p>
+
+<p class="MsoNormal"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>y = (y + ((x + 2) - (10 * 3)))<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span><span style="mso-tab-count:1">&nbsp;&nbsp; </span><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>^<o:p/></span></p>
+
+<p class="MsoNormal"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class="MsoNormal">Then after invoking this function your cursor will be positioned as
+follows:</p>
+
+<p class="MsoNormal"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>y = (y + ((x + 2) - (10 * 3)))<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span style="mso-tab-count:1">&nbsp; </span><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>^<span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><o:p/></span></p>
+
+<h1><a name="_Toc334330648">Flow</a></h1>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Never has it been easier to re-indent your source code.<span
+style="mso-spacerun: yes">&nbsp; </span>Flow is a miniature version of Beautify.<span
+style="mso-spacerun: yes">&nbsp; </span>With the press of a key it automatically
+re-indents your method code.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">For example, suppose you have written the following code (or you are
+asked to maintain the garbage someone else wrote!):</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">do
+case<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">case
+this.company == &#147;COB System Designs&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">if
+this.name == &#147;Ryan&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun:
+yes">&nbsp;</span>=MessageBox(&#147;561-744-9835&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">else<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;561-744-9836&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp; </span>endif<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">case
+this.company == &#147;GiftRap&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">=MessageBox(&#147;305-555-1212&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp; </span>otherwise<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;805-555-1111&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">endcase<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">After running Flow, the code would look similar to the following:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">do
+case<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">case
+this.company == &#147;COB System Designs&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>if this.name == &#147;Ryan&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;561-744-9835&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>else<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;561-744-9836&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>endif<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">case
+this.company == &#147;GiftRap&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>=MessageBox(&#147;305-555-1212&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">otherwise<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>=MessageBox(&#147;805-555-1111&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">endcase<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">If you prefer extra indentation below the DO CASE structure, you can
+specify that under CEE Configuration.<span style="mso-spacerun: yes">&nbsp; </span>In that
+case, the code would look like this:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">do
+case<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>case this.company == &#147;COB System
+Designs&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>if this.name ==
+&#147;Ryan&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;561-744-9835&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>else<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;561-744-9836&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>endif<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>case this.company == &#147;GiftRap&#148;<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;305-555-1212&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>otherwise<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>=MessageBox(&#147;805-555-1111&#148;)<o:p/></span></p>
+
+<p class="MsoNormal"><span
+style="font-size:10.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">endcase<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You can also control whether Flow uses spaces or tab for indentation
+in the CEE Configuration program.<span style="mso-spacerun: yes">&nbsp; </span>If spaces
+is specified, Flow uses the VFP Tab Width setting as specified under Tools<span
+style="font-family:Symbol;mso-ascii-font-family:Arial;
+mso-hansi-font-family:Arial;mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span>Options<span
+style="font-family:Symbol;mso-ascii-font-family:Arial;mso-hansi-font-family:
+Arial;mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span>Edit.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">If you find you are not happy with the way Flow has re-indented your
+code, simply select Undo to return it to the original.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+<div
+style="mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+column;mso-element-top:.05pt;mso-height-rule:exactly">
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.0pt;
+  padding-bottom:0in;padding-left:9.0pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:column;mso-element-top:.05pt;mso-height-rule:
+  exactly"><b
+    style="mso-bidi-font-weight:normal">NOTE:</b><span style="mso-spacerun: yes">&nbsp; </span>Flow
+    is no speed-demon.<span style="mso-spacerun: yes">&nbsp; </span>For this reason, you are
+    cautioned if you attempt to flow a block of code that is more than 250 lines.<span
+    style="mso-spacerun: yes">&nbsp; </span>You can increase or decrease the warning threshold
+    in the Configuration screen.</p>
+    </div></td>
+  </tr>
+</table>
+</div>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="ChapterTitle"><a name="_Toc326084226"></a><a name="_Toc326084363"></a><a
+name="_Toc326084412"></a><a name="_Toc326810225"></a><a name="_Toc329758534"></a><a
+name="_Toc334330649"><span style="mso-bookmark:_Toc329758534"><span
+style="mso-bookmark:_Toc326810225"><span style="mso-bookmark:_Toc326084412"><span
+style="mso-bookmark:_Toc326084363"><span style="mso-bookmark:_Toc326084226"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></span></span></span></span></a></p>
+
+<p class="ChapterTitle"><span style="mso-bookmark:_Toc334330649"><span
+style="mso-bookmark:_Toc329758534"><span style="mso-bookmark:_Toc326810225"><span
+style="mso-bookmark:_Toc326084412"><span style="mso-bookmark:_Toc326084363"><span
+style="mso-bookmark:_Toc326084226">Macro Configuration</span></span></span></span></span></span></p>
+
+<p class="MsoNormal">The Editor Extension macros are fully configurable and extensible. We
+have provided a utility to make this as painless as possible. In the command window, press
+<span style="text-transform:uppercase">alt</span>-5 to load the macro editor.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You are presented a list of abbreviation macros in a list box on the
+left side of the window.<span style="mso-spacerun: yes">&nbsp; </span>To the right of the
+editing command buttons is the description and expansion text for the highlighted
+abbreviation.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The Keyword is the abbreviation you want to use for the expansion
+text.<span style="mso-spacerun: yes">&nbsp; </span>For example, 'IFF' is what we use to
+abbreviate an IF/ENDIF block.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The Description field for macros is purely optional.<span
+style="mso-spacerun: yes">&nbsp; </span>If not entered, the first line of your expansion
+text is automatically used as the description.<span style="mso-spacerun: yes">&nbsp; </span>The
+description is used when displaying a popup help list of your expansion macros.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The large text box below the Keyword and Description fields is for
+the expansion text.<span style="mso-spacerun: yes">&nbsp; </span>There are several special
+codes you may use to control and customize the expansion:</p>
+
+<h1><a name="_Toc326084227"></a><a name="_Toc326084364"></a><a name="_Toc326084413"></a><a
+name="_Toc326810226"></a><a name="_Toc329758422"></a><a name="_Toc329758535"></a><a
+name="_Toc334330650"><span style="mso-bookmark:
+_Toc329758535"><span
+style="mso-bookmark:_Toc329758422"><span style="mso-bookmark:
+_Toc326810226"><span
+style="mso-bookmark:_Toc326084413"><span style="mso-bookmark:
+_Toc326084364"><span
+style="mso-bookmark:_Toc326084227">Cursor Position</span></span></span> = ~ (tilde)</span></span></span></a></h1>
+
+<p class="MsoNormal">A tilde in the text indicates where the cursor will be positioned
+following an expansion.<span style="mso-spacerun: yes">&nbsp; </span>In the following
+example, the cursor will be positioned indented three spaces beneath the IF statement:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">IF<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>~<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDIF<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><span style="mso-spacerun: yes">&nbsp;&nbsp; </span>However, if you
+wanted the cursor to end up on the same line</p>
+
+<p class="MsoNormal"><span style="mso-spacerun: yes">&nbsp;&nbsp; </span>as the IF
+statement so that you could begin typing in the IF</p>
+
+<p class="MsoNormal"><span style="mso-spacerun: yes">&nbsp;&nbsp; </span>expression, the
+expansion text would look like this:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">IF
+~<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDIF<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">If a cursor position is not defined by an expansion, the cursor will
+be placed at the end of the expansion.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084228"></a><a name="_Toc326084365"></a><a name="_Toc326084414"></a><a
+name="_Toc326810227"></a><a name="_Toc329758423"></a><a name="_Toc329758536"></a><a
+name="_Toc334330651"><span style="mso-bookmark:
+_Toc329758536"><span
+style="mso-bookmark:_Toc329758423"><span style="mso-bookmark:
+_Toc326810227"><span
+style="mso-bookmark:_Toc326084414"><span style="mso-bookmark:
+_Toc326084365"><span
+style="mso-bookmark:_Toc326084228">Prompt Field</span></span></span> = ##text##</span></span></span></a></h1>
+
+<p class="MsoNormal">Prompt fields are a very powerful aspect of CEE.<span
+style="mso-spacerun: yes">&nbsp; </span>They allow you to prompt for information in the
+middle of an expansion, and then automatically use that information to fill in other parts
+of the expansion.<span style="mso-spacerun: yes">&nbsp; </span>Prompt fields are
+surrounded by double pound signs (##...##), and the text occurring between them is what is
+prompted for.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The following example will prompt for a &quot;DO WHILE
+Expression?&quot;:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">DO
+WHILE ##DO WHILE Expression##<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDDO
+&amp;&amp;* ##DO WHILE Expression##<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Suppose you enter &quot;x &lt; 20&quot; when prompted.<span
+style="mso-spacerun: yes">&nbsp; </span>The expansion would be:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">DO
+WHILE x &lt; 20<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDDO
+&amp;&amp;* x &lt; 20<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Even though we have two ##DO WHILE Expression## prompt fields in the
+text, you will only be prompted once.<span style="mso-spacerun:
+yes">&nbsp; </span>Any
+prompt fields which are identical (case-insensitive) are only prompted for once, and then
+used globally throughout the expansion.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Here is a simple example which prompts for a function name and a
+return value in creating a function header:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*--------------------------------------------------<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*
+Function..: ##FUNCTION##<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*
+Returns...: ##Returns##<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*
+Notes.....:<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">*--------------------------------------------------<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">FUNCTION
+##FUNCTION##<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You may specify a default value for your prompt by separating the
+prompt field and the default by &#145;<span
+style="font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">-&gt;</span>&#145;<span
+style="mso-spacerun:
+yes">&nbsp; </span>For example, we&#146;ll modify the above DO WHILE
+macro to have a default of .T.:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">DO
+WHILE ##DO WHILE Expression-&gt;.T.##<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDDO
+&amp;&amp;* ##DO WHILE Expression##<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">Notice that only the text up to the &#145;-&gt;&#146; characters are
+displayed as the prompt.<span style="mso-spacerun: yes">&nbsp; </span>The text following
+is used for the default value (if the user just presses <span
+style="text-transform:uppercase">enter</span> in response to the dialog).</p>
+
+<p class="MsoNormal"><span
+style="font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal">You may also use the value that a previous macro evaluated to inside
+your macro prompt.<span style="mso-spacerun: yes">&nbsp; </span>To do this, enclose the
+previous macro in double-percent signs within the macro definition.<span
+style="mso-spacerun: yes">&nbsp;&nbsp; </span>For example, this macro prompts for a
+parameter name, then prompts for the data type of that parameter--it actually uses the
+parameter name in the data type prompt:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">IF
+TYPE(&quot;##Parameter##&quot;) &lt;&gt; &quot;##Type for %%Parameter%%##&quot;<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>WAIT WINDOW &quot;Wrong
+parameter type passed for ##Parameter##&quot;<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><span
+style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>RETURN<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">ENDIF<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></span></p>
+
+<p class="MsoNormal">If your parameter was named cMsg, the second prompt would be:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><b style="mso-bidi-font-weight:
+normal">Type
+for cMsg:<o:p/></b></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">You&#146;ll find this feature to be especially useful in creating
+parameter expansions.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326084229"></a><a name="_Toc326084366"></a><a name="_Toc326084415"></a><a
+name="_Toc326810228"></a><a name="_Toc329758424"></a><a name="_Toc329758537"></a><a
+name="_Toc334330652"><span style="mso-bookmark:
+_Toc329758537"><span
+style="mso-bookmark:_Toc329758424"><span style="mso-bookmark:
+_Toc326810228"><span
+style="mso-bookmark:_Toc326084415"><span style="mso-bookmark:
+_Toc326084366"><span
+style="mso-bookmark:_Toc326084229">Expression Evaluation</span></span></span> =
+&lt;&lt;expression&gt;&gt;</span></span></span></a></h1>
+
+<p class="MsoNormal">Text placed between double-angle brackets is evaluated as an
+expression.<span style="mso-spacerun: yes">&nbsp; </span>This allows you to embed FoxPro
+code into your expansion text.<span style="mso-spacerun: yes">&nbsp; </span>If you have
+ever used FoxPro's textmerge feature, then this should be second-nature to you.<span
+style="mso-spacerun: yes">&nbsp; </span>If not, the best explanation is an example:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">We want a macro that will display today's date in a text format, with
+the day of the week.<span style="mso-spacerun: yes">&nbsp; </span>The following expansion
+meets this goal:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">&lt;&lt;
+DMY(DATE()) &gt;&gt;, &lt;&lt; CDOW(DATE()) &gt;&gt;<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">(Spaces are not needed inside the angle brackets, but were added for
+clarity)</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">If an expression is invalid and cannot be evaluated, a warning
+message is issued stating that the expression is unable to be evaluated.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">All expressions must also evaluate to character values.<span
+style="mso-spacerun: yes">&nbsp; </span>Expressions that do not are output as-is,
+surrounded by exclamation marks.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">As you can see, expansion macros can be as simple or as complex as
+you make them.<span style="mso-spacerun: yes">&nbsp; </span>Yet, they are very easy to
+define.<span style="mso-spacerun: yes">&nbsp; </span>It is recommended you examine the
+sample macros to gain a better understanding of the ways in which you may customize and
+control the macros.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<h1><a name="_Toc326810229"></a><a name="_Toc329758425"></a><a name="_Toc329758538"></a><a
+name="_Toc334330653"><span style="mso-bookmark:
+_Toc329758538"><span
+style="mso-bookmark:_Toc329758425"><span style="mso-bookmark:
+_Toc326810229">Parameter
+Expansions</span></span></span></a></h1>
+
+<p class="MsoNormal">To create a parameter expansion (as detailed in the &#147;CEE
+Reference&#148; section) you use a special built-in macro named $PARAM.<span
+style="mso-spacerun: yes">&nbsp; </span>This macro is not used stand-alone, but rather
+embedded in other macros.<span style="mso-spacerun: yes">&nbsp; </span>When CEE encounters
+$PARAM while performing an expansion, it replaces the $PARAM reference with the name of
+the first parameter of the function or procedure your cursor is currently positioned in.<span
+style="mso-spacerun: yes">&nbsp; </span>It iterates the expansion for as many parameters
+it finds.</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">For example, suppose you have a macro called<span
+style="mso-spacerun: yes">&nbsp; </span>DEFAULT defined as:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">##$PARAM##
+= IIF(TYPE(&quot;##$PARAM##&quot;) &lt;&gt; &quot;C&quot;, &quot;&quot;, ##$PARAM##)<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The cursor is in the following function when the macro is invoked:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">FUNCTION
+Test( cFirst, cLast, cState )<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The macro would iterate 3 times--once for each parameter.<span
+style="mso-spacerun: yes">&nbsp; </span>The resulting code would be:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">cFirst
+= IIF(TYPE(&quot;cFirst &quot;) &lt;&gt; &quot;C&quot;, &quot;&quot;, cFirst )<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">cLast
+= IIF(TYPE(&quot;cLast &quot;) &lt;&gt; &quot;C&quot;, &quot;&quot;, cLast)<o:p/></span></p>
+
+<p class="MsoNormal" style="margin-left:1.0in"><span
+style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">cState
+= IIF(TYPE(&quot;cState &quot;) &lt;&gt; &quot;C&quot;, &quot;&quot;, cState)<o:p/></span></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+<div
+style="mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+around;mso-element-anchor-vertical:paragraph;mso-element-anchor-horizontal:
+column;mso-element-top:.05pt">
+
+<table cellspacing="0" cellpadding="0" hspace="0" vspace="0" align="left">
+  <tr>
+    <td valign="top" align="left"
+    style="padding-top:0in;padding-right:9.0pt;
+  padding-bottom:0in;padding-left:9.0pt"><div
+    style="border:solid windowtext .75pt;padding:1.0pt 1.0pt 1.0pt 1.0pt"><p class="MsoNormal"
+    style="border:none;mso-border-alt:solid windowtext .75pt;
+  padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-element:frame;mso-element-frame-hspace:
+  9.0pt;mso-element-wrap:around;mso-element-anchor-vertical:paragraph;
+  mso-element-anchor-horizontal:column;mso-element-top:.05pt"><b
+    style="mso-bidi-font-weight:normal">NOTE:</b><span style="mso-spacerun:
+  yes">&nbsp; </span>If
+    you are in a segment of code which does not contain parameter statements, a parameter
+    expansion macro will appear to do nothing.<span style="mso-spacerun: yes">&nbsp; </span>This
+    is because it iterates 0 times.</p>
+    </div></td>
+  </tr>
+</table>
+</div>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">CEE locates parameters by searching from the current insertion point
+backwards towards the beginning of the file.<span style="mso-spacerun: yes">&nbsp; </span>CEE
+recognizes the following parameter definitions:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>In-line parameters (as in the above &#147;FUNCTION Test&#148;)</p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>PARAMETER statements</p>
+
+<p class="MsoNormal" style="margin-left:1.25in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>LPARAMETER statements</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="ChapterTitle"><a name="_Toc334330654">Additional Information</a></p>
+
+<p class="MsoNormal">Here are a few things to keep in mind when you are using the COB
+Editor Extensions:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo1"><![if !supportLists]><span
+style="font-family:Symbol">·<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>It is possible for the extensions to become un-loaded. If you
+&quot;lose&quot; the extensions, the best way to re-load them is to type DO CEE6 from the
+command window, or select &#147;Load CEE&#148; from the CEE menu.<br>
+<br>
+Losing the macros is usually attributable to one of three causes:</p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo2"><![if !supportLists]>1)<span
+style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span><![endif]>You lost
+your ON KEY LABELs for the hotkeys.<br>
+<br>
+The most common reason for losing your ON KEY LABEL settings is because you issued a PUSH
+KEY CLEAR without a corresponding POP KEY.<span style="mso-spacerun: yes">&nbsp; </span>This
+is especially prevalent if you cancel a program in the middle of execution.</p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:skip"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo2"><![if !supportLists]>2)<span
+style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span><![endif]>The
+extension library (CEE6.FLL) was released.<br>
+<br>
+All libraries are released when a SET LIBRARY TO command is issued.<span
+style="mso-spacerun: yes">&nbsp; </span>Libraries are also released if SET LIBRARY TO
+&lt;filename&gt; is executed without the keyword ADDITIVE.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal" style="margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo2"><![if !supportLists]>3)<span
+style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span><![endif]>The CEE
+object was removed from the _SCREEN object.<br>
+<br>
+This occurs if you issue a CLEAR ALL.<span style="mso-spacerun: yes">&nbsp; </span>You may
+want to create a program which issues CLEAR ALL and then re-loads CEE.<br
+style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+
+<p class="MsoNormal">The macros used by CEE are kept in a database named EXPAND.DBF. This
+database has a memo file (EXPAND.FPT) and structural index (EXPAND.CDX) associated with
+it.<br>
+<br>
+The database is normally left open at all times, reducing the number of available work
+areas by one.<span style="mso-spacerun: yes">&nbsp; </span>If the database does get
+closed, CEE will automatically re-USE it when an expansion is attempted.<br>
+<br style="mso-special-character:line-break">
+<![if !supportLineBreakNewLine]><br style="mso-special-character:line-break">
+<![endif]></p>
+</div>
+</body>
+</html>

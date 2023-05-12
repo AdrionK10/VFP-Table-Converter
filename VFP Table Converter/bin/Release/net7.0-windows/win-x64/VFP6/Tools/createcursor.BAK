@@ -1,0 +1,57 @@
+*CreateCursor.prg
+
+LOCAL nloopCnt, lcAlternate, lcWholeFieldName, lcFieldName, lcString, ;
+lcFieldType, lcFieldContents, lcFieldDecimals
+
+lcFieldName = ""
+lcAlternate = ""
+lcWholeFieldName = ""
+lcString = ""
+lcFieldType = ""
+lcFieldContents = ""
+lcFieldDecimals = ""
+
+set alternate to
+set alternate off
+
+NEWFILE=SYS(3)+'.DBF'
+COPY STRUCTURE EXTENDED TO (NEWFILE) 
+USE (NEWFILE) IN 0 ALIAS StructTable EXCLUSIVE
+index on RECNO() tag recndx
+
+if not empty(alias())
+ lcAlternate = alias()+".str"
+ if file(lcAlternate)
+  erase (lcAlternate)
+ ENDIF
+ 
+strtofile( "Create cursor cu_cursor_name ; "+CHR(13) , (lcAlternate) , .F.)
+strtofile( "( ; "+CHR(13) , (lcAlternate) , .T.)
+ 
+FOR nloopCnt = 1 to fcount()
+ PRIVATE (FIELD(nloopCnt))
+
+ lcWholeFieldName = field(nloopCnt)
+ lcFieldName = proper(lcWholeFieldName)
+ lcFieldLen = Transform(fsize(field(nloopCnt)))
+ lcFieldType = TYPE(FIELD(nloopCnt))
+ 
+ IF SEEK(nloopCnt , "StructTable" , "recndx") AND UPPER(lcFieldType) = "N"
+ 	lcFieldDecimals = ","+Trans(StructTable.FIELD_DEC)+")"
+ Else
+	 lcFieldDecimals = ")"
+ Endif
+ 
+	 lcString = PROPER(ALIAS())+"."+padr(lcFieldName, 25)+" "+lcFieldType+"("+lcFieldLen+lcFieldDecimals+chr(13)
+	 strtofile( (lcString) , (lcAlternate) , .T.)
+ENDFOR 
+modi file (lcAlternate)
+erase (lcAlternate)
+else
+ =messagebox("Nothing open in this work area")
+ENDIF
+
+IF FILE(newfile)
+	DELETE FILE (NEWFILE)
+ENDIF
+

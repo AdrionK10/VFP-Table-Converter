@@ -1,0 +1,81 @@
+*
+*  CREATE TABLE ERRORLOG.DBF (STATION C(7), DAT D(8), TIM C(10), DRIVE C(2),;
+*    PROG C(8), LINE N(4), CODELINE C(40), ERRORNUM N(4), MESSAGE C(40),;
+*     NOTES M(10), DBF_OPEN C(24))
+*컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴*
+* Procedure...: CREA_FIL
+* Called by...: ANY PROGRAM
+* By: David Folger
+* Date: 10/20/94
+* Abstract....: DO TAKE AN EXISTING DBF & "CREATE" IT AGAIN
+*
+* Parameters..:
+*
+* Notes.......:
+*컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴*
+*PROCEDURE CREA_FIL
+SET TALK OFF
+SET ECHO OFF
+PRIVATE NEWFILE,WASAREA,NEWTEXT,ifp_size,ifp_top		
+NEWTEXT=SYS(3)+'.TXT'
+WASAREA=SELECT(0)
+SET ALTERNATE TO (NEWTEXT) ADDITIVE
+SET ALTERNATE ON
+NEWFILE=SYS(3)+'.DBF'
+ IF EMPTY(DBF())
+  WAIT 'NO DBF OPEN' WINDOW
+  RETURN
+ ENDIF
+COPY STRUCTURE EXTENDED TO (NEWFILE) 
+SELECT 0
+USE (NEWFILE)
+GO TOP
+ ?'CREATE TABLE '
+ ?? NEWFILE
+ ?
+ ??' ('
+ 
+ 
+SCAN 
+ ?? "   "+PADR(LOWER(ALLTRIM(FIELD_NAME)) ,11)+' '
+ ?? ALLTRIM(FIELD_TYPE)+'('
+ *?? ALLTRIM(LOWER(STR(FIELD_LEN)))+',' 
+ ?? ALLTRIM(STR(FIELD_LEN)) 
+ 
+ IF  UPPER(ALLTRIM(FIELD_TYPE)) = "N"
+	 ?? ','+ALLTRIM(STR(FIELD_DEC))+ '), ; '
+ELSE
+	 ??'), ; '
+ Endif
+ ?  
+ENDSCAN
+??" "+')'
+USE
+SET ALTERNATE TO
+SET ALTERNATE OFF
+
+*MODI COMM &NEWTEXT
+STORE FOPEN(EVAL('NEWTEXT')) TO file_handle 		&& Open the file
+*file_handle=NEWTEXT
+*FOPEN(file_handle,12)
+STORE FSEEK(file_handle, 0, 2) TO ifp_size	&& Move pointer to EOF
+STORE FSEEK(file_handle, 0) TO ifp_top		&& Move pointer to BOF
+
+
+IF ifp_size <= 0		&& Is File empty?
+	WAIT WINDOW 'This file is empty!' NOWAIT
+
+ELSE					&& If not empty
+	l_string = FREAD(file_handle, ifp_size)	&& Store to memory
+	STORE l_string TO _CLIPTEXT
+	
+ENDIF
+
+= FCLOSE(file_handle)	&& Close the file
+MODIFY FILE (NEWTEXT) NOWAIT && Open file in edit window
+
+SELE (WASAREA)
+DELETE FILE (NEWFILE)
+
+RETURN
+*EOPr CREA_FIL

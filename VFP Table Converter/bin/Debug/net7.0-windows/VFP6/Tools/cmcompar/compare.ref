@@ -1,0 +1,38 @@
+***
+*** compare.scx
+***
+*
+  PLATFORM UNIQUEID   TIMESTAMP  CLASS    CLASSLOC BASECLASS OBJNAME  PARENT   PROPERTIES PROTECTED METHODS  OBJCODE  OLE      OLE2     RESERVED1 RESERVED2 RESERVED3 RESERVED4 RESERVED5 RESERVED6 RESERVED7 RESERVED8 USER     
+  COMMENT ÿScreen    ÿ          ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<MEMO>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<MEMO>   ÿ<memo>  
+  WINDOWS ÿ_S0O0P4ANTÿ 629955941ÿ<MEMO>  ÿ<memo>  ÿ<MEMO>   ÿ<MEMO>  ÿ<memo>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<MEMO>   ÿ<memo>   ÿ<MEMO>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0P29DWÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<memo>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<MEMO>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPOYÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPOZÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPP1ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPP2ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPP4ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPP6ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPPDÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPPIÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPPPÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPPRÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQ6ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQ9ÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQCÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQFÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQHÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQLÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQPÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQRÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQTÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPQYÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPR1ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPR7ÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TCPRCÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S0O0TDV5Aÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S3C18TYE4ÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S3D0TDQOXÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S3D0TDQOYÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S3D0TDQP0ÿ 645166230ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  WINDOWS ÿ_S3E0N7YTFÿ 645166327ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>   ÿ<MEMO>  ÿ<MEMO>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<MEMO>  ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  
+  COMMENT ÿRESERVED  ÿ          ÿ<memo>  ÿ<memo>  ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<MEMO>    ÿ<memo>   ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<memo>  ÿ<MEMO>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>   ÿ<memo>  

@@ -1,0 +1,28 @@
+*Fieldlist.prg
+
+LOCAL nloopCnt, lcAlternate, lcWholeFieldName, lcFieldName
+
+lcFieldName = ""
+lcAlternate = ""
+lcWholeFieldName = ""
+
+set alternate to
+set alternate off
+
+if not empty(alias())
+ lcAlternate = alias()+".str"
+ if file(lcAlternate)
+  erase (lcAlternate)
+ endif
+FOR nloopCnt = 1 to fcount()
+ lcWholeFieldName = field(nloopCnt)
+ *lcFieldName = lower( left(lcWholeFieldName,1) ) + proper( substr( lcWholeFieldName ,2 ,len( lcWholeFieldName )-1 ) )
+ lcFieldName = Proper(alias())+"."+prpoer(lcWholeFieldName)
+ lcFieldName = lcFieldName+" ,; "+chr(13)
+ 
+ strtofile( (lcFieldName) , (lcAlternate) , .T.)
+ENDFOR 
+modi file (lcAlternate)
+else
+ =messagebox("Nothing open in this work area")
+endif

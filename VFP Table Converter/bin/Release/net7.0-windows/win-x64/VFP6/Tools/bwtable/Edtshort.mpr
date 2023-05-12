@@ -1,0 +1,80 @@
+*       *********************************************************
+*       *                                                         
+*       * 08/17/1998           EDTSHORT.MPR             08:54:18  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * 作者姓名                                                
+*       *                                                         
+*       * 版權所有(C) 1998 公司名稱                             
+*       * 地址                                                    
+*       * 城市,     郵遞區號                                      
+*       * 國家/地區                                         
+*       *                                                         
+*       * 描述:                                            
+*       * 本程式由 GENMENU 自動產生。    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                         安裝代碼                        
+*       *                                                         
+*       *********************************************************
+*
+
+PARAMETER oREF
+
+*       *********************************************************
+*       *                                                         
+*       *                        功能表定義                       
+*       *                                                         
+*       *********************************************************
+*
+
+DEFINE POPUP edtshort SHORTCUT RELATIVE FROM MROW(),MCOL()
+DEFINE BAR _med_cut OF edtshort PROMPT "Cu\<t" ;
+	KEY CTRL+X, "Ctrl+X" ;
+	MESSAGE "Removes the selection and places it onto the Clipboard"
+DEFINE BAR _med_copy OF edtshort PROMPT "\<Copy" ;
+	KEY CTRL+C, "Ctrl+C" ;
+	MESSAGE "Copies the selection onto the Clipboard"
+DEFINE BAR _med_paste OF edtshort PROMPT "\<Paste" ;
+	KEY CTRL+V, "Ctrl+V" ;
+	MESSAGE "Pastes the contents of the Clipboard"
+DEFINE BAR _med_clear OF edtshort PROMPT "Cle\<ar" ;
+	MESSAGE "Removes the selection and does not place it onto the Clipboard"
+DEFINE BAR 5 OF edtshort PROMPT "\-"
+DEFINE BAR _med_undo OF edtshort PROMPT "\<Undo" ;
+	MESSAGE "Undo Last Editing Action"
+DEFINE BAR 7 OF edtshort PROMPT "Proper Ca\<se"
+DEFINE BAR 8 OF edtshort PROMPT "中文(\<W)" ;
+	MESSAGE "轉用中文輸入法"
+ON SELECTION BAR 7 OF edtshort ;
+	DO _rxf0j34on ;
+	IN LOCFILE("\VFPDEMO\BWTABLE\EDTSHORT" ,"MPX;MPR|FXP;PRG" ,"哪是 EDTSHORT?")
+ON SELECTION BAR 8 OF edtshort ImeStatus(1)
+
+ACTIVATE POPUP edtshort
+
+*       *********************************************************
+*       *                                                         
+*       * _RXF0J34ON  ON SELECTION BAR 7 OF POPUP edtshort        
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  EDTSHORT.MPR,            Record:   11       
+*       * Called By:  ON SELECTION BAR 7 OF POPUP edtshort        
+*       * Prompt:     Proper Case                                 
+*       * Snippet:    1                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _rxf0j34on
+IF ( ( type( "oRef" ) == 'O' ) and ( ! isnull( oRef ) ) )
+	_cliptext=UpCaption(oRef.Value)
+	oRef.SELSTART = 0
+	oRef.SELLENGTH= LEN(oRef.VALUE)
+	KEYBOARD '{CTRL+V}'
+ENDIF

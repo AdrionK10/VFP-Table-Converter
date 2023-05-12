@@ -1,0 +1,353 @@
+**************************************************
+*-- Class:        enforce (c:\vfpcomm\builders\namecnvt\enforcer.vcx)
+*-- ParentClass:  form
+*-- BaseClass:    form
+*
+DEFINE CLASS enforce AS form
+
+
+	Top = 21
+	Left = 235
+	Height = 137
+	Width = 426
+	DoCreate = .T.
+	AutoCenter = .F.
+	BackColor = RGB(192,192,192)
+	BorderStyle = 3
+	Caption = "Enforce Naming Conventions"
+	WindowType = 1
+	*-- Original Work Area...
+	origarea = 0
+	*-- # of selected screen objects
+	nselected = 0
+	Name = "enforce"
+
+	*-- Array containing the common properties for the selected objects.
+	DIMENSION aproperties[1]
+	DIMENSION aselected[1]
+
+
+	ADD OBJECT shp2 AS shape WITH ;
+		BackColor = RGB(192,192,192), ;
+		Height = 55, ;
+		Left = 17, ;
+		Top = 11, ;
+		Width = 390, ;
+		SpecialEffect = 0, ;
+		ZOrderSet = 0, ;
+		Name = "shp2"
+
+
+	ADD OBJECT cmdset AS commandbutton WITH ;
+		Top = 79, ;
+		Left = 106, ;
+		Height = 25, ;
+		Width = 75, ;
+		FontBold = .T., ;
+		FontName = "Times New Roman", ;
+		Caption = "\<Yes", ;
+		Default = .T., ;
+		TabIndex = 5, ;
+		ZOrderSet = 1, ;
+		Name = "cmdSet"
+
+
+	ADD OBJECT cmdexit AS commandbutton WITH ;
+		Top = 80, ;
+		Left = 241, ;
+		Height = 25, ;
+		Width = 75, ;
+		FontBold = .T., ;
+		FontName = "Times New Roman", ;
+		Cancel = .T., ;
+		Caption = "E\<xit", ;
+		TabIndex = 6, ;
+		ZOrderSet = 2, ;
+		Name = "cmdExit"
+
+
+	ADD OBJECT txtnselected AS textbox WITH ;
+		BackStyle = 0, ;
+		BorderStyle = 0, ;
+		ControlSource = "thisform.nselected", ;
+		Height = 22, ;
+		Left = 37, ;
+		SpecialEffect = 1, ;
+		Top = 17, ;
+		Width = 42, ;
+		Name = "txtnselected"
+
+
+	ADD OBJECT lbl1 AS label WITH ;
+		WordWrap = .T., ;
+		BackStyle = 0, ;
+		Caption = "Objects to be affected, are you sure you want to proceed?", ;
+		Height = 64, ;
+		Left = 91, ;
+		Top = 19, ;
+		Width = 309, ;
+		Name = "lbl1"
+
+
+	ADD OBJECT cmdabout AS commandbutton WITH ;
+		Top = 116, ;
+		Left = 3, ;
+		Height = 19, ;
+		Width = 423, ;
+		Caption = "(C) 1995 Optimized Data Solutions                            About...", ;
+		Name = "CmdAbout"
+
+
+	PROCEDURE getcontrol
+		lparameter crntobj
+		local datasource
+		*--- Determine what the data source is for the current object.
+
+		do case
+		   
+		   case type("crntobj.controlsource") = "C"
+		      datasource = iif(at(".",crntobj.controlsource)>0,substr(crntobj.controlsource, ;
+		              at(".",crntobj.controlsource)+1),crntobj.controlsource)
+		   
+		   case type("crntobj.recordsource") = "C"
+		      *--- grids do not have a controlsource...
+		      *--- they have a recordsource...
+		      datasource = crntobj.recordsource
+
+		   otherwise 
+		      *--- just number them...
+		      *--- What about command buttons? Use the caption, maybe, but what if they are using an icon for the face?
+		      datasource = thisform.nextsequence()
+		      
+		endcase
+		      
+		return datasource
+	ENDPROC
+
+
+	*-- Retrieves prefix and controlsource for Name property
+	PROCEDURE getname
+		lparameter lcbaseclass, crntobj
+		local lcprefix, lcsource
+		lcprefix = ""
+		lcsource = ""
+
+		   
+		*--- evaluate what the baseclass is and use the appropriate prefix...
+		*--- GETCONTROL() is a method that returns what the controlsource is for the current object...
+		local noldarea
+		lnoldarea = select()
+
+		*--- table of valid VFP screen objects and there 3 letter abbreviations...
+		*--- this table is binded into the project file. Can be custimized...
+		select objects
+
+		*--- look up current object in object table to get abbreviation...
+		if seek(padr(lcbaseclass,15),"objects","objname")
+		   lcprefix = objects.objabbrv
+
+		   if objects.justseq
+		      *--- just a sequential assignment...
+		      lcsource = thisform.nextsequence()
+		   
+		   else
+
+		      *--- the parent has the controlsource if you're looking at a grid header for instance...
+		      if srcparent
+		         lcsource = thisform.getcontrol(crntobj.parent)
+		         
+		      else
+		         lcsource = thisform.getcontrol(crntobj)
+		      endif
+
+		      *--- check to see if name already exists!
+		      *--- if it does exist, start numbering the object names so they are unique...
+		      if seek(lcprefix+lcsource,"uniqname","primary")
+		         lcsource = lcsource + thisform.nextsequence()
+		         
+		      else
+		         insert into uniqname (objname) values (lcprefix+lcsource)
+		      endif seek()
+
+		   endif objects.justseq
+
+		endif   seek()
+
+		select (lnoldarea)
+		return lcprefix+lcsource
+	ENDPROC
+
+
+	*-- Walk Down the Object Hiearchy...Recursively!
+	PROCEDURE walkobjects
+		lparameter crntobj
+		*--- ALWAYS just passing an object reference! 
+
+		*--- these must be LOCAL so they retain there original values when coming back out of the calling stack!
+		local lnobjcnt, objindex
+		local array aobjs[1]
+
+		*--- Change name of current object...
+		crntobj.name = thisform.getname(upper(crntobj.baseclass),crntobj)
+		wait "On Object: " + crntobj.name window nowait
+
+		*--- Does the current object contain any other objects?
+		lnobjcnt = amembers(aobjs,crntobj,2)
+
+		*--- If Current object is container of other objects, LNOBJCNT will be > 0!
+		*--- This is the core routine that easily allows any container object to be traversed...
+
+		for objindex = 1 to lnobjcnt
+		  *--- recursively call WALKOBJECTS() until the container hiearachy has been traversed...
+		  thisform.walkobjects(crntobj.&aobjs[objindex])
+		endfor 
+
+		return
+	ENDPROC
+
+
+	*-- Register Builder in Builder.dbf
+	PROCEDURE registerbuilder
+		*************************************************
+		*PROCEDURE RegisterBuilder
+		*************************
+		***  Function: Registers a PRG based Builder
+		***    Return: .T. or .F.
+		*************************************************
+		LOCAL lcOldAlias, lcPrg
+
+		lcPrg=""
+
+		*--- GET PATH OF THIS BUILDER!
+		LCPRG = SYS(16,1)
+
+		IF !FILE(home()+"Wizards\builder.dbf")
+		     WAIT WINDOW NOWAIT ;
+		        "Builder File not found..."
+		     RETURN .F.
+		ENDIF
+
+		lcOldAlias=ALIAS()
+		USE home()+"Wizards\builder" AGAIN
+
+		LOCATE FOR ;
+		     UPPER(TRIM(name))=UPPER(TRIM("THE ENFORCER"))
+
+		IF !FOUND()
+		    *--- Once for Multiselected Items...
+		    insert into builder (name, descript, type, program) ;
+		       values ("The Enforcer","Enforce Object Naming Conventions  ","MULTISELECT",lcprg)
+
+		    *--- Once for a grid object...
+		    insert into builder (name, descript, type, program) ;
+		       values ("The Enforcer","Enforce Object Naming Conventions  ","GRID",lcprg)
+		       
+		    wait "The Enforcer added as a MULTISELECT and GRID Object Builder..." window nowait
+		ENDIF
+
+
+		USE     && Close the BUILDER.DBF file
+
+		IF USED(lcOldAlias)
+		   SELE (lcOldAlias)
+		ENDIF
+
+		RETURN .T. && Return and don't load
+	ENDPROC
+
+
+	*-- Gets the next sequential number for an object...
+	PROCEDURE nextsequence
+		*--- get next id # from OBJECT table...
+		local lnnextid
+
+		lnnextid = objects.nextid
+		replace objects.nextid with objects.nextid + 1
+		return  alltrim(str(lnnextid))
+	ENDPROC
+
+
+	PROCEDURE Load
+		thisform.autocenter = .t.
+		*--- save original work area...
+		thisform.origarea = select()
+
+		*--- Create a cursor to hold all of the new names created. This will have to be searched in order to 
+		*--- ensure uniqueness when a new name is created...
+		create cursor uniqname (objname c(25))
+		index on objname tag primary
+
+		*--- OBJECTS.DBF is bound into the ENFORCE.APP file. Need to be able to write to it to get the next
+		*--- object number when duplicate names are found... Create temp table...
+		select 0
+		use objects
+		copy to rwobject with production
+		use rwobject order objname alias objects
+		replace nextid with 1 all
+	ENDPROC
+
+
+	PROCEDURE Init
+		PARAMETERS pcaction      
+
+		pcaction=IIF(TYPE("pcaction")="C",;
+		   UPPER(pcaction),"")
+
+		*** Register Builder by adding to BUILDER.DBF
+		IF UPPER(pcaction)="REGISTER"
+		   =THIS.RegisterBuilder()
+		   RETURN .F. && Return and don't load
+		ENDIF
+
+		*** Create array of selected objects...
+		THISform.nSelected = ASELOBJ(THISform.aSelected)
+
+		IF THISform.nSelected<1
+		   ??CHR(7)
+		   WAIT WINDOW NOWAIT "No controls selected!"
+		   RETURN .F.
+		ENDIF
+	ENDPROC
+
+
+	PROCEDURE Destroy
+		*--- close up...
+		use in objects
+		erase rwobject.dbf
+		erase rwobject.cdx
+
+		use in uniqname
+		select (thisform.origarea)
+	ENDPROC
+
+
+	PROCEDURE cmdset.Click
+		LOCAL objindex,lcType,lcValue,lcProperty, lcprefix, lcbaseclass
+
+		FOR objindex = 1 TO THISFORM.nSelected
+		   
+		   *--- pass object reference...
+		   thisform.walkobjects(thisform.aselected[objindex])
+		  
+		ENDFOR
+
+		??CHR(7)
+		WAIT WINDOW NOWAIT "Naming Conventions have been enforced..." timeout 5
+		thisform.release()
+	ENDPROC
+
+
+	PROCEDURE cmdexit.Click
+		RELEASE THISFORM
+	ENDPROC
+
+
+	PROCEDURE cmdabout.Click
+		=doform("about")
+	ENDPROC
+
+
+ENDDEFINE
+*
+*-- EndDefine: enforce
+**************************************************

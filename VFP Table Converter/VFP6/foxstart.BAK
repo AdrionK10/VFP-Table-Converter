@@ -1,0 +1,201 @@
+*foxstart.PRG
+Lparameters tcCurrentFolder
+
+
+
+
+If pcount() = 0
+	tcCurrentFolder = ""
+Endif
+
+_Screen.caption = Version() && "Visual Foxpro 6" &&
+
+Close debug
+If Upper(Program(1)) = "RESET6" or Upper(Program(1)) = "RESET7"
+	*	clos all
+	*	clea all
+	*	rele all
+Endif
+
+Set EXCL OFF
+Set path to
+On shutdown quit
+On key label CTRL+Q quit
+
+Define BAR _med_repl OF _medit PROMPT "R\<eplace And Find Again" ;
+	KEY CTRL+E, "Ctrl+E" ;
+	MESSAGE "Replace text and continue search"
+
+Define BAR _med_repla OF _medit PROMPT "Replace All" ;
+	MESSAGE "Replace all occurrences of the specified text"
+
+Define BAR 25 OF _mtools PROMPT "Print Structure"
+On SELECTION BAR 25 OF _mtools do "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\PRINTSTRU\print_ta.app"
+
+Define BAR 26 OF _mtools PROMPT "\-"
+Define BAR 27 OF _mtools PROMPT "EView..."
+On SELECTION BAR 27 OF _mtools do "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\EVIEW\eview.app"
+
+Define BAR 28 OF _mtools PROMPT "\-"
+Define BAR 29 OF _mtools PROMPT "Searc\<h a string..."
+On SELECTION BAR 29 OF _mtools do "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\SEARCHSTRING\searchstring.app"
+
+Define BAR 31 OF _mtools PROMPT "Compare Tables, Indexes, Folders"
+*DEFINE BAR 32 OF _mtools PROMPT "\-" && "Enforce Naming Conventions"
+Define BAR 32 OF _mtools PROMPT "SetDir Uitlity"
+
+
+Define BAR 33 OF _mtools PROMPT "\-"
+Define BAR 34 OF _mtools PROMPT "Form/Class Hacker-X3DTHACK"
+Define BAR 35 OF _mtools PROMPT "Pick Index Tag"
+Define BAR 36 OF _mtools PROMPT "CEE Structure"
+Define BAR 37 OF _mtools PROMPT "Find Dupe Keys"
+Define BAR 38 OF _mtools PROMPT "Array Browser"
+Define BAR 39 OF _mtools PROMPT "VcxEdit"
+Define BAR 40 OF _mtools PROMPT "Source_To_Text"
+Define BAR 41 OF _mtools PROMPT "List Fields to ClipBoard"
+Define BAR 42 OF _mtools PROMPT "Field List"
+
+*DEFINE BAR 43 OF _mtools PROMPT "FoxCase"
+Define BAR 43 OF _mtools PROMPT "Re-Load CEE"
+
+Define BAR 44 OF _mtools PROMPT "\-"
+Define BAR 45 OF _mtools PROMPT "Fieldlist With Structure"
+Define BAR 46 OF _mtools PROMPT "List View Differences Between 2 DBCs"
+Define BAR 47 OF _mtools PROMPT "Create Structure"
+
+Define BAR 48 OF _mtools PROMPT "Stonefield Database Toolkit"
+
+
+On SELECTION BAR 31 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\CMCOMPAR\cmcomp.app"
+*ON SELECTION BAR 32 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\ENFORCER\ENFORCER.EXE"
+On SELECTION BAR 32 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\SetDir"
+
+On SELECTION BAR 34 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\XHACK\X3DTHACK"
+On SELECTION BAR 35 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\picktag"
+*ON SELECTION BAR 36 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\CEE6\ceestruc.exe"   && HOME()+"CEE6\ceestruc.exe"
+On SELECTION BAR 36 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\CEE6\ceestruc.exe"
+On SELECTION BAR 37 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\findupes.exe"
+*ON SELECTION BAR 38 OF _MTOOLS DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\ab"
+On SELECTION BAR 38 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Abrowser\AB" with "_zyxw_343j4"
+On SELECTION BAR 39 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\VCXEDIT\VCXEDIT"
+*ON SELECTION BAR 40 OF _mtools run "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\VCOMP\vcomp.exe"
+On SELECTION BAR 40 OF _mtools DO home()+"SourceToText"
+
+
+On SELECTION BAR 41 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\Fieldlist" && ("field list to clipboard")
+On SELECTION BAR 42 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\tools\Fieldlist"
+On SELECTION BAR 43 OF _mtools do "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\CEE6\CEE6"
+
+On SELECTION BAR 45 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\tools\FieldlistWithStructure"
+On SELECTION BAR 46 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\ListViews\ListViews"
+On SELECTION BAR 47 OF _mtools DO "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Crea_fil"
+
+On SELECTION BAR 48 OF _mtools do "C:\Blackwolf\C Drive\stonefield\SDT\sdt.app"
+
+*DO FORM "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\HACKFORM\HACKFORM"
+*DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\VCXEDIT\VCXEDIT"
+
+
+*DO FORM "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\FILER\FILER.SCX"
+Do form "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Filer\Filer.scx"
+Clear WINDOW FILEFINDER
+
+_Screen.BackColor=RGB(192,192,192)
+
+* SET SYSMENU SAVE
+Set talk off
+Set STATUS BAR ON
+
+Clear
+Wait CLEAR
+
+Do "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\CEE6\CEE6"
+*do "C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\CEE6\CEE6"
+*C:\Program Files\Microsoft Visual Studio\Vfp98\
+If empty(tcCurrentFolder)
+	*	cd "c:\PP7.5"
+Endif
+*Set path to .\programs ; .\lib ; .\data ; .\forms ; .\menus ; .\reports
+
+Wait clear
+
+If Upper(Program(1)) # "RESET6" AND Upper(Program(1)) # "RESET7" AND Upper(Program(1)) # "RESET"
+	If EMPTY(DBF())
+		*cd?
+	Else
+		*cd JUSTPATH(DBF())
+	Endif
+Else
+	If Empty(tcCurrentFolder)
+		Cd?
+	Else
+		Cd (tcCurrentFolder)
+	Endif
+Endif
+
+On error *
+*!*	Do CASE
+*!*		Case UPPER(SYS(5)+SYS(2003)) = "C:\PP7.5\PO_PROJECT"
+*!*			Set reso to C:\PP7.5\PO_PROJECT\FOXUSER
+*!*		Case UPPER(SYS(5)+SYS(2003)) = "C:\PP78\WELBY"
+*!*			set reso to "C:\PP78\WELBY\FOXUSER"
+*!*		*Case UPPER(SYS(5)+SYS(2003)) = "C:\PP7.5\PO_PROJECT"
+
+*!*		Otherwise
+*!*			Set reso to home()+"foxuser"
+*!*	Endcase
+
+IF MESSAGEBOX("Do you want to use the Set Dir utility?",4+32,"Get Directory") = 6
+	DO "C:\Program Files\Microsoft Visual Studio\Vfp98\TOOLS\SetDir"
+Endif
+
+
+If  file("bimenu.prg")
+	_Genmenu = "c:\genmenux\genmenux.prg"
+Else
+	If Messagebox("Use GenMenuX?" , 36 , "GENMENU-X") = 6
+		_Genmenu = "c:\genmenux\genmenux.prg"
+	Endif
+Endif
+
+
+If FILE("setpath.prg")
+	Do setpath
+Endif
+
+Cd
+
+If SYS(5)+SYS(2003) = "C:\FOXPRO\FOXGLOVE"
+	Set reso to C:\FOXPRO\FOXGLOVE\VFP6USER.DBF
+Else
+
+	If NOT File("V6_FOXUSER.DBF") and File(HOME()+"FOXUSER.DBF")
+		Copy file HOME()+"FOXUSER.DBF" to V6_FOXUSER.DBF
+		Copy file HOME()+"FOXUSER.FPT" to V6_FOXUSER.FPT
+	ENDIF
+
+	If NOT File("V6_FOXUSER.DBF") and File("C:\WINDOWS\SYSTEM32\FOXUSER.DBF")
+		Copy file C:\WINDOWS\SYSTEM32\FOXUSER.DBF to V6_FOXUSER.DBF
+		Copy file C:\WINDOWS\SYSTEM32\FOXUSER.FPT to V6_FOXUSER.FPT
+	ENDIF
+
+	If File("V6_FOXUSER.DBF")
+		Set reso to V6_FOXUSER
+	Else && default
+		Set reso to
+	Endif
+Endif
+
+If error() = 1705
+	Set reso to
+Endif
+
+
+?SET("path")
+?SET("resource", 1)
+On key label f5 susp
+*ACTIVATE WINDOW COMMAND
+
+On error
+

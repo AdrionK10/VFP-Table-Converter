@@ -1,0 +1,1010 @@
+App Name	Visual FoxPro 6.0	
+App Version	6.0.0.0.0626 (1033)	
+Setup Version	3.0.0.1210	
+Frame Bitmap		
+Frame Caption	Visual FoxPro 6.0 Setup	
+Dialog Caption Base	Visual FoxPro 6.0	
+Usage String		
+About Box String	Microsoft Visual FoxPro 6.0 Setup\n\nCopyright (C) 1998 Microsoft Corporation.	
+Check Modules	"ThunderRT5Main,Microsoft Visual Basic,ThunderRTMain,Microsoft VB Runtime,RaidClass,Microsoft Raid,MSVCED50,Microsoft Developer Studio,wndclass_desked_gsk,Microsoft Development Environment"	
+Source Directory	D:\	
+MSAPPS Mode	local	
+MSAPPS Connect	server	
+Inf File Name	VFP98Pro.INF	
+Help File Name	ACMSETUP.HLP	
+Setup Status	"rOŒg[ÿpDk@QJ≤JäìõºˇyÒME∆ΩêOKdÜ‹cX⁄ãX„Êïha≤nÉyöƒs˚Ãó–Ï¡áıŒP^)µÒ9m¥€?∆€t@≈ÎÛÀg""ò˜Õo¯’óãˆÇ‘ojpï¯Ó¬Ö/ógÄÖ©‹ﬁ¬µ‚_–œ;Å«íı3¶ﬂ@Â`ÎÈâ/é÷Ω`‡Æñw√‘M÷”äˆt©»•ıQqÂÎîè©´Éa*1†‘ÎqC"	
+Setup Status2	0	
+Maximum Object ID	1720	
+Admin Mode Root Object ID		
+Floppy Mode Root Object ID	3 : 1 2	
+Network Mode Root Object ID		
+Maintenance Mode Root Object ID	4 : 1 2	
+Network Maintenance Mode Root Object ID		
+Batch Mode Root Object ID	3 : 1 2	
+Install Date	2011.02.18.16.29.42	
+Check Modules2	"Fox_4000001,Microsoft Visual FoxPro, graph, MS Graph, ed, MS Draw, msinfo, MS Info,odbcad32,ODBC administrator,odbcjt32, ODBC Driver, !Microsoft Exchange!, Microsoft Exchange"	
+Check Modules3	"OMain,Microsoft Access, msaccess,MS Access,msarn110,MS Access Runtime,msarn200,MS Access Runtime,MS:SCC:REFRESH,Microsoft Visual SourceSafe,MSOfficeWClass,Microsoft Office Manager"	
+Check Modules4	"VFP66400000,Microsoft Visual FoxPro,valecstart,Visual Studio Analyzer Server"	
+
+
+ObjID	Checkbox State	Title	Description	Object Type	Object Data	Bitmap Id	Vital Attribute	Shared Attribute	Configurable Directory	Destination Directory	Check Directory	Installed By	Install Data	Install Directory
+1				CustomAction	"""COMMON98.DLL"", ""SetDefaultDir"", ""Vfp98;HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual FoxPro,ProductDir"" "					C:\Program Files\Microsoft Visual Studio\Vfp98\		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+2		Microsoft Visual FoxPro 6.0		AppSearch	"%1,,,128,yes,no"					C:\Program Files\Microsoft Visual Studio\Vfp98\		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+3	yes	Floppy Install		AppMainDlg	351 352 : 31 11 5					C:\Program Files\Microsoft Visual Studio\Vfp98\		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+4	yes	C&ustom	Setup will allow you to customize which components to install	CustomDlg	353 354 358 355 357 356 1443 1391 : 369  31 11 5	"VFP98Pro.DLL,103"			yes	C:\Program Files\Microsoft Visual Studio\Vfp98\				
+5				Group	6 7 8							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+6				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup,VSCommonDir"" "					%p\Microsoft Visual Studio\Common		us		C:\Program Files\Microsoft Visual Studio\Common\
+7				CustomAction	"""COMMON98.DLL"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Windows\CurrentVersion,CommonFilesDir"" "					%p\Common Files		us		C:\Program Files\Common Files\
+8				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""9"""					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+9				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup,VSCommonDir,%s"					%6		us		C:\Program Files\Microsoft Visual Studio\Common\
+11				Group	12 13							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+12				CustomAction	"COMMON98.DLL,DetectWzRegKey,Microsoft Visual FoxPro"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+13				Group	23 17 18 19 20 16  15							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+14				CustomAction	"COMMON98.DLL,LicenseDlg,Setup;eula_txt"									
+15				CustomAction	"PHOLDER.DLL,SPPlaceHolderCAH"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+16				CustomAction	"COMMON98.DLL,CheckRegKey,""LOCAL,Software\Microsoft\Internet Explorer,Version"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+17				CustomAction	"COMMON98.DLL,GetWindowsPathFromReg,""Programs, True"""							us		C:\ProgramData\Microsoft\Windows\Start Menu\Programs\
+18		IsWin95		CustomAction	"COMMON98.DLL,DetectOS,Win95 "							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+19		IsWinnt3x		CustomAction	"COMMON98.DLL, DetectOS, winnt3x"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+20		IsWinNT40		CustomAction	"COMMON98.DLL, DetectOS, winnt40"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+21		Is40Shell		CustomAction	"COMMON98.DLL, DetectOS, 40shell"									
+22		IsWinNT50		CustomAction	"COMMON98.DLL, DetectOS, winnt50"									
+23		Check Adminstrator		CustomAction	"COMMON98.DLL,DetectAdminPrivileges"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+31				Group	41 61 211 261 221 1671 71 51 91 1631 81					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+41				InstallSysFile	"vc MSVCRT40 DLL,msvcrt40_dll"		vital			%M		nyi		
+51				Group	53							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+52				DetectOlderFile	"""tahoma.ttf"""					%w\fonts		us		C:\Windows\fonts\
+53				Depend	52 ? 54 : 57							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+54				Depend	20 ? 55 56 : 57							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+55				CopyFile	"Font Files,tahoma_ttf"					%W		us		C:\Windows\
+56				CustomAction	"COMMON98.DLL,ReplaceFont,tahoma.ttf"					%w\fonts		us		C:\Windows\fonts\
+57				InstallTTFFile	"Font Files, tahoma_ttf, Tahoma (True Type)"					%M		nyi		
+61				Group	62 63							nyi		
+62				InstallSysFile	"VB Runtime,msvbvm50_dll"		vital			%M		nyi		
+63				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""64"""							nyi		
+64		msvbvm60.dll		CustomAction	"COMMON98.DLL,RegisterFile,""VB Runtime,msvbvm50_dll,2"""					%62		nyi		
+71				Group	72 73							nyi		
+72				InstallSysFile	"vc MFC Os Retail, mfc42_dll"					%M		nyi		
+73				Depend	72 ? 74							nyi		
+74		mfc42.dll		CustomAction	"COMMON98.DLL,RegisterFile,""vc MFC Os Retail,mfc42_dll,1"""					%72		nyi		
+81				Group	82							nyi		
+82		regsvr32.exe		InstallSysFile	"Sys Files - Regsrv32, regsvr32_exe_3"					%m		nyi		
+91				Group	92 93 94 95 96							nyi		
+92				InstallSysFile	"VB Oleaut Files,oleaut32_dll"					%M		nyi		
+93				InstallSysFile	"VB Oleaut Files,stdole2_tlb"					%M		nyi		
+94				InstallSysFile	"VB Oleaut Files,olepro32_dll_2"					%M		nyi		
+95				InstallSysFile	"VB Oleaut Files,asycflt_dll"					%M		nyi		
+96				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""97 98 99"""							nyi		
+97		olepro32.dll		SelfReg	"VB Oleaut Files,olepro32_dll_2,,,"					%94		nyi		
+98		oleaut32.dll		CustomAction	"COMMON98.DLL,RegisterFile,""VB Oleaut Files,oleaut32_dll,1"""					%92		nyi		
+99				CustomAction	"COMMON98.DLL,RegisterTypeLibrary,""VB Oleaut Files;stdole2_tlb"""					%93		nyi		
+101				Group	102 103 104 106 111 112 113					%D				
+102				InstallSysFile	"HTML Help,itircl_dll"									
+103				InstallSysFile	"HTML Help,itss_dll"									
+104				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""105"""					%D				
+105				CopyFile	"HTML Help,hh_exe"					%W				
+106				Group	107 109									
+107				Depend	102 ? 108									
+108		itircl.dll		SelfReg	"HTML Help,itircl_dll,,"					%102				
+109				Depend	103 ? 110									
+110		itss.dll		SelfReg	"HTML Help,itss_dll,,"					%103				
+111				Group	114 117 120 123 126 129 132 135 138 141 144 147 150 153 156					%D				
+112				Group	159 162 165 168 171 174 177 180 183 186 189 192 195					%D				
+113				Group	115 199					%D				
+114				CustomAction	"COMMON98.DLL,LangCheckCAH,ARA"									
+115				Depend	114 ? 116 : 118									
+116				InstallSysFile	"HTML Help, hhctrl_ocx_ara"					%M				
+117				CustomAction	"COMMON98.DLL,LangCheckCAH,BAS"									
+118				Depend	117 ? 119 : 121									
+119				InstallSysFile	"HTML Help, hhctrl_ocx_bas"					%M				
+120				CustomAction	"COMMON98.DLL,LangCheckCAH,CAT"									
+121				Depend	120 ? 122 : 124									
+122				InstallSysFile	"HTML Help, hhctrl_ocx_cat"					%M				
+123				CustomAction	"COMMON98.DLL,LangCheckCAH,CHS"									
+124				Depend	123 ? 125 : 127									
+125				InstallSysFile	"HTML Help, hhctrl_ocx_chs"					%M				
+126				CustomAction	"COMMON98.DLL,LangCheckCAH,CHT"									
+127				Depend	126 ? 128 : 130									
+128				InstallSysFile	"HTML Help, hhctrl_ocx_cht"					%M				
+129				CustomAction	"COMMON98.DLL,LangCheckCAH,CSY"									
+130				Depend	129 ? 131 : 133									
+131				InstallSysFile	"HTML Help, hhctrl_ocx_csy"					%M				
+132				CustomAction	"COMMON98.DLL,LangCheckCAH,DAN"									
+133				Depend	132 ? 134 : 136									
+134				InstallSysFile	"HTML Help, hhctrl_ocx_dan"					%M				
+135				CustomAction	"COMMON98.DLL,LangCheckCAH,DEU"									
+136				Depend	135 ? 137 : 139									
+137				InstallSysFile	"HTML Help, hhctrl_ocx_deu"					%M				
+138				CustomAction	"COMMON98.DLL,LangCheckCAH,ELL"									
+139				Depend	138 ? 140 : 142									
+140				InstallSysFile	"HTML Help, hhctrl_ocx_ell"					%M				
+141				CustomAction	"COMMON98.DLL,LangCheckCAH,ENU"									
+142				Depend	141 ? 143 : 145									
+143				InstallSysFile	"HTML Help, hhctrl_ocx_enu"					%M				
+144				CustomAction	"COMMON98.DLL,LangCheckCAH,ESP"									
+145				Depend	144 ? 146 : 148									
+146				InstallSysFile	"HTML Help, hhctrl_ocx_esp"					%M				
+147				CustomAction	"COMMON98.DLL,LangCheckCAH,FIN"									
+148				Depend	147 ? 149 : 151									
+149				InstallSysFile	"HTML Help, hhctrl_ocx_fin"					%M				
+150				CustomAction	"COMMON98.DLL,LangCheckCAH,FRA"									
+151				Depend	150 ? 152 : 154									
+152				InstallSysFile	"HTML Help, hhctrl_ocx_fra"					%M				
+153				CustomAction	"COMMON98.DLL,LangCheckCAH,HEB"									
+154				Depend	153 ? 155 : 157									
+155				InstallSysFile	"HTML Help, hhctrl_ocx_heb"					%M				
+156				CustomAction	"COMMON98.DLL,LangCheckCAH,HUN"									
+157				Depend	156 ? 158 : 160									
+158				InstallSysFile	"HTML Help, hhctrl_ocx_hun"					%M				
+159				CustomAction	"COMMON98.DLL,LangCheckCAH,ITA"									
+160				Depend	159 ? 161 : 163									
+161				InstallSysFile	"HTML Help, hhctrl_ocx_ita"					%M				
+162				CustomAction	"COMMON98.DLL,LangCheckCAH,JPN"									
+163				Depend	162 ? 164 : 166									
+164				InstallSysFile	"HTML Help, hhctrl_ocx_jpn"					%M				
+165				CustomAction	"COMMON98.DLL,LangCheckCAH,KOR"									
+166				Depend	165 ? 167 : 169									
+167				InstallSysFile	"HTML Help, hhctrl_ocx_kor"					%M				
+168				CustomAction	"COMMON98.DLL,LangCheckCAH,NLD"									
+169				Depend	168 ? 170 : 172									
+170				InstallSysFile	"HTML Help, hhctrl_ocx_nld"					%M				
+171				CustomAction	"COMMON98.DLL,LangCheckCAH,NOR"									
+172				Depend	171 ? 173 : 175									
+173				InstallSysFile	"HTML Help, hhctrl_ocx_nor"					%M				
+174				CustomAction	"COMMON98.DLL,LangCheckCAH,PLK"									
+175				Depend	174 ? 176 : 178									
+176				InstallSysFile	"HTML Help, hhctrl_ocx_plk"					%M				
+177				CustomAction	"COMMON98.DLL,LangCheckCAH,PTB"									
+178				Depend	177 ? 179 : 181									
+179				InstallSysFile	"HTML Help, hhctrl_ocx_ptb"					%M				
+180				CustomAction	"COMMON98.DLL,LangCheckCAH,PTG"									
+181				Depend	180 ? 182 : 184									
+182				InstallSysFile	"HTML Help, hhctrl_ocx_ptg"					%M				
+183				CustomAction	"COMMON98.DLL,LangCheckCAH,RUS"									
+184				Depend	183 ? 185 : 187									
+185				InstallSysFile	"HTML Help, hhctrl_ocx_rus"					%M				
+186				CustomAction	"COMMON98.DLL,LangCheckCAH,SKY"									
+187				Depend	186 ? 188 : 190									
+188				InstallSysFile	"HTML Help, hhctrl_ocx_sky"					%M				
+189				CustomAction	"COMMON98.DLL,LangCheckCAH,SLV"									
+190				Depend	189 ? 191 : 193									
+191				InstallSysFile	"HTML Help, hhctrl_ocx_slv"					%M				
+192				CustomAction	"COMMON98.DLL,LangCheckCAH,SVE"									
+193				Depend	192 ? 194 : 196									
+194				InstallSysFile	"HTML Help, hhctrl_ocx_sve"					%M				
+195				CustomAction	"COMMON98.DLL,LangCheckCAH,TRK"									
+196				Depend	195 ? 197 : 198									
+197				InstallSysFile	"HTML Help, hhctrl_ocx_trk"					%M				
+198				InstallSysFile	"HTML Help, hhctrl_ocx_enu"					%M				
+199				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""200"""					%D				
+200				CustomAction	"COMMON98.DLL,QuietReg,""%s\hhctrl.ocx"""					%m				
+211				Group	212							nyi		
+212		msvcrt.dll		InstallSysFile	"Sys Files - CRT Dlls,msvcrt_dll"					%m		nyi		
+221				Group	222 223 225 226 227 228 230 231 232 233 251					%M		us		C:\Windows\system32\
+222				InstallSysFile	"dag Jet, msjet35_dll"					%M		us		C:\Windows\system32\
+223				Depend	222 ? 224							us	Yes	C:\Windows\system32\
+224		msjet35.dll		SelfReg	"dag Jet, msjet35_dll"					%M		us		C:\Windows\system32\
+225				InstallSysFile	"dag Jet, msjint35_dll"					%M		us		C:\Windows\system32\
+226				InstallSysFile	"dag Jet, msjter35_dll"					%M		us		C:\Windows\system32\
+227				InstallSysFile	"dag Jet, msrd2x35_dll"					%M		us		C:\Windows\system32\
+228				Depend	227 ? 229							us	Yes	C:\Windows\system32\
+229		msrd2x35.dll		SelfReg	"dag Jet, msrd2x35_dll"					%227		us		C:\Windows\system32\
+230				InstallSysFile	"dag Jet, msrepl35_dll"					%M		us		C:\Windows\system32\
+231				InstallSysFile	"dag Jet, vbar332_dll_1"					%M		us		C:\Windows\system32\
+232				CopySection	dag Jet Help					%W\Help		us		C:\Windows\Help\
+233				Group	234 235 236 237 238 239 240 241 242					%W\Help		us		C:\Windows\Help\
+234				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jetdef35_fts"							us		C:\Windows\Help\
+235				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jetdef35_ftg"							us		C:\Windows\Help\
+236				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jetdef35_gid"							us		C:\Windows\Help\
+237				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jetsql35_fts"							us		C:\Windows\Help\
+238				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jetsql35_ftg"							us		C:\Windows\Help\
+239				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jetsql35_gid"							us		C:\Windows\Help\
+240				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jeterr35_fts"							us		C:\Windows\Help\
+241				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jeterr35_ftg"							us		C:\Windows\Help\
+242				CustomAction	"COMMON98.DLL, RemoveAuxFile, dag Jet Help Remove;jeterr35_gid"							us		C:\Windows\Help\
+251				Group	252 253 254							us		C:\Windows\system32\
+252				InstallSysFile	"VBA Additional Files,expsrv_dll"					%M		nyi		
+253				InstallSysFile	"VBA Additional Files,vbajet32_dll"					%M		nyi		
+254				InstallSysFile	"VBA Additional Files,vba332me_dll"					%M		us		C:\Windows\system32\
+261				Group	262 321 311 301					%M		us		C:\Windows\system32\
+262			ODBC Driver Manager	Group	263 264							us		C:\Windows\system32\
+263				CustomAction	"odbcstf.dll,AcmeInstallDriverManager,odbckey.inf"							us		C:\Windows\system32\
+264				Group	265 275 284 294 289							us		C:\Windows\system32\
+265			Installs the ODBC Driver Manager	Group	279 266 267 268 269 270 271 272 273 274							us		C:\Windows\system32\
+266				InstallSysFile	"dag ODBC Core Components,odbc32_dll"		vital			%261		nyi		
+267				InstallSysFile	"dag ODBC Core Components,odbcad32_exe"		vital			%261		nyi		
+268				InstallSysFile	"dag ODBC Core Components,odbccp32_cpl"		vital			%261		us		C:\Windows\system32\
+269				InstallSysFile	"dag ODBC Core Components,odbccp32_dll"		vital			%261		nyi		
+270				InstallSysFile	"dag ODBC Core Components,odbccr32_dll"		vital			%261		nyi		
+271				InstallSysFile	"dag ODBC Core Components,odbcint_dll"		vital			%261		nyi		
+272				InstallSysFile	"dag ODBC Core Components,odbctrac_dll"		vital			%261		nyi		
+273				InstallSysFile	"dag ODBC Core Components,mtxdm_dll"		vital			%261		nyi		
+274				InstallSysFile	"dag ODBC Core Components,odbccu32_dll"					%261		nyi		
+275			Installs the ODBC Brazos Files	Group	276 277 278							us		C:\Windows\system32\
+276				InstallSysFile	"dag ODBC Brazos Components,odbcji32_dll_1"					%261		nyi		
+277				InstallSysFile	"dag ODBC Brazos Components,odbcjt32_dll_1"					%261		nyi		
+278				InstallSysFile	"dag ODBC Brazos Components,odbctl32_dll_1"					%261		us		C:\Windows\system32\
+279			Installs ODBC Thunking Layer	Group	280 281 282 283					%261		nyi		
+280				InstallSysFile	"dag ODBC Core Components,odbc16gt_dll"		vital			%261		nyi		
+281				InstallSysFile	"dag ODBC Core Components,odbc32gt_dll"		vital			%261		nyi		
+282				InstallSysFile	"dag ODBC Core Components,ds16gt_dll"		vital			%261		nyi		
+283				InstallSysFile	"dag ODBC Core Components,ds32gt_dll"		vital			%261		nyi		
+284			ODBC Code Page Translators	Group	285 286 287 288							us		C:\Windows\system32\
+285				InstallSysFile	"dag ODBC CodePage Trans,mscpxl32_dll"		vital			%261		nyi		
+286				InstallSysFile	"dag ODBC CodePage Trans,12520437_cpx"		vital			%261		us		C:\Windows\system32\
+287				InstallSysFile	"dag ODBC CodePage Trans,12520850_cpx"		vital			%261		us		C:\Windows\system32\
+288				CustomAction	"odbcstf.dll,AcmeInstallTranslator,odbckey.inf:Translators"					%261		us		C:\Windows\system32\
+289			ODBC Help Files	Group	290 291 292 293							us		C:\Windows\system32\
+290				InstallSysFile	"dag ODBC Help Files,odbcinst_cnt_1"					%261		us		C:\Windows\system32\
+291				InstallSysFile	"dag ODBC Help Files,odbcinst_hlp_1"					%261		us		C:\Windows\system32\
+292				InstallSysFile	"dag ODBC Help Files,odbcjet_cnt_1"					%261		us		C:\Windows\system32\
+293				InstallSysFile	"dag ODBC Help Files,odbcjet_hlp_1"					%261		us		C:\Windows\system32\
+294			ODBC SQL Net Libs	Group	295 296 297							us		C:\Windows\system32\
+295				InstallSysFile	"dag ODBC SQL Net Libs,dbnmpntw_dll"					%M		us		C:\Windows\system32\
+296				InstallSysFile	"dag ODBC SQL Net Libs,dbmssocn_dll"					%M		us		C:\Windows\system32\
+297				InstallSysFile	"dag ODBC SQL Net Libs,instcat_sql"					%M		us		C:\Windows\system32\
+301				Group	302							us		C:\Windows\system32\
+302				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""303 304 305 306 307"""					%7\system\ole db		us		C:\Program Files\Common Files\system\ole db\
+303				CopyFile	"dag OLEDB DataSourceLocator,msdasc_dll"					%302		se		
+304		msdasc.dll		SelfReg	"dag OLEDB DataSourceLocator, msdasc_dll"					%303		us		C:\Program Files\Common Files\system\ole db\
+305				CopyFile	"dag OLEDB DataSourceLocator,msdasc_chm"					%302		us		C:\Program Files\Common Files\system\ole db\
+306				CopyFile	"dag OLEDB DataSourceLocator,msdasc_cnt"					%302		us		C:\Program Files\Common Files\system\ole db\
+307				CopyFile	"dag OLEDB DataSourceLocator,msdasc_txt"					%302		us		C:\Program Files\Common Files\system\ole db\
+311				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""312 313 314 315"""					%7\system\ole db		us		C:\Program Files\Common Files\system\ole db\
+312				CopyFile	"dag Chinook,msdasql_dll"					%311		se		
+313		msdasql.dll		SelfReg	"dag Chinook,msdasql_dll"					%312		us		C:\Program Files\Common Files\system\ole db\
+314				CopyFile	"dag Chinook,msdasqlr_dll"					%311		se		
+315				CopyFile	"dag Chinook,oledb_me_txt"					%311		us		C:\Program Files\Common Files\system\ole db\
+321				Group	322 323					%7\system\ole db		us		C:\Program Files\Common Files\system\ole db\
+322				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""324 325 326 327 328 329 330"""					%321		us		C:\Program Files\Common Files\system\ole db\
+323				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""331 332 333 334 335 336 337 338 339 340 341"""					%321		us		C:\Program Files\Common Files\system\ole db\
+324				CopyFile	"dag OLEDB Core,msdadc_dll"					%321		se		
+325		msdadc.dll		SelfReg	"dag OLEDB Core,msdadc_dll"					%324		us		C:\Program Files\Common Files\system\ole db\
+326				CopyFile	"dag OLEDB Core,msdaer_dll"					%321		se		
+327		msdaer.dll		SelfReg	"dag OLEDB Core,msdaer_dll"					%326		us		C:\Program Files\Common Files\system\ole db\
+328				CopyFile	"dag OLEDB Core,msdaerr_dll"					%321		us		C:\Program Files\Common Files\system\ole db\
+329				CopyFile	"dag OLEDB Core,msdaps_dll"					%321		se		
+330		MSDAPS.DLL		SelfReg	"dag OLEDB Core,msdaps_dll"					%329		us		C:\Program Files\Common Files\system\ole db\
+331				CopyFile	"dag OLEDB Core,msdatt_dll"					%321		se		
+332		msdatt.dll		SelfReg	"dag OLEDB Core,msdatt_dll"					%331		us		C:\Program Files\Common Files\system\ole db\
+333				CopyFile	"dag OLEDB Core,msdaenum_dll"					%321		se		
+334		msdaenum.dll		SelfReg	"dag OLEDB Core,msdaenum_dll"					%333		us		C:\Program Files\Common Files\system\ole db\
+335				CopyFile	"dag OLEDB Core,msdatl2_dll"					%321		us		C:\Program Files\Common Files\system\ole db\
+336				CopyFile	"dag OLEDB Core,oledb32x_dll"					%321		us		C:\Program Files\Common Files\system\ole db\
+337		oledb32x.dll		SelfReg	"dag OLEDB Core,oledb32x_dll"					%336		us		C:\Program Files\Common Files\system\ole db\
+338				CopyFile	"dag OLEDB Core,oledb32_dll"					%321		se		
+339		oledb32.dll		SelfReg	"dag OLEDB Core,oledb32_dll"					%338		us		C:\Program Files\Common Files\system\ole db\
+340				CopyFile	"dag OLEDB Core,oledb32r_dll"					%321		se		
+341		oledb32r.dll		SelfReg	"dag OLEDB Core,oledb32r_dll"					%340		us		C:\Program Files\Common Files\system\ole db\
+351	yes	&Typical	Setup will install the most typical components	Group	1381 379 369	"VFP98Pro.DLL,102"				%3		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+352	yes	C&ustom	Setup will allow you to customize which components to install	CustomDlg	353 354 358 355  357 356 1443 1391 : 1381 369	"VFP98Pro.DLL,103"			yes	%3		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+353	yes	Microsoft Visual FoxPro	The Visual FoxPro executable(VFP6.EXE) and related/required system files.	Group	381		vital					nyi		
+354	yes	Wizards and Builders	Tools that assist you in creating objects and completing tasks.	Group	382							nyi		
+355	yes	Professional Applications	Tools to create distributable applications as well as utilities to enhance applications and speed application development.	OptionDlg	359 360 361							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+356	yes	Graphics	"Installs bitmaps, cursors, icons, metafiles, and video clips for use in your application."	OptionDlg	362 363 364 365 366							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+357	yes	ActiveX	Installs ActiveX Controls for use in Visual FoxPro applications.	OptionDlg	367 368							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+358	yes	Microsoft Visual FoxPro Runtime	Files needed by your distributable applications.	Group	385							nyi		
+359	yes	Setup Wizard	This wizard helps to create installable disk sets for developers to distribute their applications.	Group	386							nyi		
+360	yes	API Access	Files that help you access the Visual FoxPro API.	Group	387							nyi		
+361	yes	Utilities	Utilities to enhance application development and automate common programming tasks.	Group	388							nyi		
+362	yes	Metafiles	Installs over 80 assorted metafiles you can use in your applications.	Group	390							nyi		
+363	yes	Bitmaps	Installs nearly 250 assorted bitmaps you can use in your applications.	Group	391							nyi		
+364	yes	Cursors	Installs nearly 100 cursors you can use in your applications.	Group	392							nyi		
+365	yes	Icon Library	Installs over 450 icons you can use to enhance your applications.	Group	393							nyi		
+366	yes	Video	"Installs a number of video clips (.AVI files) which you can use to display progress in your application, just like Windows."	Group	394							nyi		
+367	yes	Custom Controls	Installs additional ActiveX controls.	Group	395							nyi		
+368	yes	ActiveX Manager	Installs the files necessary to configure and run ActiveX servers on remote computers.	Group	396							nyi		
+369				Group	370							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+370				Group	371 372 1281 374							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+371				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual FoxPro,ProductDir,%s"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+372				Depend	16 ? 373							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+373				AddRegData	"LOCAL,""Software\Microsoft\IE4\DependentComponents"",""VFP98"",""Microsoft Visual FoxPro 6.0"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+374				Group	375 376 377							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+375				CustomAction	"COMMON98.DLL,DeleteRegKey,HKCU;SOFTWARE\Microsoft\VisualFoxPro\6.0"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+376				CustomAction	"COMMON98.DLL,DetectAnyKey,HKCU;SOFTWARE\Microsoft\VisualFoxPro"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+377				Depend	376 ?: 378							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+378				CustomAction	"COMMON98.DLL,DeleteRegKey,HKCU;SOFTWARE\Microsoft\VisualFoxPro"							nyi		
+379				Group	381 386 385 387 388 382 395 396 380 1441 1391							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+380				Group	791 801 821 831 851					%6\Graphics		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+381				Group	1301 399 1051 1161 1361 411 401 751 731 861 721 383							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+382				Group	384 1121 1111 1101 1091 1081 1071 1061 1041 1031 1021 1011 1001 991 981 971 961 951 941 931 911 901 891 921							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+383				CustomAction	"COMMON98.DLL, NopCAH"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+384				CustomAction	"COMMON98.DLL, NopCAH"					%D\Wizards		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+385				Group	1341							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+386				Group	389 1261							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+387				Group	1371							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+388				Group	1251 1241 1231 1221 1211 1201 1191 1181 1171 881 871							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+389				CustomAction	"COMMON98.DLL, NopCAH"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+390				Group	791					%6\Graphics		nyi		
+391				Group	801					%6\Graphics		nyi		
+392				Group	821					%6\Graphics		nyi		
+393				Group	831					%6\Graphics		nyi		
+394				Group	851					%6\Graphics		nyi		
+395				Group	397					%6\Graphics		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+396				Group	398					%6\Graphics		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+397				Group	681 661 641 621 601 581 561 541 521 501 481 461 451 431							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+398				Group	421							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+399				AddRegData	"""CURRENT"", ""Software\Microsoft\VisualFoxPro\6.0\Options"", ""_STARTUP"", ""'%s\VFP6STRT.APP'"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+401				Group	402 403 404					%M		us		C:\Windows\system32\
+402				InstallShared	"VB RACMGR,racmgr32_exe,Racmgr32.exe,,1673"							us		C:\Windows\system32\
+403				InstallShared	"VB RACMGR,racreg32_dll_1,Racreg32.dll,,1673"							us		C:\Windows\system32\
+404				Depend	403?405							us	Yes	C:\Windows\system32\
+405		Racreg32.dll		CustomAction	"COMMON98.DLL,RegisterFile,""VB RACMGR,racreg32_dll_1,3"""					%403		us		C:\Windows\system32\
+411				Group	412 413					%6		us		C:\Program Files\Microsoft Visual Studio\Common\
+412				CustomAction	"COMMON98.DLL, NopCAH"							us		C:\Program Files\Microsoft Visual Studio\Common\
+413				InstallShared	"VB Enterprise,clireg32_exe_1,clireg32.exe,,1673"					%D\Tools\Clireg		us		C:\Program Files\Microsoft Visual Studio\Common\Tools\Clireg\
+421				Group	422 423 424 426 427							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+422				InstallShared	"Automation Manager,autmgr32_exe_1,Autmgr32.exe,,1673"					%M		us		C:\Windows\system32\
+423				InstallShared	"Automation Manager,autprx32_dll_1,Autprx32.dll,,1673"					%M		us		C:\Windows\system32\
+424				Depend	422?425							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+425				CustomAction	"COMMON98.DLL,SelfRegExeCAH,""%s\Autmgr32.exe"""					%422		us		C:\Windows\system32\
+426				CustomAction	"COMMON98.DLL,RemoveAuxFile,Automation Manager;autmgr32_log"					%422		us		C:\Windows\system32\
+427				Depend	423?428							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+428		Autprx32.dll		SelfReg	"Automation Manager,autprx32_dll_1,,"					%423		us		C:\Windows\system32\
+431				Group	432 433  435 436 437					%M		us		C:\Windows\system32\
+432				InstallShared	"VB MSSCRIPT,msscript_ocx,msscript.ocx,,1673"							se		
+433				Depend	432?434							us	No	C:\Windows\system32\
+434		msscript.ocx		SelfReg	"VB MSSCRIPT,msscript_ocx,,,"					%432		nyi		
+435				CompanionFile	"432: VB MSSCRIPT,msscript_hlp"					%432		us		C:\Windows\system32\
+436				CompanionFile	"432: VB MSSCRIPT,msscript_cnt"					%432		us		C:\Windows\system32\
+437				Depend	432?438 439 440							us	No	C:\Windows\system32\
+438				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSSCRIPT;msscript_ftg"							nyi		
+439				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSSCRIPT;msscript_fts"							nyi		
+440				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSSCRIPT;msscript_gid"							nyi		
+451				Group	452 453 454 456 457 1641							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+452				InstallSysFile	"VC MSCAL,mscal_ocx"					%M		us		C:\Windows\system32\
+453				InstallSysFile	"VC MSCAL,mscal_dep"					%452		us		C:\Windows\system32\
+454				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""455"""							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+455		mscal.ocx		SelfReg	"VC MSCAL,mscal_ocx,,, "					%452		us		C:\Windows\system32\
+456				CompanionFile	"452: VC MSCAL,mscal_hlp"					%452		us		C:\Windows\system32\
+457				CompanionFile	"452: VC MSCAL,mscal_cnt"					%452		us		C:\Windows\system32\
+461				Group	462 463  464 471							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+462				InstallShared	"VB MSMAPI32,msmapi32_ocx,msmapi32.ocx,,1673"					%M		us		C:\Windows\system32\
+463				InstallShared	"VB MSMAPI32,msmapi32_dep,msmapi32.dep,,1673"					%462		us		C:\Windows\system32\
+464				Depend	462?465 466 467 468 469 470							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+465		msmapi32.ocx		SelfReg	"VB MSMAPI32,msmapi32_ocx,,, "					%462		us		C:\Windows\system32\
+466				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSMAPI32;msmapi32_oca"					%462		us		C:\Windows\system32\
+467				CopyFile	"VB MSMAPI32,mapi98_ch2"					%W\Help		us		C:\Windows\Help\
+468				CopyFile	"VB MSMAPI32,mapi98_ch1"					%W\Help		us		C:\Windows\Help\
+469				CopyFile	"VB MSMAPI32,msmapi_srg"					%462		us		C:\Windows\system32\
+470				CustomAction	"COMMON98.DLL,RegFile,469"					%469		us		C:\Windows\system32\
+471				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""472 473"""					%462		us		C:\Windows\system32\
+472				CopyFile	"VB MSMAPI32,msmapi_srg"					%462		us		C:\Windows\system32\
+473				CustomAction	"COMMON98.DLL,RegFile,469"					%469		us		C:\Windows\system32\
+481				Group	482 483  484 491							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+482				InstallShared	"VB SYSINFO,sysinfo_ocx,sysinfo.ocx,,1673"					%M		us		C:\Windows\system32\
+483				InstallShared	"VB SYSINFO,sysinfo_dep,sysinfo.dep,,1673"					%482		us		C:\Windows\system32\
+484				Depend	482?485 486 487 488 489 490							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+485		sysinfo.ocx		SelfReg	"VB SYSINFO,sysinfo_ocx,,, "					%482		us		C:\Windows\system32\
+486				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB SYSINFO;sysinfo_oca"					%482		us		C:\Windows\system32\
+487				CopyFile	"VB SYSINFO,sysinf98_ch2"					%W\Help		us		C:\Windows\Help\
+488				CopyFile	"VB SYSINFO,sysinf98_ch1"					%W\Help		us		C:\Windows\Help\
+489				CopyFile	"VB SYSINFO,sysinfo_srg"					%482		us		C:\Windows\system32\
+490				CustomAction	"COMMON98.DLL,RegFile,489"					%489		us		C:\Windows\system32\
+491				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""492 493"""					%482		us		C:\Windows\system32\
+492				CopyFile	"VB SYSINFO,sysinfo_srg"					%482		us		C:\Windows\system32\
+493				CustomAction	"COMMON98.DLL,RegFile,489"					%489		us		C:\Windows\system32\
+501				Group	502							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+502				Group	503 504      505 512							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+503				InstallShared	"VB RICHTX32,richtx32_ocx,richtx32.ocx,,1673"					%M		us		C:\Windows\system32\
+504				InstallShared	"VB RICHTX32,richtx32_dep,richtx32.dep,,1673"					%503		us		C:\Windows\system32\
+505				Depend	503?506 507 508 509 510 511							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+506		richtx32.ocx		SelfReg	"VB RICHTX32,richtx32_ocx,,, "					%503		us		C:\Windows\system32\
+507				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB RICHTX32;richtx32_oca"					%503		us		C:\Windows\system32\
+508				CopyFile	"VB RICHTX32,rtfbox98_ch2"					%W\Help		us		C:\Windows\Help\
+509				CopyFile	"VB RICHTX32,rtfbox98_ch1"					%W\Help		us		C:\Windows\Help\
+510				CopyFile	"VB RICHTX32,richtext_srg"					%503		us		C:\Windows\system32\
+511				CustomAction	"COMMON98.DLL,RegFile,510"					%510		us		C:\Windows\system32\
+512				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""513 514 515"""					%503		us		C:\Windows\system32\
+513				CopyFile	"VB RICHTX32,richtext_srg"					%503		us		C:\Windows\system32\
+514				CustomAction	"COMMON98.DLL,RegFile,510"					%510		us		C:\Windows\system32\
+515				CopyFile	"VB RICHTX32,riched32_dll_2"					%M		se		
+521				Group	522 523  524 531							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+522				InstallShared	"VB PICCLP32,picclp32_ocx,picclp32.ocx,,1673"					%M		us		C:\Windows\system32\
+523				InstallShared	"VB PICCLP32,picclp32_dep,picclp32.dep,,1673"					%522		us		C:\Windows\system32\
+524				Depend	522?525 526 527 528 529 530							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+525		picclp32.ocx		SelfReg	"VB PICCLP32,picclp32_ocx,,, "					%522		us		C:\Windows\system32\
+526				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB PICCLP32;picclp32_oca"					%522		us		C:\Windows\system32\
+527				CopyFile	"VB PICCLP32,picclp98_ch2"					%W\Help		us		C:\Windows\Help\
+528				CopyFile	"VB PICCLP32,picclp98_ch1"					%W\Help		us		C:\Windows\Help\
+529				CopyFile	"VB PICCLP32,picclip_srg"					%522		us		C:\Windows\system32\
+530				CustomAction	"COMMON98.DLL,RegFile,529"					%529		us		C:\Windows\system32\
+531				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""532 533"""					%522		us		C:\Windows\system32\
+532				CopyFile	"VB PICCLP32,picclip_srg"					%522		us		C:\Windows\system32\
+533				CustomAction	"COMMON98.DLL,RegFile,529"					%529		us		C:\Windows\system32\
+541				Group	542 543  544 551							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+542				InstallShared	"VB MSWINSCK,mswinsck_ocx,mswinsck.ocx,,1673"					%M		us		C:\Windows\system32\
+543				InstallShared	"VB MSWINSCK,mswinsck_dep,mswinsck.dep,,1673"					%542		us		C:\Windows\system32\
+544				Depend	542?545 546 547 548 549 550							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+545		mswinsck.ocx		SelfReg	"VB MSWINSCK,mswinsck_ocx,,, "					%542		us		C:\Windows\system32\
+546				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSWINSCK;mswinsck_oca"					%542		us		C:\Windows\system32\
+547				CopyFile	"VB MSWINSCK,mswnsk98_ch2"					%W\Help		us		C:\Windows\Help\
+548				CopyFile	"VB MSWINSCK,mswnsk98_ch1"					%W\Help		us		C:\Windows\Help\
+549				CopyFile	"VB MSWINSCK,winsock_srg"					%542		us		C:\Windows\system32\
+550				CustomAction	"COMMON98.DLL,RegFile,549"					%549		us		C:\Windows\system32\
+551				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""552 553"""					%542		us		C:\Windows\system32\
+552				CopyFile	"VB MSWINSCK,winsock_srg"					%542		us		C:\Windows\system32\
+553				CustomAction	"COMMON98.DLL,RegFile,549"					%549		us		C:\Windows\system32\
+561				Group	562 563  564 571							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+562				InstallShared	"VB MSMASK32,msmask32_ocx,msmask32.ocx,,1673"					%M		us		C:\Windows\system32\
+563				InstallShared	"VB MSMASK32,msmask32_dep,msmask32.dep,,1673"					%562		us		C:\Windows\system32\
+564				Depend	562?565 566 567 568 569 570							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+565		msmask32.ocx		SelfReg	"VB MSMASK32,msmask32_ocx,,, "					%562		us		C:\Windows\system32\
+566				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSMASK32;msmask32_oca"					%562		us		C:\Windows\system32\
+567				CopyFile	"VB MSMASK32,masked98_ch2"					%W\Help		us		C:\Windows\Help\
+568				CopyFile	"VB MSMASK32,masked98_ch1"					%W\Help		us		C:\Windows\Help\
+569				CopyFile	"VB MSMASK32,msmask_srg"					%562		us		C:\Windows\system32\
+570				CustomAction	"COMMON98.DLL,RegFile,569"					%569		us		C:\Windows\system32\
+571				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""572 573"""					%562		us		C:\Windows\system32\
+572				CopyFile	"VB MSMASK32,msmask_srg"					%562		us		C:\Windows\system32\
+573				CustomAction	"COMMON98.DLL,RegFile,569"					%569		us		C:\Windows\system32\
+581				Group	582 583  584 591							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+582				InstallShared	"VB MSINET,msinet_ocx,msinet.ocx,,1673"					%M		us		C:\Windows\system32\
+583				InstallShared	"VB MSINET,msinet_dep,msinet.dep,,1673"					%582		us		C:\Windows\system32\
+584				Depend	582?585 586 587 588 589 590							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+585		msinet.ocx		SelfReg	"VB MSINET,msinet_ocx,,, "					%582		us		C:\Windows\system32\
+586				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSINET;msinet_oca"					%582		us		C:\Windows\system32\
+587				CopyFile	"VB MSINET,inet98_ch2"					%W\Help		us		C:\Windows\Help\
+588				CopyFile	"VB MSINET,inet98_ch1"					%W\Help		us		C:\Windows\Help\
+589				CopyFile	"VB MSINET,inetctls_srg"					%582		us		C:\Windows\system32\
+590				CustomAction	"COMMON98.DLL,RegFile,589"					%589		us		C:\Windows\system32\
+591				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""592 593"""					%582		us		C:\Windows\system32\
+592				CopyFile	"VB MSINET,inetctls_srg"					%582		us		C:\Windows\system32\
+593				CustomAction	"COMMON98.DLL,RegFile,589"					%589		us		C:\Windows\system32\
+601				Group	602 603  604 611							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+602				InstallShared	"VB MSCOMM32,mscomm32_ocx,mscomm32.ocx,,1673"					%M		us		C:\Windows\system32\
+603				InstallShared	"VB MSCOMM32,mscomm32_dep,mscomm32.dep,,1673"					%602		us		C:\Windows\system32\
+604				Depend	602?605 606 607 608 609 610							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+605		mscomm32.ocx		SelfReg	"VB MSCOMM32,mscomm32_ocx,,, "					%602		us		C:\Windows\system32\
+606				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSCOMM32;mscomm32_oca"					%602		us		C:\Windows\system32\
+607				CopyFile	"VB MSCOMM32,comm98_chi_1"					%W\Help		us		C:\Windows\Help\
+608				CopyFile	"VB MSCOMM32,comm98_chm_1"					%W\Help		us		C:\Windows\Help\
+609				CopyFile	"VB MSCOMM32,mscomm_srg"					%602		us		C:\Windows\system32\
+610				CustomAction	"COMMON98.DLL,RegFile,609"					%609		us		C:\Windows\system32\
+611				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""612 613"""					%602		us		C:\Windows\system32\
+612				CopyFile	"VB MSCOMM32,mscomm_srg"					%602		us		C:\Windows\system32\
+613				CustomAction	"COMMON98.DLL,RegFile,609"					%609		us		C:\Windows\system32\
+621				Group	622 623  624 631							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+622				InstallShared	"VB MSCHART,mschart_ocx,mschrt20.ocx,,1673"					%M		us		C:\Windows\system32\
+623				InstallShared	"VB MSCHART,mschart_dep,mschrt20.dep,,1673"					%622		us		C:\Windows\system32\
+624				Depend	622?625 626 627 628 629 630							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+625		mschrt20.ocx		SelfReg	"VB MSCHART,mschart_ocx,,, "					%622		us		C:\Windows\system32\
+626				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MSCHART;mschart_oca"					%622		us		C:\Windows\system32\
+627				CopyFile	"VB MSCHART,mschrt98_chi_1"					%W\Help		us		C:\Windows\Help\
+628				CopyFile	"VB MSCHART,mschrt98_chm_1"					%W\Help		us		C:\Windows\Help\
+629				CopyFile	"VB MSCHART,mschart_srg"					%622		us		C:\Windows\system32\
+630				CustomAction	"COMMON98.DLL,RegFile,629"					%629		us		C:\Windows\system32\
+631				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""632 633"""					%622		us		C:\Windows\system32\
+632				CopyFile	"VB MSCHART,mschart_srg"					%622		us		C:\Windows\system32\
+633				CustomAction	"COMMON98.DLL,RegFile,629"					%629		us		C:\Windows\system32\
+641				Group	642 643  644 651							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+642				InstallShared	"VB MCI32,mci32_ocx,mci32.ocx,,1673"					%M		us		C:\Windows\system32\
+643				InstallShared	"VB MCI32,mci32_dep,mci32.dep,,1673"					%642		us		C:\Windows\system32\
+644				Depend	642?645 646 647 648 649 650							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+645		mci32.ocx		SelfReg	"VB MCI32,mci32_ocx,,, "					%642		us		C:\Windows\system32\
+646				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB MCI32;mci32_oca"					%642		us		C:\Windows\system32\
+647				CopyFile	"VB MCI32,mmedia98_chi_1"					%W\Help		us		C:\Windows\Help\
+648				CopyFile	"VB MCI32,mmedia98_chm_1"					%W\Help		us		C:\Windows\Help\
+649				CopyFile	"VB MCI32,mci_srg"					%642		us		C:\Windows\system32\
+650				CustomAction	"COMMON98.DLL,RegFile,649"					%649		us		C:\Windows\system32\
+651				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""652 653"""					%642		us		C:\Windows\system32\
+652				CopyFile	"VB MCI32,mci_srg"					%642		us		C:\Windows\system32\
+653				CustomAction	"COMMON98.DLL,RegFile,649"					%649		us		C:\Windows\system32\
+661				Group	662 663  664 671							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+662				InstallShared	"VB COMCT332,comct332_ocx,comct332.ocx,,1673"					%M		us		C:\Windows\system32\
+663				InstallShared	"VB COMCT332,comct332_dep,comct332.dep,,1673"					%662		us		C:\Windows\system32\
+664				Depend	662?665 666 667 668 669 670							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+665		comct332.ocx		CustomAction	"COMMON98.DLL,RegisterFile,""VB COMCT332,comct332_ocx,3"" "					%662		us		C:\Windows\system32\
+666				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCT332;comct332_oca"					%662		us		C:\Windows\system32\
+667				CopyFile	"VB COMCT332,cmctl398_chi_1"					%W\Help		us		C:\Windows\Help\
+668				CopyFile	"VB COMCT332,cmctl398_chm_1"					%W\Help		us		C:\Windows\Help\
+669				CopyFile	"VB COMCT332,comct332_srg"					%662		us		C:\Windows\system32\
+670				CustomAction	"COMMON98.DLL,RegFile,669"					%669		us		C:\Windows\system32\
+671				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""672 673"""					%662		us		C:\Windows\system32\
+672				CopyFile	"VB COMCT332,comct332_srg"					%662		us		C:\Windows\system32\
+673				CustomAction	"COMMON98.DLL,RegFile,669"					%669		us		C:\Windows\system32\
+681				Group	682 701							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+682				Group	683 684  685 698							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+683				InstallShared	"VB COMCT232,comct232_ocx,comct232.ocx,,1673"					%M		us		C:\Windows\system32\
+684				InstallShared	"VB COMCT232,comct232_dep,comct232.dep,,1673"					%683		us		C:\Windows\system32\
+685				Depend	683?686 694 695 696 697 1641 1651							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+686				Group	687 688 689 690 691 692 693							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+687				CopyFile	"VB COMCT232,comctl2_hlp"					%W\Help		us		C:\Windows\Help\
+688				CopyFile	"VB COMCT232,comctl2_cnt"					%W\Help		us		C:\Windows\Help\
+689				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,comctl2.hlp,%s,"					%687		us		C:\Windows\Help\
+690				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,comctl2.cnt,%s,"					%688		us		C:\Windows\Help\
+691				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCT232;comctl2_ftg"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+692				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCT232;comctl2_fts"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+693				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCT232;comctl2_gid"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+694		comct232.ocx		SelfReg	"VB COMCT232,comct232_ocx,,, "					%683		us		C:\Windows\system32\
+695				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCT232;comct232_oca"					%683		us		C:\Windows\system32\
+696				CopyFile	"VB COMCT232,comct232_srg"					%683		us		C:\Windows\system32\
+697				CustomAction	"COMMON98.DLL,RegFile,696"					%696		us		C:\Windows\system32\
+698				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""699 700"""					%683		us		C:\Windows\system32\
+699				CopyFile	"VB COMCT232,comct232_srg"					%683		us		C:\Windows\system32\
+700				CustomAction	"COMMON98.DLL,RegFile,696"					%696		us		C:\Windows\system32\
+701				Group	702 703  704 711							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+702				InstallShared	"VB COMCT232,mscomct2_ocx,mscomct2.ocx,,1673"					%M		us		C:\Windows\system32\
+703				InstallShared	"VB COMCT232,mscomct2_dep,MSComCt2.dep,,1673"					%702		us		C:\Windows\system32\
+704				Depend	702?705 706 707 708 709 710							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+705		mscomct2.ocx		SelfReg	"VB COMCT232,mscomct2_ocx,,, "					%702		us		C:\Windows\system32\
+706				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCT232;mscomct2_oca"					%702		us		C:\Windows\system32\
+707				CopyFile	"VB COMCT232,cmctl298_chi_1"					%W\Help		us		C:\Windows\Help\
+708				CopyFile	"VB COMCT232,cmctl298_chm_1"					%W\Help		us		C:\Windows\Help\
+709				CopyFile	"VB COMCT232,mscomct2_srg"					%702		us		C:\Windows\system32\
+710				CustomAction	"COMMON98.DLL,RegFile,709"					%709		us		C:\Windows\system32\
+711				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""712 713"""					%702		us		C:\Windows\system32\
+712				CopyFile	"VB COMCT232,mscomct2_srg"					%702		us		C:\Windows\system32\
+713				CustomAction	"COMMON98.DLL,RegFile,709"					%709		us		C:\Windows\system32\
+721				Group	722 723							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+722				InstallSysFile	"VB MSSTKPRP,msstkprp_dll"					%M		us		C:\Windows\system32\
+723				Depend	722?724							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+724		msstkprp.dll		SelfReg	"VB MSSTKPRP,msstkprp_dll,,, "					%722		us		C:\Windows\system32\
+731				Group	732 733  734 741							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+732				InstallShared	"VB COMDLG32,comdlg32_ocx,comdlg32.ocx,,1673"					%M		us		C:\Windows\system32\
+733				InstallShared	"VB COMDLG32,comdlg32_dep,comdlg32.dep,,1673"					%732		us		C:\Windows\system32\
+734				Depend	732?735 736 737 738 739 740							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+735		comdlg32.ocx		SelfReg	"VB COMDLG32,comdlg32_ocx,,, "					%732		us		C:\Windows\system32\
+736				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMDLG32;comdlgd_oca"					%732		us		C:\Windows\system32\
+737				CopyFile	"VB COMDLG32,cmdlg98_chi_1"					%W\Help		us		C:\Windows\Help\
+738				CopyFile	"VB COMDLG32,cmdlg98_chm_1"					%W\Help		us		C:\Windows\Help\
+739				CopyFile	"VB COMDLG32,cmdialog_srg"					%732		us		C:\Windows\system32\
+740				CustomAction	"COMMON98.DLL,RegFile,739"					%739		us		C:\Windows\system32\
+741				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""742 743"""					%732		us		C:\Windows\system32\
+742				CopyFile	"VB COMDLG32,cmdialog_srg"					%732		us		C:\Windows\system32\
+743				CustomAction	"COMMON98.DLL,RegFile,739"					%739		us		C:\Windows\system32\
+751				Group	752 771							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+752				Group	753 754  755 768							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+753				InstallShared	"VB COMCTL32,comctl32_ocx,comctl32.ocx,,1673"					%M		us		C:\Windows\system32\
+754				InstallShared	"VB COMCTL32,comctl32_dep,comctl32.dep,,1673"					%753		us		C:\Windows\system32\
+755				Depend	753?756 764 765 766 767 1641 1651							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+756				Group	757 758 759 760 761 762 763							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+757				CopyFile	"VB COMCTL32,comctl1_hlp_1"					%W\Help		us		C:\Windows\Help\
+758				CopyFile	"VB COMCTL32,comctl1_cnt_1"					%W\Help		us		C:\Windows\Help\
+759				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,comctl1.hlp,%s,"					%757		us		C:\Windows\Help\
+760				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,comctl1.cnt,%s,"					%758		us		C:\Windows\Help\
+761				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCTL32;comctl1_ftg"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+762				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCTL32;comctl1_fts"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+763				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCTL32;comctl1_gid"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+764		comctl32.ocx		CustomAction	"COMMON98.DLL,RegisterFile,""VB COMCTL32,comctl32_ocx,3"""					%753		us		C:\Windows\system32\
+765				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCTL32;comctl32_oca"					%753		us		C:\Windows\system32\
+766				CopyFile	"VB COMCTL32,comctl32_srg"					%753		us		C:\Windows\system32\
+767				CustomAction	"COMMON98.DLL,RegFile,766"					%766		us		C:\Windows\system32\
+768				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""769 770"""					%753		us		C:\Windows\system32\
+769				CopyFile	"VB COMCTL32,comctl32_srg"					%753		us		C:\Windows\system32\
+770				CustomAction	"COMMON98.DLL,RegFile,766"					%766		us		C:\Windows\system32\
+771				Group	772 773  774 781							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+772				InstallShared	"VB COMCTL32,mscomctl_ocx,mscomctl.ocx,,1673"					%M		us		C:\Windows\system32\
+773				InstallShared	"VB COMCTL32,mscomctl_dep,MSComCtl.dep,,1673"					%772		us		C:\Windows\system32\
+774				Depend	772?775 776 777 778 779 780							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+775		mscomctl.ocx		CustomAction	"COMMON98.DLL,RegisterFile,""VB COMCTL32,mscomctl_ocx,3"""					%772		us		C:\Windows\system32\
+776				CustomAction	"COMMON98.DLL, RemoveAuxFile, VB COMCTL32;mscomctl_oca"					%772		us		C:\Windows\system32\
+777				CopyFile	"VB COMCTL32,cmctl198_chi_1"					%W\Help		us		C:\Windows\Help\
+778				CopyFile	"VB COMCTL32,cmctl198_chm_1"					%W\Help		us		C:\Windows\Help\
+779				CopyFile	"VB COMCTL32,mscomctl_srg"					%772		us		C:\Windows\system32\
+780				CustomAction	"COMMON98.DLL,RegFile,779"					%779		us		C:\Windows\system32\
+781				CustomAction	"COMMON98.DLL, NeverRemoveGroup, ""782 783"""					%772		us		C:\Windows\system32\
+782				CopyFile	"VB COMCTL32,mscomctl_srg"					%772		us		C:\Windows\system32\
+783				CustomAction	"COMMON98.DLL,RegFile,779"					%779		us		C:\Windows\system32\
+791				Group	792 793 794					%6\Graphics		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+792				CustomAction	"COMMON98.DLL, NopCAH"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+793				InstallShared	"WMF - Tag,2darrow1_wmf,2darrow1.wmf,,1673"					%D\Metafile\Arrows		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Metafile\Arrows\
+794				Depend	793?795 796							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+795				CopySection	WMF - Arrows					%D\Metafile\Arrows		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Metafile\Arrows\
+796				CopySection	WMF - Business					%D\Metafile\Business		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Metafile\Business\
+801				Group	802 803 804					%D\Bitmaps		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\
+802				CustomAction	"COMMON98.DLL, NopCAH"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\
+803				InstallShared	"Bitmaps - Tag,balloon_bmp,balloon.bmp,,1673"					%D\Assorted		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Assorted\
+804				Depend	803?805 806 807 808 809 810 811 812 813 814 815							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\
+805				CopySection	Bitmaps - Assorted					%D\Assorted		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Assorted\
+806				CopySection	Bitmaps - Gauge					%D\Gauge		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Gauge\
+807				CopySection	Bitmaps - OffCtlBr - B&W - large					%D\OffCtlBr\Large\B&W		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\OffCtlBr\Large\B&W\
+808				CopySection	Bitmaps - OffcCtlBr - B&W - small					%D\OffCtlBr\Small\B&W		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\OffCtlBr\Small\B&W\
+809				CopySection	Bitmaps - OffCtlBr - Color - large					%D\OffCtlBr\Large\Color		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\OffCtlBr\Large\Color\
+810				CopySection	Bitmaps - OffcCtlBr - Color - small					%D\OffCtlBr\Small\Color		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\OffCtlBr\Small\Color\
+811				CopySection	Bitmaps - Outline					%D\Outline		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Outline\
+812				CopySection	Bitmaps - Outline - Nomask					%D\Outline\NoMask		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Outline\NoMask\
+813				CopySection	Bitmaps - Outline - Redmask					%D\Outline\RedMask		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\Outline\RedMask\
+814				CopySection	Bitmaps - TlBr - W95					%D\TlBr_W95		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\TlBr_W95\
+815				CopySection	Bitmaps - TlBr - W96					%D\TlBr_W95		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Bitmaps\TlBr_W95\
+821				Group	822 823					%D\Cursors		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Cursors\
+822				InstallShared	"Cursors - Tag,4way01_cur,4way01.cur,,1673"					%D		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Cursors\
+823				Depend	822?824							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\Cursors\
+824				CopySection	Cursors					%D		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Cursors\
+831				Group	832 833 834					%D\Icons		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\
+832				CustomAction	"COMMON98.DLL, NopCAH"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\
+833				InstallShared	"I-Arrows - Tag,arw01dn_ico,arw01dn.ico,,1673"					%D\Arrows		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Arrows\
+834				Depend	833?835 836 837 838 839 840 841 842 843 844 845 846 847							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\
+835				CopySection	I-Arrows					%D\Arrows		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Arrows\
+836				CopySection	I-Comm					%D\Comm		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Comm\
+837				CopySection	I-Computer					%D\Computer		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Computer\
+838				CopySection	I-Drag/Drop					%D\Dragdrop		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Dragdrop\
+839				CopySection	I-Elements					%D\Elements		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Elements\
+840				CopySection	I-Flags					%D\Flags		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Flags\
+841				CopySection	I-Industry					%D\Industry		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Industry\
+842				CopySection	I-Mail					%D\Mail		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Mail\
+843				CopySection	I-Misc					%D\Misc		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Misc\
+844				CopySection	I-Office					%D\Office		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Office\
+845				CopySection	I-Traffic					%D\Traffic		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Traffic\
+846				CopySection	I-Writing					%D\Writing		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Writing\
+847				CopySection	I-Win95					%D\Win95		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Icons\Win95\
+851				Group	852 853 854					%6\Graphics		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+852				Group	1394					%6\Graphics		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+853				InstallShared	"AVI - Tag,blur16_avi,blur16.avi,,1673"					%D\Videos		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Videos\
+854				Depend	853?855							us	Yes	C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+855				CopySection	AVI					%D\Videos		us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\Videos\
+861				Group	862 864 865							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+862				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""863"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+863				AddRegData	"""CLASSES"",""Licenses"","""",""Licensing: Copying the keys may be a violation of established copyrights."","""""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+864				InstallShared	"VB MSOUTL32,msoutl32_ocx,msoutl32.ocx,,1673"					%M		us		C:\Windows\system32\
+865				Depend	864?866 867 868							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+866		msoutl32.ocx		SelfReg	"VB MSOUTL32,msoutl32_ocx,,,"					%864		us		C:\Windows\system32\
+867				AddRegData	"""CLASSES"",""Licenses\DB4C0D00-400B-101B-A3C9-08002B2F49FB"","""",""mgkgtgnnmnmninigthkgogggvmkhinjggnvm"","""""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+868				AddRegData	"""CLASSES"",""Licenses\7BC20EDC-4A42-101B-A3C9-08002B2F49FB"","""",""gifblihbhiiihbciocfbkifbqcfcdiebbiqh"","""""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+871				CopySection	Vfp Tools Foxtools					%D\Tools		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\
+881				CopySection	Vfp Tools Source					%D\Tools\XSource		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\XSource\
+891				Group	892					%D\Wizards\Template\Household Inventory\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Household Inventory\Data\
+892				CopySection	Wizard Files Templates Household Data							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Household Inventory\Data\
+901				Group	902 903					%D\Wizards\Template\Event Management\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Event Management\Data\
+902				CopySection	Wizard Files Templates Event Management Data 1							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Event Management\Data\
+903				CopySection	Wizard Files Templates Event Management Data 2							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Event Management\Data\
+911				Group	912							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+912				CopySection	Wizard Files Templates Workout Data					%D\Wizards\Template\Workout\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Workout\Data\
+921				Group	922							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+922				CopySection	Wizard Files Templates Wine List Data					%D\Wizards\Template\Wine List\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Wine List\Data\
+931				Group	932							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+932				CopySection	Wizard Files Templates Video Data					%D\Wizards\Template\Video Collection\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Video Collection\Data\
+941				Group	942 943					%D\Wizards\Template\Time And Billing\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Time And Billing\Data\
+942				CopySection	Wizard Files Templates Timebill Data 1							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Time And Billing\Data\
+943				CopySection	Wizard Files Templates Timebill Data 2							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Time And Billing\Data\
+951				Group	952							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+952				CopySection	Wizard Files Templates Students Data					%D\Wizards\Template\Students And Classes\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Students And Classes\Data\
+961				Group	962 963					%D\Wizards\Template\Service Call Management\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Service Call Management\Data\
+962				CopySection	Wizard Files Templates SrvcCall Data 1							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Service Call Management\Data\
+963				CopySection	Wizard Files Templates SrvcCall Data 2							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Service Call Management\Data\
+971				Group	972							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+972				CopySection	Wizard Files Templates RrscSched Data					%D\Wizards\Template\Resource Scheduling\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Resource Scheduling\Data\
+981				Group	982							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+982				CopySection	Wizard Files Templates Picture Data					%D\Wizards\Template\Picture Library\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Picture Library\Data\
+991				Group	992 993					%D\Wizards\Template\Order Entry\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Order Entry\Data\
+992				CopySection	Wizard Files Templates OrderEntry Data 1							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Order Entry\Data\
+993				CopySection	Wizard Files Templates OrderEntry Data 2							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Order Entry\Data\
+1001				Group	1002							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1002				CopySection	Wizard Files Templates Music Data					%D\Wizards\Template\Music Collection\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Music Collection\Data\
+1011				Group	1012							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1012				CopySection	Wizard Files Templates Membership Data					%D\Wizards\Template\Membership\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Membership\Data\
+1021				Group	1022							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1022				CopySection	Wizard Files Templates Ledger Data					%D\Wizards\Template\Ledger\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Ledger\Data\
+1031				Group	1032 1033					%D\Wizards\Template\Inventory Control\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Inventory Control\Data\
+1032				CopySection	Wizard Files Templates Inventory Data 1							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Inventory Control\Data\
+1033				CopySection	Wizard Files Templates Inventory Data 2							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Inventory Control\Data\
+1041				Group	1042							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1042				CopySection	Wizard Files Templates Expenses Data					%D\Wizards\Template\Expenses\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Expenses\Data\
+1051				Group	1052 1053 1054 1055 1056 1057 1058					%D\FFC		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\
+1052				CopySection	VFP Foundation Classes 1					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\
+1053				CopySection	VFP Foundation Classes 2					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\
+1054				CopySection	VFP Foundation Classes 3					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\
+1055				CopySection	VFP Foundation Classes 4					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\
+1056				CopySection	VFP Foundation Classes Graphics 1					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\Graphics\
+1057				CopySection	VFP Foundation Classes Graphics 2					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\Graphics\
+1058				CopySection	VFP Foundation Classes Graphics 3					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\FFC\Graphics\
+1061				Group	1062 1063 1064 1065							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1062				CopySection	Wizard Files Templates Recipes Data					%D\Wizards\Template\Recipes\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Recipes\Data\
+1063				CopySection	Wizard Files Templates Recipes Forms					%D\Wizards\Template\Recipes\Forms		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Recipes\Forms\
+1064				CopySection	Wizard Files Templates Recipes Reports					%D\Wizards\Template\Recipes\Reports		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Recipes\Reports\
+1065				CopySection	Wizard Files Templates Recipes Libs					%D\Wizards\Template\Recipes\Libs		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Recipes\Libs\
+1071				Group	1072 1073 1074 1075							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1072				CopySection	Wizard Files Templates Donation Data					%D\Wizards\Template\Donation\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Donation\Data\
+1073				CopySection	Wizard Files Templates Donation Forms					%D\Wizards\Template\Donation\Forms		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Donation\Forms\
+1074				CopySection	Wizard Files Templates Donation Reports					%D\Wizards\Template\Donation\Reports		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Donation\Reports\
+1075				CopySection	Wizard Files Templates Donation Libs					%D\Wizards\Template\Donation\Libs		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Donation\Libs\
+1081				Group	1082 1083 1084 1085 1086							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1082				CopySection	Wizard Files Templates Contact Graph					%D\Wizards\Template\Contact\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Contact\Graphics\
+1083				CopySection	Wizard Files Templates Contact Data					%D\Wizards\Template\Contact\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Contact\Data\
+1084				CopySection	Wizard Files Templates Contact Forms					%D\Wizards\Template\Contact\Forms		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Contact\Forms\
+1085				CopySection	Wizard Files Templates Contact Reports					%D\Wizards\Template\Contact\Reports		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Contact\Reports\
+1086				CopySection	Wizard Files Templates Contact Libs					%D\Wizards\Template\Contact\Libs		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Contact\Libs\
+1091				Group	1092 1093 1094 1095							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1092				CopySection	Wizard Files Templates Books Data					%D\Wizards\Template\Books\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Books\Data\
+1093				CopySection	Wizard Files Templates Books Forms					%D\Wizards\Template\Books\Forms		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Books\Forms\
+1094				CopySection	Wizard Files Templates Books Libs					%D\Wizards\Template\Books\Libs		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Books\Libs\
+1095				CopySection	Wizard Files Templates Books Reports					%D\Wizards\Template\Books\Reports		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Books\Reports\
+1101				Group	1102							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1102				CopySection	Wizard Files Templates Assets Data					%D\Wizards\Template\Asset Tracking\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Asset Tracking\Data\
+1111				Group	1112							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1112				CopySection	Wizard Files Templates AddrBook Data					%D\Wizards\Template\Address Book\Data		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Template\Address Book\Data\
+1121				Group	1122 1123 1124 1125 1126 1127 1128 1129 1130 1131 1132 1133 1134 1135 1136 1137					%D\Wizards		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1122				CopySection	Wizard App Wizard Files 1					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1123				CopySection	Wizard App Wizard Files 2					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1124				CopySection	Wizard App Wizard Files 3					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1125				CopySection	Wizard App Wizard Files 4					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1126				CopySection	Wizard App Wizard Files 5					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1127				CopySection	Wizard Files					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1128				CopySection	Wizard Files Stylebmps1					%D\Stylebmp		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Stylebmp\
+1129				CopySection	Wizard Files Stylebmps2					%D\Stylebmp		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Stylebmp\
+1130				CopySection	Wizard Files WizBmps					%D\Wizbmps		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Wizbmps\
+1131				CopySection	Setup Wizard					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1132				CopySection	Wizard Apps 1					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1133				CopySection	Wizard Apps 2					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\
+1134				CopySection	Wizard Graphics 1					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1135				CopySection	Wizard Graphics 2					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1136				CopySection	Wizard Graphics 3					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1137				Group	1138 1139 1140 1141 1142 1143 1144 1145 1146 1147 1148 1149 1150 1151 1152 1153 1154 1155 1156 1157 1158 1159					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1138				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00486__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1139				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00516__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1140				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00531__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1141				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00546__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1142				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00673__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1143				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00703__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1144				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00720__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1145				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00742__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1146				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00756__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1147				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00760__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1148				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00780__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1149				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00785__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1150				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb00819__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1151				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01231__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1152				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01276__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1153				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01306__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1154				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01308__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1155				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01741__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1156				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01844__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1157				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01845__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1158				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01846__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1159				CustomAction	"COMMON98.DLL, RemoveAuxFile, Wizard Graphics 3;wb01847__gif"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Wizards\Graphics\
+1161				Group	1162 1163 1164					%D\Gallery		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\
+1162				CopySection	VFP CLASS GALLERY1					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\
+1163				CopySection	VFP CLASS GALLERY2					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\
+1164				Group	1165 1166 1167 1168							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\
+1165				CopySection	VFP Class Gallery Graphics 1					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\Graphics\
+1166				CopySection	VFP Class Gallery Graphics 2					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\Graphics\
+1167				CopySection	VFP Class Gallery Graphics 3					%D\Graphics		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\Graphics\
+1168				CopySection	VFP Class Gallery Media					%D\Media		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Gallery\Media\
+1171				Group	1172 1173							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1172				CopySection	vfp Transformer					%D\Tools\Transfrm		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Transfrm\
+1173				CopySection	vfp Transformer Samples					%D\Tools\Transfrm\Samples		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Transfrm\Samples\
+1181				Group	1182 1183							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1182				CopySection	vfp Tools InetWiz					%D\Tools\Inetwiz		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Inetwiz\
+1183				CopySection	vfp Tools InetWiz Server					%D\Tools\Inetwiz\Server		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Inetwiz\Server\
+1191				CopySection	vfp Tools HexEdit					%D\Tools\Hexedit		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Hexedit\
+1201				CopySection	vfp Tools GENDBC					%D\Tools\Gendbc		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Gendbc\
+1211				Group	1212 1213 1215					%D\Tools\Filer		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Filer\
+1212				CopyFile	"VFP Tools Filer, filer_dll"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Filer\
+1213				Depend	1212 ? 1214							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Filer\
+1214		filer.dll		SelfReg	"VFP Tools Filer,filer_dll,,,"					%1212		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Filer\
+1215				CopySection	VFP Tools Filer							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Filer\
+1221				CopySection	vfp Tools CPZero					%D\Tools\Cpzero		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Cpzero\
+1231				CopySection	vfp Tools Convert					%D\Tools\Convert		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Convert\
+1241				CopySection	vfp Tools Analyzer					%D\Tools\Analyzer		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Analyzer\
+1251				CopySection	vfp Tools AddLabel					%D\Tools\Addlabel		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Tools\Addlabel\
+1261				Group	1262 1263 1264 1265 1266 1267 1268 1269 1270					%D\Distrib.src		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\
+1262				CopySection	Setup Wizard Files 1					%D\System		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\
+1263				CopySection	Setup Wizard Files 2					%D\System		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\
+1264				CopySection	Setup Wizard Files 3					%D\System		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\
+1265				CopySection	Setup Wizard Files 4					%D\System		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\
+1266				CopySection	Setup Wizard Files 5					%D\System		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\
+1267				CopySection	Setup Wizard Files 6					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\
+1268				CopySection	Setup Wizard Files 6A					%D\System		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\
+1269				CopySection	Setup Wizard Files 7					%D\Setup		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\Setup\
+1270				CopySection	Setup Wizard Files 8					%D\System\WinNT		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Distrib.src\System\WinNT\
+1281				Group	1282 1283 1284 1285 1286 1287 1288 1289 1291 1292 1522 1527							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1282				InstallSysFile	"DA Code Page Translators, 12500852_cpx"					%M		us		C:\Windows\system32\
+1283				InstallSysFile	"DA Code Page Translators, 12510866_cpx"					%M		us		C:\Windows\system32\
+1284				InstallSysFile	"DA Code Page Translators, 12520860_cpx"					%M		us		C:\Windows\system32\
+1285				InstallSysFile	"DA Code Page Translators, 12520861_cpx"					%M		us		C:\Windows\system32\
+1286				InstallSysFile	"DA Code Page Translators, 12520863_cpx"					%M		us		C:\Windows\system32\
+1287				InstallSysFile	"DA Code Page Translators, 12520865_cpx"					%M		us		C:\Windows\system32\
+1288				InstallShared	"OLE Custom Controls, foxhwnd_ocx, foxhwnd.ocx,,1673"					%M		us		C:\Windows\system32\
+1289				Depend	1288 ? 1290							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1290		foxhwnd.ocx		SelfReg	"OLE Custom Controls, foxhwnd_ocx,,,"					%1288		us		C:\Windows\system32\
+1291				InstallShared	"OLE Custom Controls, foxtlib_ocx, foxtlib.ocx,,1673"					%M		us		C:\Windows\system32\
+1292				Depend	1291 ? 1293							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1293		foxtlib.ocx		SelfReg	"OLE Custom Controls, foxtlib_ocx,,,"					%1291		us		C:\Windows\system32\
+1301				Group	1302 1303 1304 1305 1306 1307 1308 1309 1310 1311 1312 1313 1314 1315 1316 1317      1321 1322 1318 1319   1323 1324 1326 1327 1329 1330 1331							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1302				CopySection	Code Beautifier					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1303				CopySection	Class Browser					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1304				CopySection	Builder Root Files					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1305				CopySection	Coverage Application					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1306				CopySection	Gallery Application					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1307				CopySection	Foxpro					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1308				CopySection	IntlFont					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1309				CopySection	FoxFont					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1310				CopySection	Help Files					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1311				CopySection	Foxtools					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1312				CopySection	SCC Files					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1313				CopyFile	"Generate HTML, genhtml_prg"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1314				CopyBindExe	"Foxpro Executable, vfp6_exe"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1315				StampCDInfo	"1314, 456, 123"					%1314		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1316		reg_vfp6_exe		CustomAction	"COMMON98.DLL,ShellExeRegCAH,""%s\vfp6.exe"""					%1314		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1317				CopyFile	"Foxpro Executable, vfp5_dll"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1318				CustomAction	"COMMON98.DLL,LangCheckCAH,KOR"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1319				Depend	1318 ? 1320							us	No	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1320				CopyFile	"Foxpro Executable, vfp6kor_dll_1"					%D		nyi		
+1321				CopySection	Wizard Root Files					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1322				InstallShortcut	"%1314\%F1314,VFP98<Microsoft Visual FoxPro 6.0>,%1314,,,,"					%17\Microsoft Visual FoxPro 6.0		us		C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Visual FoxPro 6.0\
+1323				CopyFile	"FoxHelp Executable, foxhhelp_exe"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1324				Depend	1323 ? 1325							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1325		reg_foxhhelp_exe		CustomAction	"COMMON98.DLL,SelfRegExeCAH,""""""%s\foxhhelp.exe"""""""					%1323		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1326				CopyFile	"FoxHelp Executable, foxhhelp_dll"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1327				Depend	1326 ? 1328							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1328		foxhhelp.dll		SelfReg	"FoxHelp Executable,foxhhelp_dll,,,"					%1326		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1329				CopyFile	"DDEReg, ddereg_exe"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1330				CopyFile	"Foxpro OLE, fpole_ocx"					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1331				Depend	1330 ? 1332							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1332		fpole.ocx		SelfReg	"Foxpro OLE,fpole_ocx,,,"					%1330		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1341				Group	1342 1343 1345 1346 1347         1349 1350							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1342				InstallSysFile	"Foxpro Runtime,vfp6r_dll"					%M		us		C:\Windows\system32\
+1343				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1344"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1344		vfp6r.dll		SelfReg	"Foxpro Runtime,vfp6r_dll,,,"					%1342		us		C:\Windows\system32\
+1345				InstallSysFile	"Foxpro Runtime,vfp6renu_dll"					%M		us		C:\Windows\system32\
+1346				CustomAction	"COMMON98.DLL,LangCheckCAH,KOR"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1347				Depend	1346 ? 1348							us	No	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1348				InstallSysFile	"Foxpro Runtime,vfp6rkor_dll"					%M		nyi		
+1349				InstallSysFile	"Foxpro Runtime,vfp6run_exe"					%M		us		C:\Windows\system32\
+1350				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1351"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1351		reg_vfp6run_exe		CustomAction	"COMMON98.DLL,SelfRegExeCAH,""""""%s\VFP6RUN.EXE"""""""					%1349		us		C:\Windows\system32\
+1361				Group	1362 1363							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1362				CopySection	VFP File Spec Reports 2_6					%D\Filespec		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Filespec\
+1363				CopySection	VFP File Spec Reports 5_0					%D\Filespec		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Filespec\
+1371				Group	1372 1373							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1372				CopySection	VFP API					%D\Api		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Api\
+1373				Group	1374 1375							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1374				CopySection	VFP API Samples					%D\Api\Samples		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Api\Samples\
+1375				CopySection	VFP API Samples Foxtlib					%D\Api\Samples\Foxtlib		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Api\Samples\Foxtlib\
+1381				Group	1382 1383 1384 1385							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1382		bb_fox		CustomAction	"bboard.dll,AddBillboard,5000"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1383		bb_vspro		CustomAction	"bboard.dll,AddBillboard,5100"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1384		bb_msdn		CustomAction	"bboard.dll,AddBillboard,6000"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1385				CustomAction	"bboard.dll,RemoveFontFiles"					%W		us		C:\Windows\
+1391	yes	Tools	Miscellaneous tools such as the Spell Checker and MS Info.	CustomDlg	1392 1393					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1392	yes	Spell Checker	Checks the spelling of your files.	Group	1421					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1393	yes	MS Info	Tool used to gather system configuration information.	Group	1401					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1394				CustomAction	"COMMON98.DLL, NopCAH"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1401	yes	Ms Info	Tool used to gather system configuration information	Group	1402 1403 1404 1405 1406 1407					%H\MSInfo		us		C:\Program Files\Common Files\Microsoft Shared\MSInfo\
+1402				InstallShared	"MSInfo,msinfo32_exe,MsInfo,,1673"							se		
+1403				CompanionFile	"1402: MSInfo,imgwalk_dll"					%1402		us		C:\Windows\system32\
+1404				CompanionFile	"1402: MSInfo,msinf16h_exe"					%1402		us		C:\Windows\system32\
+1405				CompanionFile	"1402: MSInfo,msinfo32_hlp"					%1402		us		C:\Windows\system32\
+1406				CompanionFile	"1402: MSInfo,msinfo32_cnt"					%1402		us		C:\Windows\system32\
+1407				Depend	1402?1408 1409 1410							us	No	C:\Program Files\Common Files\Microsoft Shared\MSInfo\
+1408				CustomAction	"COMMON98.DLL, RemoveAuxFile, MSInfo;msinfo32_ftg"							nyi		
+1409				CustomAction	"COMMON98.DLL, RemoveAuxFile, MSInfo;msinfo32_fts"							nyi		
+1410				CustomAction	"COMMON98.DLL, RemoveAuxFile, MSInfo;msinfo32_gid"							nyi		
+1421				Group	1422 1425 1429					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1422				Group	1423 1424					%D		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1423				CopyFile	"Spellcheck, spellchk_app"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1424				AddRegData	"""CURRENT"",""Software\Microsoft\VisualFoxpro\6.0\Options"",""_SPELLCHK"",""'%s\SPELLCHK.APP'"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1425				Group	1426					%H\Proof		us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1426				InstallProofTool	"""Spellcheck"", ""mssp232_dll"", ""Spelling"", 1427 1428   , 1314 , Inso"							us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1427				InstallProofLex	"Spellcheck, mssp2_en_lex, MSSP2_EN.LEX,1033, Normal, U.S. English, 1426"							us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1428				InstallProofLex	"Spellcheck, mssp2_en_lex, MSSP2_EN.LEX,2057, Normal, British, 1426"							us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1429				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1430 1431 1432 1433    1434"""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1430				AddRegData	"""LOCAL"",""Software\Microsoft\Shared Tools\Proofing Tools\Spelling\1033\Normal"",""Engine"",""%s\MSSP232.DLL"","""""					%1426		us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1431				AddRegData	"""LOCAL"",""Software\Microsoft\Shared Tools\Proofing Tools\Spelling\1033\Normal"",""Dictionary"",""%s\MSSP2_EN.LEX"","""""					%1427		us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1432				AddRegData	"""LOCAL"",""Software\Microsoft\Shared Tools\Proofing Tools\Spelling\2057\Normal"",""Engine"",""%s\MSSP232.DLL"","""""					%1426		us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1433				AddRegData	"""LOCAL"",""Software\Microsoft\Shared Tools\Proofing Tools\Spelling\2057\Normal"",""Dictionary"",""%s\MSSP2_EN.LEX"","""""					%1428		us		C:\Program Files\Common Files\Microsoft Shared\Proof\
+1434				AddRegData	"""CLASSES"","".DIC"","""",""txtfile"","""""							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1441	yes			Group	1444 1445 1446 1450							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1442	yes	Data Access	Data Access Components	OptionDlg	1443									
+1443	yes	Microsoft ODBC Drivers	Drivers to data sources via ODBC	OptionDlg	1444 1445 1446 1447 1448 1449 1450 1451 1452							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1444	yes	Microsoft SQL Server ODBC Driver	ODBC driver for Microsoft SQL Server databases	Group	1621							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1445	yes	Microsoft Oracle ODBC Driver	Microsoft's ODBC driver for Oracle databases	Group	1601							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1446	yes	Microsoft Access ODBC Driver	Microsoft Access ODBC Driver.	Group	1591							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1447		Microsoft dBase ODBC Driver	Microsoft ODBC Driver for dBase databases	Group	1571							nyi		
+1448		Microsoft Excel ODBC Driver	Microsoft ODBC Driver for Excel data sources	Group	1551							nyi		
+1449		Microsoft FoxPro ODBC Driver	Microsoft ODBC Driver for FoxPro databases	Group	1541							nyi		
+1450	yes	Microsoft Visual FoxPro ODBC Driver	ODBC driver for Microsoft Visual FoxPro databases	Group	1521							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1451		Microsoft Paradox ODBC Driver	Microsoft's ODBC driver for Paradox databases	Group	1501							nyi		
+1452		Microsoft Text ODBC Driver	Microsoft's ODBC driver for Text data sources	Group	1481							nyi		
+1453				CustomAction	"COMMON98.DLL, NopCAH"									
+1461				Group	1462 1463					%M				
+1462				InstallSysFile	"DAG Jet IISAM Lotus, msltus35_dll"					%M				
+1463				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1464"""									
+1464		msltus35.dll		SelfReg	"DAG Jet IISAM Lotus, msltus35_dll"					%1462				
+1471				Group	1472 1473					%M				
+1472				InstallSysFile	"DAG Jet IISAM Exchange,msexch35_dll"					%M				
+1473		msexch35.dll		CustomAction	"COMMON98.DLL,SyncEXECalloutCAH,""%m\regsvr32 /s """"%s\msexch35.dll"""""""					%1472				
+1481			Microsoft Text Driver	Group	1491 1482 1483					%M		nyi		
+1482				InstallSysFile	"dag Text ODBC Driver,odtext32_dll_1"					%M		nyi		
+1483				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:DA Text"					%M		nyi		
+1491				Group	1492 1493					%M		nyi		
+1492				InstallSysFile	"DAG Jet IISAM Text, mstext35_dll"					%M		nyi		
+1493				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1494"""							nyi		
+1494		mstext35.dll		SelfReg	"DAG Jet IISAM Text, mstext35_dll"					%1492		nyi		
+1501			Microsoft Paradox Driver	Group	1511 1502 1503					%M		nyi		
+1502				InstallSysFile	"dag Paradox ODBC Driver,odpdx32_dll_1"					%M		nyi		
+1503				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:DA Paradox"					%M		nyi		
+1511				Group	1512 1513					%M		nyi		
+1512				InstallSysFile	"DAG Jet IISAM Paradox, mspdox35_dll"					%M		nyi		
+1513				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1514"""							nyi		
+1514		mspdox35.dll		SelfReg	"DAG Jet IISAM Paradox, mspdox35_dll"					%1512		nyi		
+1521			Microsoft Visual FoxPro Driver	Group	1522 1527 1528 1529 1530 1531 1532					%M		us		C:\Windows\system32\
+1522				Group	1523 1524 1525					%M		us		C:\Windows\system32\
+1523				InstallSysFile	"DA Visual Foxpro, vfpodbc_dll"					%M		us		C:\Windows\system32\
+1524				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:DA Visual FoxPro:Y"							us		C:\Windows\system32\
+1525				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1526"""							us		C:\Windows\system32\
+1526				CustomAction	"odbcstf.dll,AcmeConfigDataSource,odbckey.inf:ADD:Microsoft Visual FoxPro Driver:DSN=Visual FoxPro Database|SourceDB=|SourceType=DBC||"					%1523		us		C:\Windows\system32\
+1527				InstallSysFile	"DA Visual Foxpro, vfpodbc_txt"					%M		us		C:\Windows\system32\
+1528				InstallSysFile	"DA Visual Foxpro, drvvfp_hlp_1"					%M		us		C:\Windows\system32\
+1529				InstallSysFile	"DA Visual Foxpro, drvvfp_cnt_1"					%M		us		C:\Windows\system32\
+1530				CustomAction	"COMMON98.DLL, RemoveAuxFile, DA Visual Foxpro;drvvfp_gid"							us		C:\Windows\system32\
+1531				CustomAction	"COMMON98.DLL, RemoveAuxFile, DA Visual Foxpro;drvvfp_ftg"							us		C:\Windows\system32\
+1532				CustomAction	"COMMON98.DLL, RemoveAuxFile, DA Visual Foxpro;drvvfp_fts"							us		C:\Windows\system32\
+1541			Microsoft FoxPro Driver	Group	1581 1542 1543					%M		nyi		
+1542				InstallSysFile	"dag FoxPro ODBC Driver,odfox32_dll_1"					%M		nyi		
+1543				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:DA FoxPro"					%M		nyi		
+1551			Microsoft Excel Driver	Group	1561 1552 1553					%M		nyi		
+1552				InstallSysFile	"dag Excel ODBC Driver,odexl32_dll_1"					%M		nyi		
+1553				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:da Excel"					%M		nyi		
+1561				Group	1562 1563					%M		nyi		
+1562				InstallSysFile	"DAG Jet IISAM Excel,msexcl35_dll"					%M		nyi		
+1563				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1564"""							nyi		
+1564		msexcl35.dll		SelfReg	"DAG Jet IISAM Excel, msexcl35_dll"					%1562		nyi		
+1571			Microsoft dBase Driver	Group	1581 1572 1573					%M		nyi		
+1572				InstallSysFile	"dag dBase ODBC Driver,oddbse32_dll_1"					%M		nyi		
+1573				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:DA dBase"					%M		nyi		
+1581				Group	1582 1583					%M		nyi		
+1582				InstallSysFile	"DAG Jet IISAM XBase, msxbse35_dll"					%M		nyi		
+1583				CustomAction	"COMMON98.DLL,NeverRemoveGroup,""1584"""							nyi		
+1584		msxbse35.dll		SelfReg	"DAG Jet IISAM XBase, msxbse35_dll"					%1582		nyi		
+1591			Microsoft Access Driver	CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:DA Access"					%M		us		C:\Windows\system32\
+1601				Group	1611 1602 1603 1605 1606 1607					%M		us		C:\Windows\system32\
+1602				InstallSysFile	"dag ODBC Oracle Driver,msorcl20_dll"					%M		nyi		
+1603				Depend	1602 ? 1604							us	No	C:\Windows\system32\
+1604		msorcl32.dll		SelfReg	"dag ODBC Oracle Driver,msorcl20_dll"					%M		nyi		
+1605				InstallSysFile	"dag ODBC Oracle Driver,msorcl32_hlp"					%M		us		C:\Windows\system32\
+1606				InstallSysFile	"dag ODBC Oracle Driver,msorcl32_cnt"					%M		us		C:\Windows\system32\
+1607				InstallSysFile	"dag ODBC Oracle Driver,msorcl32_txt"					%M		us		C:\Windows\system32\
+1611				Group	1612					%M		nyi		
+1612				InstallSysFile	"dag MTS,mtxoci_dll"					%M		nyi		
+1621				Group	1622					%M		us		C:\Windows\system32\
+1622			Microsoft SQL Server Driver	Group	1623 1624 1625 1626 1627 1628					%M		us		C:\Windows\system32\
+1623				InstallSysFile	"dag ODBC SQL Driver,sqlsrv32_dll"					%M		nyi		
+1624				CustomAction	"odbcstf.dll,AcmeInstallDriver,odbckey.inf:SQL Server Driver"					%M		us		C:\Windows\system32\
+1625				InstallSysFile	"dag ODBC SQL Driver,odbcbcp_dll"					%M		nyi		
+1626				InstallSysFile	"dag ODBC SQL Driver,windbver_exe"					%M		us		C:\Windows\system32\
+1627				InstallSysFile	"dag ODBC SQL Driver,sqlsodbc_hlp"					%M		us		C:\Windows\system32\
+1628				InstallSysFile	"dag ODBC SQL Driver,sqlsrdme_txt"					%M		us		C:\Windows\system32\
+1631				Group	1632 1633 1635					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1632				InstallShared	"Shell Help, vshelp_dll, vshelp.dll,,1673"					%H\VS98		us		C:\Program Files\Common Files\Microsoft Shared\VS98\
+1633				Depend	1632 ? 1634							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\
+1634		vshelp.dll		SelfReg	"Shell Help,vshelp_dll,,,,"					%1632		us		C:\Program Files\Common Files\Microsoft Shared\VS98\
+1635				Group	1636					%1632\resources\1033		us		C:\Program Files\Common Files\Microsoft Shared\VS98\resources\1033\
+1636		vshelpui.dll		InstallShared	"Loc Shell Help,vshelpui_dll_enu,vshelpui.dll(enu),,1673"					%d		us		C:\Program Files\Common Files\Microsoft Shared\VS98\resources\1033\
+1641				InstallSysFile	"HLP95EN,hlp95en_dll_1"					%M		us		C:\Windows\system32\
+1651				Group	1652 1660							us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1652				Group	1653 1654 1655 1656 1657 1658 1659							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1653				CopyFile	"VBCTLHLP,vbcmn96_hlp"					%W\Help		us		C:\Windows\Help\
+1654				CopyFile	"VBCTLHLP,vbcmn96_cnt"					%W\Help		us		C:\Windows\Help\
+1655				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,vbcmn96.hlp,%s,"					%1653		us		C:\Windows\Help\
+1656				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,vbcmn96.cnt,%s,"					%1654		us		C:\Windows\Help\
+1657				CustomAction	"COMMON98.DLL, RemoveAuxFile, VBCTLHLP;vbcmn96_ftg"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1658				CustomAction	"COMMON98.DLL, RemoveAuxFile, VBCTLHLP;vbcmn96_fts"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1659				CustomAction	"COMMON98.DLL, RemoveAuxFile, VBCTLHLP;vbcmn96_gid"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1660				Group	1661 1662 1663 1664 1665							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1661				CopyFile	"VBCTLHLP,vb5def_hlp"					%W\Help		us		C:\Windows\Help\
+1662				AddRegData	"HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\Help,vb5def.hlp,%s,"					%1661		us		C:\Windows\Help\
+1663				CustomAction	"COMMON98.DLL, RemoveAuxFile, VBCTLHLP;vb5def_ftg"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1664				CustomAction	"COMMON98.DLL, RemoveAuxFile, VBCTLHLP;vb5def_fts"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1665				CustomAction	"COMMON98.DLL, RemoveAuxFile, VBCTLHLP;vb5def_gid"							us		C:\Program Files\Microsoft Visual Studio\Common\Graphics\
+1671				Group	1711 1701 1672 1678 1673 1674 1675 1676 1677 1691					%353\Setup\1033		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1672				CopySection	Common Setup					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1673		vfp98_dll		CopyFile	"SetupProdCah,vfp98_dll"					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1674				WriteTableFile	setup.stf					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1675		selfreg.dll		InstallShared	"SetupProdCah,selfreg_dll,selfreg.dll,,1673 "					%m		us		C:\Windows\system32\
+1676				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual FoxPro 6.0 ,DisplayName,Microsoft Visual FoxPro 6.0 ,REG_SZ"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1677				AddRegData	"LOCAL,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual FoxPro 6.0 ,UninstallString,""""""%s\Setup.exe"""""",REG_SZ"					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1678				Group	1679					%1672		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1679				Depend	1672 ? 1680 1681 1682							us	Yes	C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1680		acmsetup.fts		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_fts"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1681		acmsetup.ftg		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_ftg"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1682		acmsetup.gid		CustomAction	"COMMON98.DLL, RemoveAuxFile, Remove ACME Help Files;acmsetup_gid"							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1691				Group	1692 1693					%1671		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1692				CopySection	dag ODBC CAH					%1671		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1693				CopyFile	"dag ODBC Conf Exe,odbcconf_exe"					%M		se		
+1701				Group	1702							us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1702				CopySection	Setup					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\Setup\1033\
+1711				Group	1712 1714					%353		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1712				CopySection	ReadMe					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\
+1713				CustomAction	"COMMON98.DLL, NopCAH"									
+1714				CopySection	Redist text					%d		us		C:\Program Files\Microsoft Visual Studio\Vfp98\

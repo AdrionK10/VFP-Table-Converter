@@ -1,0 +1,617 @@
+( d:\textfiles\configfp.txt ) as of Thu, Feb 05, 1998
+-----------------------------------------------------
+ 
+The following text was extracted from Foxpro for DOS 2.5x,
+FOXHELP.DBF.  It is best viewed with a font that supports
+the MSDOS line drawing set, such as FOXPRINT or FOXFONT.
+
+Hard carriage returns have been added to allow
+viewing in text editors.
+
+[VFP] flags changes relevant to Visual Foxpro 5.x.
+
+This list is distributed for use by Foxpro Developers,
+it is not intended to be sold.  Comments, corrections,
+suggestions may be sent to :
+
+     ÖÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ·     
+     º e-mail: ROBIN@QUOTEDESK.COM     º     
+     º fax:    626 - 796 - 0525        º     
+     º mail:   P O Box 5867            º     
+     º         Pasadena CA 91117-0867  º     
+     º         U.S.A.                  º     
+     ÓÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ½     
+		 
+Hope this helps you in your use of Foxpro!
+
+ÖÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ·
+º   SET Commands in CONFIG.FP     º
+ÓÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ½
+
+If you find that you frequently adjust various SET options 
+in a certain manner, you may want to automatically designate 
+the default SET values at startup.
+
+The CONFIG.FP file can contain startup defaults for nearly 
+all the SET commands, as well as some special CONFIG.FP 
+statements.  For additional information about the following 
+SET commands, refer to the online help.
+
+		SET Command Values
+	ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+	
+Command         Values                  Default
+ÄÄÄÄÄÄÄ         ÄÄÄÄÄÄ                  ÄÄÄÄÄÄÄ
+ALTERNATE       <file>
+
+ALTERNATE       OFF | ON                OFF
+
+ANSI            OFF | ON                OFF
+
+AUTOSAVE        OFF | ON                OFF
+
+BELL            ON | OFF                ON
+
+BELL            19 to 10,000,   512, 2
+			2 to 19
+
+BLINK           ON | OFF                ON
+
+BLOCKSIZE       <expN>                  64
+
+BORDER          <attribute>             SINGLE
+
+BRSTATUS        OFF | ON                OFF
+
+CARRY           OFF | ON                OFF
+
+CENTURY         OFF | ON                OFF
+
+CLEAR           ON | OFF                ON
+
+CLOCK           OFF | ON                OFF
+
+CLOCK           <row,, column>  0, 69
+
+COLLATE         See SET                 MACHINE 
+			COLLATE
+			
+COLOR           <color attrib> 
+
+COLOR OF 
+SCHEME          <ColorPairList> Current
+			|<ColorScheme> settings  
+
+COLOR SET       <ColorSetName>  DEFAULT
+
+COMPATIBLE        OFF | ON              OFF
+	     (FOXPLUS | DB4) (FOXPLUS)
+
+CONFIRM         OFF | ON                OFF
+
+CONSOLE         ON | OFF                ON
+
+CURRENCY        <expC>                  "$"
+
+CURRENCY        LEFT | RIGHT    LEFT
+
+CURSOR          ON | OFF                ON
+
+DATE            <expC>            AMERICAN
+
+DEBUG           ON | OFF                ON
+
+DECIMALS        <0 to 18>               2
+
+DEFAULT         <drive> | <dir>
+
+DELETED         OFF | ON                OFF
+
+DELIMITERS      OFF | ON                OFF
+
+DELIMITERS      <expC>                  ":"
+			| DEFAULT 
+
+DEVELOPMENT     ON | OFF                ON
+
+DEVICE          SCREEN | PRINT  SCREEN
+			| FILE <file>
+
+DISPLAY   <display type>  Installed
+
+ECHO            OFF | ON                OFF
+
+ESCAPE          ON | OFF                ON
+
+EXACT           OFF | ON                OFF
+
+EXCLUSIVE       ON | OFF                ON
+
+FULLPATH        ON | OFF                ON
+
+F<num>          <char str> 
+
+HEADING         ON | OFF                ON
+
+HELP            ON | OFF                ON
+
+HELP            <file>                  FOXHELP
+
+HOURS           12 | 24                 12
+
+INTENSITY       ON | OFF                ON
+
+LOGERROR        ON | OFF                ON
+
+MACKEY          <expC>          SHIFT + F10
+
+MARGIN          <0 to 254>              0
+
+MARK            <expC>                  "/"
+
+MEMOWIDTH       <8 to 256>              50
+
+MOUSE           <1 to 10>               5
+
+MOUSE           OFF | ON                ON
+
+NEAR            OFF | ON                OFF
+
+NOTIFY          OFF | ON                ON
+
+ODOMETER        <1 to 32,767>   100
+
+OPTIMIZE        OFF | ON                ON
+
+PATH            <path>
+
+POINT           <expC>                  "."
+
+PRINT           ON | OFF                OFF
+
+REPROCESS       <-2 to 32,000>  0
+			| AUTOMATIC
+
+RESOURCE        ON | OFF                ON
+
+RESOURCE        <file>                  FOXUSER
+
+SAFETY          ON | OFF                ON
+
+SCOREBOARD      OFF | ON                OFF
+
+SEPARATOR       <expC>                  ","
+
+SPACE           ON | OFF                ON
+
+STATUS          OFF | ON                OFF
+
+STEP            OFF | ON                OFF
+
+STICKY          ON | OFF                ON
+
+SYSMENU         ON | OFF                ON
+			| AUTOMATIC 
+
+TALK            ON | OFF                ON
+
+TEXTMERGE       OFF | ON                OFF
+
+TRBETWEEN       ON | OFF                ON
+
+TYPEAHEAD       <0 to 128>              20
+	    [VFP] maximum 
+	    32,000
+	    
+UDFPARMS        VALUE                   VALUE
+			| REFERENCE
+
+UNIQUE          OFF | ON                OFF
+
+ÖÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ·
+º    Special CONFIG.FP Items      º
+ÓÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ½ 
+
+While most items that can be set or changed through the CONFIG.FP 
+file are options that can also be controlled with SET commands 
+(see the previous section for full details), some CONFIG.FP items 
+can be specified only through the CONFIG.FP file.
+
+The following table contains the special CONFIG.FP settings as 
+well as the system memory variables.  Items marked with asterisk
+( * ) have a footnote following the chart.
+
+	Special CONFIG.FP Items
+    ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    
+Item            Values                  Default
+ÄÄÄÄ            ÄÄÄÄÄÄ                  ÄÄÄÄÄÄÄ
+
+CODEPAGE*       AUTO | <expN>
+
+COMMAND*        <command>       
+
+DOSMEM*         ON | OFF                OFF
+			| <expN>
+
+EDITWORK*       <dir>                   Startup directory
+
+EMS*            ON |OFF                 ON
+			| <expN>
+
+EMS64*          ON | OFF                ON
+
+F11F12*         ON | OFF                ON
+
+_GENGRAPH       program                 GENGRAPH.PRG
+
+_GENMENU        program                 GENMENU.PRG
+
+_GENPD          program                 GENPD.APP
+
+_GENSCRN        program                 GENSCRN.PRG
+
+_GENXTAB        program                 GENXTAB.PRG
+
+INDEX*          <extension>             IDX
+
+LABEL*          <extension>             LBX
+
+MVCOUNT*        128 to 3600     256
+			128 to 65,000 
+			FoxPro (X)
+
+OUTSHOW*        ON|OFF                  ON
+
+OVERLAY*        <dir>                   FoxPro 
+			[OVERWRITE]     directory
+
+PROGWORK*       <dir>                   Startup directory
+
+REPORT*         <extension>             FRX
+
+RESOURCE*       <path name>             FOXUSER startup directory
+
+SCREEN          OFF                     [VPF 5] Set the main VFP screen off,
+					allows use of SDI Forms.
+					( Thanks to: Gerald Santerre )
+					Feb 05, 1998   
+
+SORTWORK*       <dir>                   Startup directory
+
+TEDIT*          [/<expN>]<editor>
+
+TIME*           <1 to 1000000>  6000
+
+TITLE*      <caption for main screen object>
+
+TMPFILES*       <drive:>                Startup directory
+
+--------------------
+* FOOTNOTES
+
+CODEPAGE
+    [VFP] from help topic CPCURRENT()
+    
+	  * The code page number specified in the 
+	    CODEPAGE configuration item. For example, 
+	    CPCURRENT() returns 852 if the following 
+	    line is included in your configuration file:
+
+	    CODEPAGE = 852
+
+	  * The current operating system code page 
+	    if you have included the following line 
+	    in your configuration file:
+
+	    CODEPAGE = AUTO
+
+ 
+COMMAND
+	Executes a valid FoxPro command after all other 
+	configuration settings are established.  For 
+	instance, if you'd like FoxPro to clear the 
+	screen every time it starts, you could use the 
+	statement:
+
+		COMMAND = CLEAR 
+
+	Or, if you'd like FoxPro to start a certain 
+	program automatically every time, you could use:
+
+		COMMAND = DO <program>
+
+	If you include a DO command like the previous 
+	one, you can bypass the named startup program 
+	by including the name of a different program 
+	when you initially start FoxPro:
+
+		FOXPRO <program>
+
+DOSMEM
+    [VFP] DOSMEM special item is no longer needed.
+    
+	This parameter applies only to the Extended 
+	version of FoxPro.  When DOSMEM is on, FoxPro(X) 
+	will access and utilize all MS-DOS memory along 
+	with any extended memory.  The default is OFF; 
+	when DOSMEM is off, FoxPro(X) uses 60 K of MS-DOS 
+	memory and the rest is available for execution 
+	of the RUN command.  If you want to reserve part 
+	of MS-DOS memory, you can use a numeric argument 
+	<expN>, where <expN> is the amount of memory in 
+	kilobytes to reserve.  
+
+EDITWORK
+    [VFP] default is Windows temporary file directory.
+    
+	  Note: SYS(2023) Returns the path on which
+		Visual FoxPro stores its temporary 
+		files. 
+    
+	Specifies where the text editor should place its 
+	work files.  In some circumstances, the work file 
+	can become as large as the original file; for that 
+	reason, this option should only be specified if 
+	the alternate location has plenty of free space.
+
+EMS
+    [VFP] EMS special item is no longer needed
+
+	Determines whether or not FoxPro will take advantage 
+	of expanded memory (EMS) and can limit the amount of 
+	EMS that FoxPro uses.  This option is not recognized 
+	in the Extended version of FoxPro.
+
+	Generally, FoxPro can coexist with other programs 
+	that use expanded memory.  However, if you want 
+	specifically to reserve all or part of expanded 
+	memory for use by other programs, you have several 
+	options:
+
+		EMS = OFF
+		EMS = <expN>
+
+	When you use the optional numeric argument, you 
+	limit the amount of EMS that FoxPro takes 
+	advantage of.  The value is expressed in kilobytes, 
+	and it should range from 0 (zero) to the total 
+	amount of EMS installed in your computer.  The 
+	value should be some multiple of 16, although 
+	FoxPro reduces nonincremental values to the 
+	nearest 16 K boundary.
+
+	If you have LOAD and CALL routines that use 
+	expanded memory, you should be aware that FoxPro 
+	always places its own memory back into the expanded 
+	memory page frame after a CALL.  If your routines 
+	are not prepared for this, you may want to set 
+	EMS OFF to prevent it.  The default setting for 
+	EMS is ON.
+
+EMS64
+    [VFP] EMS64 special item is no longer needed
+
+	On machines with expanded memory that's 
+	compatible with LIM 4.0 (or higher), FoxPro 
+	automatically uses the first 64 K of expanded 
+	memory as "general purpose" memory.  However, 
+	certain older EMS emulators cause problems for 
+	FoxPro.  If you have an older EMS emulator that 
+	causes FoxPro to behave strangely, you can 
+	specify that FoxPro not use the first 64 K of 
+	expanded memory as general purpose memory with:
+
+		EMS64 = OFF
+
+	Or, you can ignore all expanded memory except 
+	for the first 64 K of "general purpose" memory 
+	with:
+
+		EMS = 64 
+
+	This option is ignored in FoxPro (X).
+
+F11F12
+	Prevents FoxPro from attempting to use the 
+	F11 and F12 keys.You may need to use this 
+	option if your computer does not have F11 
+	and F12 keys and no cursor appears in the 
+	Command window when you start FoxPro.  This 
+	happens on computers without F11 and F12 
+	keys that have certain older versions of 
+	the BIOS which erroneously return "yes" 
+	when FoxPro tests for the presence of these 
+	keys.
+
+_GEN variables  
+	You can specify other program names as 
+	values for these system variables, 
+	using the format:
+	
+	 <_GEN variable name> = <program name>
+
+INDEX
+	Specifies the extension for FoxPro index 
+	files.  The default extension is .IDX.
+
+LABEL
+	Specifies the extension for FoxPro label 
+	definition files.  The default extension 
+	is .LBX.
+
+MVCOUNT
+    [VFP] maximum 65,000, default 1024.
+
+	Sets the maximum number of memory variables 
+	that FoxPro can maintain.  This value may 
+	range from 128 to 3,600 in FoxPro standard, 
+	or to 65,000 in FoxPro (X); the default is 256.
+
+OUTSHOW
+	Disables the Shift+Ctrl+Alt (hide all windows 
+	in front of the current output window) feature.
+
+	When several windows are open, the current 
+	output window may sometimes become hidden 
+	behind some of the other windows.  You can 
+	press Shift+Ctrl+Alt to momentarily hide all 
+	windows that are in front of the current 
+	output window.  Use OUTSHOW to disable this 
+	feature.
+
+OVERLAY
+    [VFP] OVERLAY special item is no longer needed.
+    
+	Specifies where FoxPro should place its .OVL 
+	(overlay) file.  This applies to Standard 
+	FoxPro only; the Extended version does not use 
+	overlay files.  At startup, the .OVL file in 
+	the same directory as the FOXPRO.EXE file is used.  
+	Specifying OVERLAY causes FoxPro to look in the 
+	new location for the files.
+
+	If the files are not present in this directory, 
+	the originals are copied to the new location.  
+	If the files exist in the new directory but are 
+	not dated identically to the originals, FoxPro 
+	asks for permission to overwrite the files.  If 
+	you give permission, FoxPro overwrites the files 
+	with the new copies; otherwise, it uses the originals.
+
+	If you include the optional OVERWRITE key word, 
+	FoxPro automatically overwrites the existing 
+	files without prompting for permission. See the 
+	discussion of these commands at the end of this 
+	section.
+
+PROGWORK
+    [VFP] default is Windows temporary file directory.
+    
+	  Note: SYS(2023) Returns the path on which
+		Visual FoxPro stores its temporary 
+		files. 
+    
+	Specifies where the program cache file will 
+	be placed.  Users may wish to put this file 
+	in a RAM disk or on a local workstation drive.  
+	FoxPro tries to keep the size of this file less 
+	than 256 K, but it can grow larger if necessary.  
+	
+	It may be especially useful to specify PROGWORK 
+	when using FoxPro in a multi-user environment.  
+	See the discussion of this and related commands 
+	at the end of this section.  
+
+REPORT
+	Specifies the extension for FoxPro report 
+	definition files.  The default extension is .FRX.
+
+RESOURCE
+    [VFP] may also specify 'OFF'
+    
+	  RESOURCE = OFF
+	  
+	  Bypasses the use of resource file, useful
+	  in multi-user distributed applications.
+
+	Specifies where FoxPro is to find the FOXUSER 
+	resource file.  <pathname> may be a directory 
+	or a fully-qualified pathname.  If <pathname> 
+	is a directory, then a file named FOXUSER.DBF 
+	is searched for.  Otherwise, a file with the 
+	specified name is searched for.  If the file 
+	does not exist it is created.  
+
+SORTWORK
+    [VFP] default is Windows temporary file directory.
+    
+	  Note: SYS(2023) Returns the path on which
+		Visual FoxPro stores its temporary 
+		files. 
+    
+	Specifies where commands such as SORT and INDEX 
+	will place their temporary work files.  SORT and 
+	INDEX can require work space up to twice the size 
+	of the file being sorted or indexed, so be sure 
+	there is enough room in this directory.  This 
+	parameter can be useful when you are operating 
+	FoxPro in a multi-user environment.  SORTWORK 
+	and related commands are discussed at the end of 
+	this section.
+
+TEDIT 
+	[VFP]  /N optional clause to specify a
+	       Windows text editor.
+	       
+	Specifies the external text editor used when you 
+	edit program files with MODIFY COMMAND.
+
+	You can include the optional clause /<expN> 
+	with TEDIT to specify the amount of memory FoxPro 
+	should make available for an external text editor.  
+	<expN> specifies the amount of memory in kilobytes 
+	(K) that is made available. To make as much memory 
+	available to the text editor as possible, 
+	specify a value of 0 (zero):
+
+    TEDIT = /0 <editor>
+
+TIME
+    [VFP] TIME special item is no longer needed.
+
+	Establishes the amount of time that FoxPro waits 
+	for the print device to accept a character.  If 
+	the printer is not ready, this value dictates the 
+	number of retries that FoxPro will make to the 
+	print device.  If the retry count is exhausted, 
+	FoxPro issues the error 
+	
+	"Printer not ready. Retry? (Y/N)"  
+	
+	The value of TIME may range from 1 to 1,000,000 
+	retries.  The default is 6,000.
+
+TITLE
+    [VFP] Specifies the title that appears in the caption
+	  of the main Visual Foxpro window.  Default
+	  is "MicroSoft Visual Foxpro".
+	  
+	  This is similar to _screen.Caption="caption"
+	  from the Command window.
+		    
+    TITLE <caption> was not in the original MSDOS
+    documentation.
+    
+TMPFILES
+    [VFP] default is Windows temporary file directory.
+    
+	  Note: SYS(2023) Returns the path on which
+		Visual FoxPro stores its temporary 
+		files. 
+    
+	Sets the drive to which the EDITWORK, SORTWORK 
+	and PROGWORK files will be stored if they have 
+	not been specified otherwise with any of the 
+	other options.   This can be useful for optimizing 
+	performance in a multi-user environment.  
+
+	The EDITWORK, OVERLAY, PROGWORK, SORTWORK and 
+	TMPFILES special configuration items let you specify 
+	where temporary work files and frequently accessed 
+	FoxPro files will be placed.  Careful placement of 
+	these files can improve FoxPro's performance, 
+	particularly on a network.
+
+	If possible these files should be placed on the 
+	fastest drive available.  On networks the fastest 
+	drive is usually a workstation's local drive.  Be 
+	sure to provide ample disk space for the temporary 
+	work files as some can grow quite large.
+
+	Further performance information can be found in 
+	the chapters Optimizing Your System in the 
+	Installation and Configuration manual and 
+	Optimizing Your Application in the FoxPro 
+	Developer's Guide.
+

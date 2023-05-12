@@ -1,0 +1,43 @@
+﻿<Window x:Class="VFP_Table_Converter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VFPTC" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btnChooseFile" Content="Import" HorizontalAlignment="Left" Margin="10,10,10,5" VerticalAlignment="Top" Click="BtnChooseFile_Click"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="txtFileContent" Margin="10,5,5,10" TextWrapping="Wrap" AcceptsReturn="True"/>
+                    <TextBox x:Name="txtVfpScript" Grid.Column="1" Margin="10,5,5,10" TextWrapping="Wrap" AcceptsReturn="True" />
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,5,10,10">
+            <Button x:Name="btnRegenerateScript" Content="Convert to VFP Script" Margin="5" Width="150" Click="BtnRegenerateScript_Click"/>
+            <Button x:Name="btnCreateVfpScript" Content="Save VFP Script" Margin="5" Width="120" Click="BtnCreateVfpScript_Click"/>
+            <Button x:Name="btnRunVfpScript" Content="Run VFP Script" Margin="5" Width="120" Click="BtnRunVfpScript_Click"/>
+            <Button x:Name="btnLocateVfp6" Content="Locate VFP 6" Margin="5" Width="120" Click="BtnLocateVfp6_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

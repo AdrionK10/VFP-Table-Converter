@@ -1,0 +1,166 @@
+PRIVATE ALL LIKE wPICK*
+STORE SET('TALK') TO wPICKTALK
+local lcIndexString
+lcIndexString  = "* indexes for: " + alias() + ":" + chr(13)
+
+IF EMPTY(DBF())
+	RETURN
+ELSE
+	SET TALK OFF
+
+	IF TYPE('aDBFTAGS')!='U'
+		RELEASE aDBFTAGS
+	ENDIF
+	PUBLIC aDBFTAGS
+	DIMENSION aDBFTAGS(256,2)
+
+	aDBFTAGS(1)='RECORD #'
+	aDBFTAGS(2)='NORMAL ORDER'
+	wPICK='RECORD #'
+
+	IF EMPTY(ORDER())
+		wPICK='RECORD #'
+	ELSE
+		wPICK=ALLTRIM(ORDER())
+	ENDIF
+
+	FOR iPICK= 2 TO 256
+		IF EMPTY(TAG(iPICK-1))
+			iPICK=iPICK-1
+			DIMENSION aDBFTAGS(iPICK,2)
+			EXIT
+		ELSE
+			aDBFTAGS(iPICK,1)=TAG(iPICK-1)
+			aDBFTAGS(iPICK,2)=KEY(iPICK-1)
+			lcIndexString  = lcIndexString + "* Index tag: " + Padr(alltrim(TAG(iPICK-1)),10) + "  Index Key: " + KEY(iPICK-1) + chr(13)
+		ENDIF
+	ENDFOR
+ENDIF
+
+*iPICK+5
+
+*SET STEP ON
+
+
+IF WEXIST('wPICKTAG')
+	RELEASE WINDOW wPICKTAG
+ENDIF
+IF _DOS
+DEFINE WINDOW wPICKTAG FROM 05,11 TO (05+iPICK+7),68;
+	COLOR SCHEME 10;
+	SHADOW;
+	FLOAT;
+	TITLE ' PICK AN INDEX ORDER FOR "'+ALIAS()+'.DBF" ';
+	DOUBLE
+ELSE
+
+
+*	  COLOR SCHEME 10
+
+DEFINE WINDOW wPICKTAG FROM 05,11 TO (05+iPICK+9),110;
+	SHADOW;
+	FLOAT;
+	FONT "FoxPrint" ,11 ;
+	TITLE ' PICK AN INDEX ORDER FOR "'+ALIAS()+'.DBF" ' ;
+	COLOR SCHEME 1
+
+MOVE WINDOW wPICKTAG CENTER
+
+ENDIF
+ACTIVATE WINDOW wPICKTAG TOP
+
+IF _DOS
+	wPICKROW=3
+ELSE
+	wPICKROW=2
+ENDIF
+
+iPICKROWS=ALEN(aDBFTAGS,1)
+iPICK4=1
+@ 2,3 SAY ''
+FOR iPICK3=1 TO iPICKROWS
+	IF _DOS
+		@ wPICKROW,27 SAY aDBFTAGS[iPICK4,2];
+			SIZE 1,27
+	ELSE
+		@ wPICKROW,30 SAY aDBFTAGS[iPICK4,2];
+			SIZE 1,60 FONT "FoxPrint" ,11
+	ENDIF
+
+	iPICK4=iPICK4+1
+	wPICKROW=wPICKROW+1
+ENDFOR
+
+IF _DOS
+	@ 02,01 GET wPICK;
+		FROM aDBFTAGS;
+		SIZE (iPICK+2),25;
+		VALID VwPick()  ;
+		FUNCTION '&T' ;
+		COLOR W/R+
+ELSE
+	@ 2,01 GET wPICK;
+		FROM aDBFTAGS;
+		SIZE (iPICK+2),25;
+		FONT "FoxPrint" ,10 ;
+		VALID VwPick()  ;
+		COLOR W/R+
+
+
+ENDIF
+READ
+
+IF READKEY()=12	OR READKEY()=	268		&& WAS ESC PRESSED TO TERM "READ"?
+	CLEAR READ
+	store lcIndexString to _cliptext
+ELSE
+	IF wPICK='RECORD #'
+		SET ORDER TO
+	ELSE
+		SET ORDER TO &wPICK
+		STORE wPICK TO _CLIPTEXT
+	ENDIF
+	CLEAR read
+ENDIF
+
+DO CASE
+CASE RECCOUNT() = 0
+	GO TOP
+CASE EOF()
+	GO BOTTOM
+OTHERWISE
+	GO RECNO()
+ENDCASE
+
+
+*IF NOT EOF()
+* GO RECNO()
+*ENDIF
+
+RELEASE WINDOW wPICKTAG
+RELEASE aDBFTAGS
+SET TALK &wPICKTALK
+
+show window command top
+activate  window command
+RETURN
+*-------------------------------------------------------
+* Function....: VwPick
+* Called by...:
+*
+* Abstract....:
+*
+* Returns.....:
+*
+* Parameters..:
+*
+* Notes.......:
+*-------------------------------------------------------
+	FUNCTION VwPick
+*IF LASTKEY() = 13
+	??chr(7)
+	CLEAR READ RDLEVEL()
+*ENDIF
+
+	RETURN .t.
+*ENDFUNC && VwPick

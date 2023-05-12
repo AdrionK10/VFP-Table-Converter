@@ -1,0 +1,2 @@
+rem *_startup = "C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO\VFP98\foxstart"
+mvcount = 65000

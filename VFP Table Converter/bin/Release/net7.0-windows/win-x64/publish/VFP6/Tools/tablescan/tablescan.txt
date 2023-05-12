@@ -1,0 +1,51 @@
+This file is most easily viewed in NOTEPAD with WordWrap set on or in VFP using MODIFY FILE TableScan.txt
+
+
+TableScan is a general purpose FoxPro table scanning application for locating records and fields containing specific values.
+
+Once a scan has been started, it can be aborted by pressing the Escape key. The record number and table currently under scan will be reported and the scan aborted. The current record number will be automatically loaded into the "Start at Record" textbox.
+
+TableScan will scan any type of FoxPro table ( that I know of anyhow ). It will scan a single table or multiple tables of a specified table type in a selected directory.
+
+A single table can be scanned by selecting the "Table" radio button and entering the table name in the "Table" field or clicking the "Select Table" (...) button and selecting the desired table. If a path is not entered in the "Table" field, the current directory is searched for the table.
+
+Mutliple tables can be scanned by selecting the "Tables in Directory of Type" radio button and entering the directory name in the "Directory" field or clicking the "Select Directory" (...) button and selecting the desired directory. The table type to scan can be selected from the "Type" dropdown listbox.
+
+The field type to scan for can be selected from the "Field Type" dropdown listbox. The field types are: Character ( Character and Memo ), Currency, Date, Datetime, Integer, Logical and Numeric ( Numeric, Float and Double ). Selecting type "Character" will enable the "Case Sensitive" check box so case sensitive data can be scanned. Selecting type "Numeric" will enable the "Length" and "Decimals" spinners so the numeric field's length and precision can be entered. The length and precision selection is primarily for data entry of the "Scan Value". TableScan will locate floating point values entered regardless of the specific length and precision selected as long as the length and precision selected are sufficient for the digits required.
+
+The value to scan for can be entered into the "Scan Value" text box. The "Null" or "Blank" check boxes can be selected if it is desired to scan for these special values. It should be noted that according to FoxPro data interpretation, if the "Blank" check box is not checked ( and neither the "Null" check box ), BLANK field values will be interpreted as EMPTY for character/memo fields, 0 for integer fields, False (.F.) for logical fields and 0.0 for Numeric, Float and Double fields. I.e. if the value .F. is entered to scan on logical fields and a BLANK logical field is found, it will be included in the results. Likewise, if 0.0 is entered to scan on Numeric fields and a BLANK Numeric field is found, it will be included in the results.
+
+For single table scans, the starting record ( RECNO() ) can be entered in the "Start at Record" text box. This is primarily for use when it is known approximately where in a large table the desired records are to be found or if a scan had to be aborted in a large table and it is desired to restart the scan where the previous scan was aborted. This value is not applicable to multi-table scans. Multi-tables scans are always started at record number 1.
+
+If the "Scan Deleted Records" check box is checked, deleted records will be included in the results. Deleted records will not be included in the scan unless this check box is checked.
+
+Scan results are reported in the main listbox at the bottom of the form. The table name, record number and field name will be listed in this listbox.
+
+A scan is started by selecting the "Scan" button. This button is also the default button on the form so a scan can be started at any time by pressing the Enter key if a scan is possible ( i.e. the "Scan" button is enabled ).
+
+The scan's results can be printed by selecting the "Print" button. Until a new scan is started, the previous scan's results are stored in a cursor and the scan criteria is stored in an array so the scan's results and criteria can be printed even though new scan criteria has been entered.
+
+Selecting the "Ok" button or the form close button (X) will shutdown the application.
+
+Scans on a large table(s) can be time consuming due to the nature of the beast. Since every record and every applicable field in every record has to be checked, no Rushmore is going on here. Macro substitution is used at a minimum, but large tables with lots of fields can still take a long time to scan. This application is meant to be a developer tool, a utility for facilitating development and data management in a developer environment, not a high performance query tool. The table and record currently under scan is reported in the Status bar so some measure of progress is shown. I could implement some sort of thermometer bar to display progress, but this would just slow down the scan process more.
+
+
+All of the usual disclaimers apply to this applicaiton. The scanned tables are opened NOUPDATE so there should be no chance of corruption but you know how it goes with touching data. I set up my own environment parameters in the form Activate, but I have made every effort to restore the user's environment settings in the Deactivate when moving away from the form or shutting it down ( environemnt reset in form Destroy ).
+
+I would appreciate any comments you have about the application ( positive or negative ), and certainly, if you run into any "features", :-) I want to know about these so they can be fixed.
+
+TableScan was developed under the Federal government of the United States, so the application and source code are public domain material. You are welcome to the source code and if you would like a copy of it you can e-mail me at WBC2@CDC.GOV and I will e-mail it to you. If you do obtain the source code, I would appreciate it if you would let me know any modifications you make to it, primarily for my own edification, but also so I can keep track of the "variations on the theme" of the application out there. To keep the application lightweight, I developed it using all VFP6 base classes so there are no class libraries, ActiveX components, etc. required. And I would imagine that most of you would not think there is any "rocket science" going on in it and the code is documented with comment statements so it should be pretty straightforward to follow.
+
+I hope TableScan will be of use to you and facilitate your development of VFP applications and management of VFP data.
+
+
+William A. Caton III
+Software Engineer
+Centers for Disease Control
+National Center for HIV AIDS, Sexually Transmitted Diseases and Tuberculosis Prevention
+Division of HIV AIDS Prevention
+Information Systems and Services Branch
+CISSS/EDS
+WBC2@CDC.GOV
+
+03/05/1999

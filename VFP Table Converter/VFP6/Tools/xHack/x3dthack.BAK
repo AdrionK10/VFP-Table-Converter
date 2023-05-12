@@ -1,0 +1,23 @@
+*
+*  X3DTHACK.PRG
+*  DeveloperTool:  Fire up an instance of frmHackSV
+*  to "Hack" an .SCX or .VCX, mainly for the purpose 
+*  of re-defining the ParentClass of members
+*
+*  lParameters
+*    tcFileName (O) The .SCX or .VCX file name
+*
+lParameters tcFileName
+*SET STEP ON
+
+*set classlib to x3tools
+IF FILE("C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO\VFP98\TOOLS\XHACK\x3tools.vcx"
+	set classlib to "C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO\VFP98\TOOLS\XHACK\x3tools"
+ELSE
+	set classlib to "C:\Program Files\Microsoft Visual Studio 7\vfp7\Tools\xHack\x3tools"
+endif
+
+public x3dthack
+x3dthack = createobject("frmHackSV",tcFileName)
+x3dthack.Show()
+return

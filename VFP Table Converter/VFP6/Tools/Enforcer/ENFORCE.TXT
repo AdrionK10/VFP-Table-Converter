@@ -1,0 +1,49 @@
+The Enforcer
+A Builder for Visual Foxpro to enforce screen object naming conventions.
+
+By: Harold Chattaway
+      Optimized Data Solutions
+       71 Old Northfield Rd
+       Ashby, MA 01431-2174
+       508-345-2421
+Internet: haroldc@tiac.net
+CIS: 72540,140
+
+
+One of the most interesting new development tools in Visual Foxpro (VFP) are the Builders. While VFP ships with a set of builders for most screen objects, Microsoft has opened up the architecture of the Builders to allow developers to write there own. This allows the developer to manipulate screen objects in ways that go beyond the standard builders that ship with VFP. Before going into The Enforcer, a brief discussion of builders is necessary first....
+
+A Builder in VFP is a regular VFP application that runs on top of your form while in design mode, and allows for the automation of very time consuming tasks that would be very tedious to perform manually. In VFP, there are so many properties for each object, that if developers had to navigate through the property sheet to set everything manually, developing forms would become a nightmare. Since in design mode, the form is live, a VFP program can run on top of it and interact with the form, its objects, and properties. The Builder can be of any size and complexity. 
+
+One of the more tedious tasks of developing a form, is providing meaningful names to the screen objects. For instance, if while in a form, you drop several textboxs onto the form, they appear as TEXT1, TEXT2, etc. This naming of objects makes it very confusing to know what the controlsource is for a textbox. To do this manually, you would have to click on the object, bring up its property sheet, click on the DATA tab, check what the controlsource property it, then click on the OTHER tab and change the name property to be that of the controlsource. If you have dozens of objects on the screen, this gets to be a very dull procedure! Also, besides naming the object to reflect its controlsource, it is also a good idea to prefix the name with a three letter abbreviation that reflects what type of object it is. For example, Textboxs are txt, spinners are spn. So for a textbox with a controlsource of ADDRESS, it's name would be txtaddress. This appearing in design mode instead of TEXT1 is a lot more friendly!  The Builder I am presenting here, The Enforcer, does just this. All you have to do is select multiple screen objects with the mouse, right-click, select Builder, and the choose The Enforcer, and it will run through all of the selected objects and change the name to a three letter prefix plus the controlsource. It will even do this for a selected GRID and will rename all of the grid objects to follow this convention! When installed, The Enforcer will be available for multiple selected objects or if you just select a grid object. The key to the simplicity of The Enforcer is that it uses recursion to traverse the object hierarchy. Using this technique eliminates cumbersome loops and excess code.
+
+Installation:
+To install The Enforcer, copy the zip file enforce.zip into an empty directory. Then unzip the file with pkunzip or WinZip. From the command window of VFP, simply run the ENFORCER.APP file with "REGISTER" as the parameter: 
+DO {path}\enforcer with "REGISTER"
+This command will register The Enforcer in the BUILDER.DBF file that VFP uses to track all of the available system builders. This table simply holds the name, description, and location of the builder on disk. It will add a record for type MULTISELECT and type GRID. This simply means that when you select multiple objects and choose to run Builders off the right-click menu, you will get a pick list showing the default multi-select builder as well as The Enforcer builder. Similarly, if you select a single grid object and run the builder, you will get to choose from the default builder, or The Enforcer. Since a grid object contains many other objects, it was decided to make The Enforcer available for this object as well as multiple objects. If you add a single textbox though, it is just as easy to change the name property for that one object manually.
+
+Operation:
+When The Enforcer is invoked, the first thing that happens is in the Load method, the table UNIQNAME is created. This will keep track of all the names that have been created. If any duplicates are encountered, they will be numbered. Also the table OBJECTS is copied to a read/write version on disk. OBJECTS.DBF is binded into the ENFORCER.APP file. Since this file must also be written to, it must be made external to the app file. This table contains a listing of all of the screen objects and there abbreviations. The abbreviations were taken from Flash Managament's Visual Foxpro Codebook. If any different abbreviations were to be used, this table simply needs to be modified. No code would have to be changed. The second thing that needs to be done is  to create an array of all the selected objects. This is accomplished by using the ASELOBJ() function in the INIT() method. This creates an array of objects that have been selected on the current form. Its return value represents how many objects have been selected. This is used as an upper bound on a loop that cycles through all of the selected screen objects. Next, the main form for the Enforcer is shown. This informs the users how many objects are to be affected. If you wish to proceed, click on the "YES" button. The Click method code for this button [CmdSet.click()] simply sets up a loop that cycles through each of the selected screen objects. Inside of this loop is the key to the whole program. 
+
+A call is made to a form method called WALKOBJECTS(). This is a method that takes as a parameter, the object reference to the current object. An object reference is an internal pointer or "handle" that VFP uses to point to the object definition.  WALKOBJECTS() first determines the name of the current object by calling the method GETNAME(). GETNAME() looks up the objects baseclass property in the OBJECTS table. Once found, it uses the contents of the field OBJABBRV as the prefix to the object name.  It then checks to see if this name has been used before by seeking its name in the UNIQNAME table. If it was found, then is starts sequentially numbering this name. If it was not found, this name is inserted into the UNIQNAME table for future use. Then the method GETCONTROL() is called to determine the controlsource property for the current object. In the case of a grid, there is no controlsource but a recordsource. So this is used instead. If an object has neither, then the object is simply numbered sequentially. The result of these two methods is then used to set the name property of the current object. 
+
+Next, the method WALKOBJECTS() uses the function AMEMBERS() to determine if the current object contains any other objects. If it does not, than the return value of the function AMEMBERS() is 0 and the loop in WALKOBJECTS() is not executed. If it is greater than 1, WALKOBJECTS() calls itself recursively until all of the objects that the current object contains have been traversed. This use of recursion eliminates the need for awkward loops. The only thing that WALKOBJECTS() uses is an object reference. This makes WALKOBJECTS very simple. It just uses a pointer to the next object! When WALKOBJECTS() encounters a grid object, it goes down every column in the grid until all of the grids objects have been renamed. You will notice that when a grid column has been renamed from COLUMN1 to GRCADDRESS, you're forms will be much easier to read!
+
+The source code for this builder is included at the end of the article and the actual builder app and all of the source code will be in the Visual Foxpro Library on Compuserve as well as in the ODS WEB page directory: ftp.www.tiac.net/users/haroldc/enforcer.zip
+
+NOTES:
+This builder must be used BEFORE any code has been written that uses the default object names! If you code a screen and then run this builder, your code will bomb if it makes reference to the old object names! It is suggested that you use The Enforcer after you have initially dropped your first set of objects onto a form or as soon as you add a new grid to a form. Remember that The Enforcer can be called as a builder on a single grid object as well as multiple objects.
+
+Finally, I tested this builder on many different types of forms and it seems to work great. If it were to bomb half way through a form, Cancel the builder and exit the form without saving. Then just bring the form up again to continue editing. I would greatly appreciate feedback on this builder. Any problems or further suggestion would be great! Hope this builder makes development easier!
+
+
+Harold Chattaway 
+Optimized Data Solutions
+71 Old Northfield Rd
+Ashby, MA 01431-2174
+508-345-2421
+Internet: haroldc@tiac.net
+CIS: 72540,140
+
+Visit our HomePage at http//:www.tiac.net/users/haroldc/index.htm
+
+

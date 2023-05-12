@@ -1,0 +1,88 @@
+Project:  bwTable (BroWse Table)
+Error in line 1: Unrecognized command verb.
+Author:   Terence Tam (Chinese Name: √”§@¶®)
+Error in line 2: Unrecognized command verb.
+Email:    justok@iname.com, justok@geocities.com
+Error in line 3: Unrecognized command verb.
+Aim:      Use a grid and command button to do browse task!
+Error in line 4: Unrecognized command verb.
+Fee:      Totally Free of Charge, but if anyone sell it,
+Error in line 5: Unrecognized command verb.
+I will take legal action!
+Error in line 6: Unrecognized command verb.
+1) Files include:
+Error in line 8: Syntax error.
+--------------
+Error in line 9: Unrecognized command verb.
+bwmain    Demo main program
+Error in line 10: Unrecognized command verb.
+edtshort  Enhanced Right Click Menu
+Error in line 11: Unrecognized command verb.
+fbwtable  Demo Form of object, as you can direct add obejct to you formset
+Error in line 12: Unrecognized command verb.
+fullname  Thanks David for this giving full name of object coding!
+Error in line 13: Unrecognized command verb.
+no_ime    Most Objects are included here!
+Error in line 14: Unrecognized command verb.
+upcaption Enhance version for proper() function
+Error in line 15: Unrecognized command verb.
+and some icon files
+Error in line 16: Unrecognized command verb.
+2) Note For Handling bwTable Object:
+Error in line 18: Syntax error.
+---------------------------------
+Error in line 19: Unrecognized command verb.
+If you want to control what dbf file list allow user to 'Browse',
+Error in line 20: Command contains unrecognized phrase/keyword.
+you can check the .undercontrol to .T. and modify the bwTable.Load().
+Error in line 21: Unrecognized command verb.
+You need to fill in the .fileary[?,1] on table choice.
+Error in line 22: Unrecognized command verb.
+3) Function on bwTable:
+Error in line 24: Syntax error.
+-----------------------
+Error in line 25: Unrecognized command verb.
+Choose 'table', then 'field', then 'mark', then 'condition' and click
+Error in line 26: Unrecognized command verb.
+'Search'. (Direction from left to right on search!)
+Error in line 27: Unrecognized command verb.
+You can press 'Search' for continue Search!
+Error in line 28: Unrecognized command verb.
+<Special Search>
+Error in line 29: Unrecognized command verb.
+Similar to above action but use Right-Click on Search!
+Error in line 30: Unrecognized command verb.
+So, only fulfill the condition will show but the date is read only!
+Error in line 31: Unrecognized command verb.
+<Set Order>
+Error in line 32: Unrecognized command verb.
+When change the fieldname and it is an index, the grid will auto change
+Error in line 33: Unrecognized command verb.
+to it right order!
+Error in line 34: Unrecognized command verb.
+4) Bugs Reports:
+Error in line 36: Syntax error.
+-------------
+Error in line 37: Unrecognized command verb.
+Fieldlist Function have some bugs since I have no time to fix it.
+Error in line 38: Unrecognized command verb.
+For any expertise here can find it, pls fix it and mail to me!
+Error in line 39: Syntax error.
+Anyway, if skip the error message, you still can work the field filter
+Error in line 40: Unrecognized command verb.
+Error in line 41: Nesting error.
+function and thus I don't remove the button!
+Error in line 41: Command contains unrecognized phrase/keyword.
+5) Finally Conclusion:
+Error in line 43: Syntax error.
+-------------------
+Error in line 44: Unrecognized command verb.
+This is a totally free of charge tool for you.
+Error in line 45: Unrecognized command verb.
+Don't try to resell to other!!
+Error in line 46: Unrecognized command verb.
+If you find any bugs or any enhancements or bugs fixed,
+Error in line 47: Command contains unrecognized phrase/keyword.
+please email to me for notise.
+Error in line 48: Unrecognized command verb.
+Error in line 48: An IF | ELSE | ENDIF statement is missing.

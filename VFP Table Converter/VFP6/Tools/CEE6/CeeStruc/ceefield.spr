@@ -1,0 +1,1123 @@
+***
+*** ceefield.spx
+***
+*
+SET STEP ON
+ DO CASE
+      CASE _WINDOWS .OR. _MAC
+           PRIVATE nsElect, nrEcno, luSed, coRder, cnOtify, cmSg, ctAlk,  ;
+                   cdEleted, ceRror, m.csEtescape
+           PRIVATE m.coUtput, m.cpRefix, m.ctAblename, m.pbOkcancel,  ;
+                   m.cdBfname, m.ldBfview, m.caLias
+           IF SET("TALK")="ON"
+                SET TALK OFF
+                m.ctAlk = "ON"
+           ELSE
+                m.ctAlk = "OFF"
+           ENDIF
+           DIMENSION aaFields[1]
+           DIMENSION afList[1]
+           aaFields = ""
+           afList = ""
+           m.ldBfview = .T.
+           m.ntOgcount = 0
+           m.cwTitle = "Build Field List"
+           IF NOT "CEE6"$SET("LIBRARY")
+                SET LIBRARY TO CEE6 ADDITIVE
+           ENDIF
+           WAIT CLEAR
+           m.whAndle = _xEhandle()
+           m.nsElect = SELECT()
+           m.nrEcno = RECNO()
+           m.caLias = ALIAS()
+           m.cdBfname = ""
+           m.caLias = ""
+           m.lcLosedbf = .F.
+           IF NOT shOwdbf(alias()) && shOwdbf(DBF())
+                SET TALK &cTalk
+                RETURN
+           ENDIF
+           WAIT CLEAR
+           m.coUtput = "Structure List"
+           m.cpRefix = "m."
+           m.ctAblename = SPACE(11)
+           m.pbOkcancel = "OK"
+           m.ceRror = ON("ERROR")
+           ON ERROR DO CEEERROR WITH ERROR()
+           m.cmSg = SET("MESSAGE", 1)
+           SET MESSAGE TO "Copyright"+IIF(_WINDOWS, CHR(169), " (c)")+" 1993 COB System Designs, Inc.  All Rights Reserved"
+           m.cnOtify = SET("NOTIFY")
+           SET NOTIFY ON
+           m.cdEleted = SET("DELETED")
+           SET DELETED OFF
+           m.csEtescape = SET("ESCAPE")
+           SET ESCAPE OFF
+           PUSH KEY CLEAR
+           ON KEY LABEL SPACEBAR DO TOGGLE
+           ON KEY LABEL CTRL+T DO TAGGROUP WITH .T.
+           ON KEY LABEL CTRL+U DO TAGGROUP WITH .F.
+           SET READBORDER OFF
+           PRIVATE m.cuRrarea, m.taLkstat, m.coMpstat
+           IF SET("TALK")="ON"
+                SET TALK OFF
+                m.taLkstat = "ON"
+           ELSE
+                m.taLkstat = "OFF"
+           ENDIF
+           m.coMpstat = SET("COMPATIBLE")
+           SET COMPATIBLE FOXPLUS
+           m.rbOrder = SET("READBORDER")
+           SET READBORDER OFF
+           m.cuRrarea = SELECT()
+           IF NOT WEXIST("wceefld") .OR. UPPER(WTITLE("WCEEFLD"))== ;
+              "WCEEFLD.PJX" .OR. UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.SCX"  ;
+              .OR. UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.MNX" .OR.  ;
+              UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.PRG" .OR.  ;
+              UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.FRX" .OR.  ;
+              UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.QPR"
+                DEFINE WINDOW wceefld  AT  0.000, 0.000   SIZE 21.063,81.000  TITLE "&cwTitle"  FONT "Arial", 10  STYLE "B"  FLOAT  NOCLOSE  NOMINIMIZE  DOUBLE  COLOR RGB(,,,192,192,192)
+                MOVE WINDOW wcEefld CENTER
+           ENDIF
+           IF WVISIBLE("wceefld")
+                ACTIVATE WINDOW SAME wcEefld
+           ELSE
+                ACTIVATE WINDOW NOSHOW wcEefld
+           ENDIF
+           @ 0.000, 0.000 GET m.scNobj1 DEFAULT 0 FONT "MS Sans Serif", 8  ;
+             SIZE 0.000, 0.000, 0.000 PICTURE "@*IHN " WHEN .F.
+           @ 3.250, 4.500 SAY "Fieldname" FONT "Arial", 10 STYLE "T"  ;
+             COLOR RGB(0,0,128,,,),
+           @ 2.813, 43.333 SAY "Output Options" FONT "Arial", 10 STYLE "T"
+           @ 15.643, 39.861 TO 19.956, 78.028 PEN 1, 8 COLOR RGB(128,128, ;
+             128,128,128,128)
+           @ 15.688, 40.000 TO 20.001, 78.167 PEN 1, 8 COLOR RGB(255,255, ;
+             255,,,),
+           @ 16.250, 43.333 SAY "Ctrl+T to tag all" FONT "Arial", 10 STYLE "T"
+           @ 3.268, 39.861 TO 8.643, 39.861 PEN 1, 8 COLOR RGB(128,128, ;
+             128,128,128,128)
+           @ 3.313, 40.000 TO 8.688, 40.000 PEN 1, 8 COLOR RGB(255,255,255,,,),
+           @ 8.643, 39.861 TO 8.643, 78.028 STYLE "1" PEN 1, 8 COLOR  ;
+             RGB(128,128,128,128,128,128)
+           @ 8.688, 40.000 TO 8.688, 78.167 STYLE "1" PEN 1, 8 COLOR  ;
+             RGB(255,255,255,,,),
+           @ 3.268, 77.861 TO 8.581, 77.861 PEN 1, 8 COLOR RGB(128,128, ;
+             128,128,128,128)
+           @ 3.313, 78.000 TO 8.626, 78.000 PEN 1, 8 COLOR RGB(255,255,255,,,),
+           @ 3.268, 39.861 TO 3.268, 42.028 STYLE "1" PEN 1, 8 COLOR  ;
+             RGB(128,128,128,128,128,128)
+           @ 3.313, 40.000 TO 3.313, 42.167 STYLE "1" PEN 1, 8 COLOR  ;
+             RGB(255,255,255,,,),
+           @ 3.268, 59.861 TO 3.268, 78.028 STYLE "1" PEN 1, 8 COLOR  ;
+             RGB(128,128,128,128,128,128)
+           @ 3.313, 60.000 TO 3.313, 78.167 STYLE "1" PEN 1, 8 COLOR  ;
+             RGB(255,255,255,,,),
+           @ 3.250, 20.000 SAY "Type" FONT "Arial", 10 STYLE "T" COLOR  ;
+             RGB(0,0,128,,,),
+           @ 3.250, 26.833 SAY "Len,Dec" FONT "Arial", 10 STYLE "T" COLOR  ;
+             RGB(0,0,128,,,),
+           @ 3.268, 1.861 TO 4.143, 38.194 PEN 1, 8 COLOR RGB(128,128,128, ;
+             128,128,128)
+           @ 3.313, 2.000 TO 4.188, 38.333 PEN 1, 8 COLOR RGB(255,255,255,,,),
+           @ 3.330, 19.361 TO 4.080, 19.361 PEN 1, 8 COLOR RGB(128,128, ;
+             128,128,128,128)
+           @ 3.375, 19.500 TO 4.125, 19.500 PEN 1, 8 COLOR RGB(255,255,255,,,),
+           @ 3.268, 25.861 TO 4.081, 25.861 PEN 1, 8 COLOR RGB(128,128, ;
+             128,128,128,128)
+           @ 3.313, 26.000 TO 4.126, 26.000 PEN 1, 8 COLOR RGB(255,255,255,,,),
+           @ 0.688, 2.333 SAY "Database" FONT "Arial", 10 STYLE "T"
+           @ 17.500, 43.000 SAY "Ctrl+U to untag all" FONT "Arial", 10
+           @ 18.625, 43.000 SAY "SpaceBar Toggles Mark" FONT "Arial", 10
+           @ 8.643, 39.861 TO 11.081, 78.028 PEN 1, 8 COLOR RGB(128,128, ;
+             128,128,128,128)
+           @ 8.688, 40.000 TO 11.126, 78.167 PEN 1, 8 COLOR RGB(255,255, ;
+             255,,,),
+           @ 8.125, 43.333 SAY " Sort Options " FONT "Arial", 10
+           DO 3DBOX WITH 4.285, 2.028, 16.155, 36.723, -1.8, 255, 255,  ;
+              255, 96, 96, 96
+           @ 4.375,2.167 GET m.nFields  PICTURE "@&N"  FROM aAFields  SIZE 15.750,26.875  DEFAULT 1  FONT "Courier New", 10  WHEN m.lDBFView  VALID Toggle()  COLOR RGB(,,,255,255,255),RGB(,,,255,255,255)
+           @ 4.250, 41.500 GET m.coUtput DEFAULT 1 FONT "Arial", 10 STYLE  ;
+             "T" SIZE 1.063, 17.333, 0.000 PICTURE  ;
+             "@*RVN \<Structure List;Create \<Table;\<Field List" VALID  ;
+             _0280rhzrf() WHEN m.ldBfview COLOR ,,,,,,,,RGB(,,,192,192, ;
+             192),RGB(,,,192,192,192)
+           DO 3DBOX WITH 6.660, 59.722, 1.681, 12.056, -1.8, 255, 255,  ;
+              255, 96, 96, 96
+           @ 6.750, 60.000 GET m.cpRefix DEFAULT "m." FONT "Arial", 10  ;
+             SIZE 1.500, 11.500 PICTURE "@^ \<m.;\<ALIAS();\<None"  ;
+             DISABLE WHEN ("Field"$m.coUtput) MESSAGE "Field Prefix"  ;
+             COLOR ,,,,,,,,RGB(,,,255,255,255),RGB(,,,255,255,255)
+           DO 3DBOX WITH 5.194, 59.777, 1.361, 16.944, -1.8, 255, 255,  ;
+              255, 96, 96, 96
+           @ 5.375, 60.333 GET m.ctAblename DEFAULT " " FONT "Arial", 10  ;
+             SIZE 1.000, 15.833 PICTURE "@K NNNNNNNNNNN" DISABLE WHEN  ;
+             ("Table"$m.coUtput) MESSAGE "Enter table name" COLOR ,RGB(,,, ;
+             255,255,255)
+           @ 9.563, 44.333 GET lcSortfld DEFAULT 1 FONT "Arial", 10 STYLE  ;
+             "T" SIZE 1.063, 9.833, 0.000 PICTURE  ;
+             "@*RHN \<None;\<Alpha;T\<ype" COLOR ,,,,,,,,RGB(,,,192,192, ;
+             192),RGB(,,,192,192,192)
+           @ 12.438, 47.167 GET m.pbOkcancel DEFAULT 1 FONT "Arial", 10  ;
+             SIZE 1.938, 11.333, 1.000 PICTURE "@*HT \!\<OK;\?\<Cancel"  ;
+             VALID _0280rhzrz()
+           @ 1.750, 2.000 GET m.pbDbf DEFAULT 1 FONT "Arial", 10 SIZE  ;
+             1.125, 26.000, 0.667 PICTURE "@*HN <None>" VALID _0280rhzs8()
+           @ 0.000, 0.000 GET m.scNend1 DEFAULT 0 FONT "MS Sans Serif", 8  ;
+             SIZE 0.000, 0.000, 0.000 PICTURE "@*IHN " WHEN .F.
+           IF NOT WVISIBLE("wceefld")
+                ACTIVATE WINDOW wcEefld
+           ENDIF
+           READ CYCLE SHOW _0280rhzsl() ACTIVATE _0280rhzsk()
+           RELEASE WINDOW wcEefld
+           SELECT (m.cuRrarea)
+           SET READBORDER &rborder
+           IF m.taLkstat="ON"
+                SET TALK ON
+           ENDIF
+           IF m.coMpstat="ON"
+                SET COMPATIBLE DB4
+           ENDIF
+           DO reSetenv
+           SELECT (m.nsElect)
+           SET MESSAGE TO (cmSg)
+           POP KEY
+           RETURN
+      CASE _DOS .OR. _UNIX
+           PRIVATE nsElect, nrEcno, luSed, coRder, cnOtify, cmSg, ctAlk,  ;
+                   cdEleted, ceRror, m.csEtescape
+           PRIVATE m.coUtput, m.cpRefix, m.ctAblename, m.pbOkcancel,  ;
+                   m.cdBfname, m.ldBfview, m.caLias
+           IF SET("TALK")="ON"
+                SET TALK OFF
+                m.ctAlk = "ON"
+           ELSE
+                m.ctAlk = "OFF"
+           ENDIF
+           DIMENSION aaFields[1]
+           DIMENSION afList[1]
+           aaFields = ""
+           afList = ""
+           m.ldBfview = .T.
+           m.ntOgcount = 0
+           m.cwTitle = "Build Field List"
+           IF NOT "CEE6" $ SET("LIBRARY")
+                SET LIBRARY TO CEE6 ADDITIVE
+           ENDIF
+           WAIT CLEAR
+           m.whAndle = _xEhandle()
+           m.nsElect = SELECT()
+           m.nrEcno = RECNO()
+           m.caLias = ALIAS()
+           m.cdBfname = ""
+           m.caLias = ""
+           m.lcLosedbf = .F.
+           IF NOT shOwdbf(alias()) && shOwdbf(DBF())
+                SET TALK &cTalk
+                RETURN
+           ENDIF
+           WAIT CLEAR
+           m.coUtput = "Structure List"
+           m.cpRefix = "m."
+           m.ctAblename = SPACE(11)
+           m.pbOkcancel = "OK"
+           m.ceRror = ON("ERROR")
+           ON ERROR DO CEEERROR WITH ERROR()
+           m.cmSg = SET("MESSAGE", 1)
+           SET MESSAGE TO "Copyright"+IIF(_WINDOWS, CHR(169), " (c)")+" 1993 COB System Designs, Inc.  All Rights Reserved"
+           m.cnOtify = SET("NOTIFY")
+           SET NOTIFY ON
+           m.cdEleted = SET("DELETED")
+           SET DELETED OFF
+           m.csEtescape = SET("ESCAPE")
+           SET ESCAPE OFF
+           PUSH KEY CLEAR
+           ON KEY LABEL SPACEBAR DO TOGGLE
+           ON KEY LABEL CTRL+T DO TAGGROUP WITH .T.
+           ON KEY LABEL CTRL+U DO TAGGROUP WITH .F.
+           PRIVATE m.cuRrarea, m.taLkstat, m.coMpstat
+           IF SET("TALK")="ON"
+                SET TALK OFF
+                m.taLkstat = "ON"
+           ELSE
+                m.taLkstat = "OFF"
+           ENDIF
+           m.coMpstat = SET("COMPATIBLE")
+           SET COMPATIBLE FOXPLUS
+           m.cuRrarea = SELECT()
+           IF NOT WEXIST("wceefld") .OR. UPPER(WTITLE("WCEEFLD"))== ;
+              "WCEEFLD.PJX" .OR. UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.SCX"  ;
+              .OR. UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.MNX" .OR.  ;
+              UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.PRG" .OR.  ;
+              UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.FRX" .OR.  ;
+              UPPER(WTITLE("WCEEFLD"))=="WCEEFLD.QPR"
+                DEFINE WINDOW wceefld  FROM INT((SROW()-20)/2),INT((SCOL()-70)/2)  TO INT((SROW()-20)/2)+19,INT((SCOL()-70)/2)+69  TITLE "&cwTitle"  FLOAT  NOCLOSE  NOMINIMIZE  DOUBLE  COLOR SCHEME 5
+           ENDIF
+           IF WVISIBLE("wceefld")
+                ACTIVATE WINDOW SAME wcEefld
+           ELSE
+                ACTIVATE WINDOW NOSHOW wcEefld
+           ENDIF
+           @ 0, 0 GET m.scNobj1 DEFAULT 0 SIZE 0, 0, 0 PICTURE "@*IHN "  ;
+             WHEN .F.
+           @ 2, 30 TO 9, 66
+           @ 4,2 GET m.nFields  PICTURE "@&N"  FROM aAFields  SIZE 14,27  DEFAULT 1  WHEN m.lDBFView  VALID Toggle()  COLOR SCHEME 6
+           @ 4, 32 GET m.coUtput DEFAULT 1 SIZE 1, 18, 0 PICTURE  ;
+             "@*RVN \<Structure List;Create \<Table;\<Field List" VALID  ;
+             _0280rhzya() WHEN m.ldBfview
+           @ 6, 50 GET m.cpRefix DEFAULT "m." SIZE 3, 12 PICTURE  ;
+             "@^ \<m.;\<ALIAS();\<None" DISABLE WHEN ("Field"$m.coUtput)  ;
+             MESSAGE "Field Prefix" COLOR SCHEME 5,6
+           @ 5, 50 GET m.ctAblename DEFAULT " " SIZE 1, 15 PICTURE  ;
+             "@K NNNNNNNNNNN" DISABLE WHEN ("Table"$m.coUtput) MESSAGE  ;
+             "Enter table name"
+           @ 11, 41 GET m.pbOkcancel DEFAULT 1 SIZE 1, 8, 1 PICTURE  ;
+             "@*HT \!\<OK;\?\<Cancel" VALID _0280rhzyp()
+           @ 13, 37 TO 17, 61
+           @ 15, 39 SAY "Ctrl+U to untag all" SIZE 1, 19, 0
+           @ 16, 39 SAY "SpaceBar Toggles Mark" SIZE 1, 21, 0
+           @ 3, 15 SAY "Type" SIZE 1, 4, 0
+           @ 1, 3 GET m.pbDbf DEFAULT 1 SIZE 1, 19, 0 PICTURE  ;
+             "@*HN <None>" VALID _0280rhzz4()
+           @ 3, 4 SAY "Fieldname" SIZE 1, 9, 0
+           @ 0, 3 SAY "Database" SIZE 1, 8, 0
+           @ 2, 32 SAY "Output Options" SIZE 1, 14, 0
+           @ 3, 20 SAY "Len,Dec" SIZE 1, 7, 0
+           @ 0, 41 SAY "CEE: COB Editor Extensions" SIZE 1, 26, 0 COLOR BG+/RB 
+           @ 14, 39 SAY "Ctrl+T to tag all" SIZE 1, 17, 0
+           @ 0, 0 GET m.scNend1 DEFAULT 0 SIZE 0, 0, 0 PICTURE "@*IHN "  ;
+             WHEN .F.
+           IF NOT WVISIBLE("wceefld")
+                ACTIVATE WINDOW wcEefld
+           ENDIF
+           READ CYCLE SHOW _0280rhzzk() ACTIVATE _0280rhzzj()
+           RELEASE WINDOW wcEefld
+           SELECT (m.cuRrarea)
+           IF m.taLkstat="ON"
+                SET TALK ON
+           ENDIF
+           IF m.coMpstat="ON"
+                SET COMPATIBLE DB4
+           ENDIF
+           DO reSetenv
+           SELECT (m.nsElect)
+           SET MESSAGE TO (cmSg)
+           POP KEY
+           RETURN
+ ENDCASE
+ENDPROC
+*
+FUNCTION _0280rhzrf
+ DO CASE
+      CASE "Field"$m.coUtput
+           SHOW GET m.cpRefix ENABLE
+           SHOW GET m.ctAblename DISABLE
+      CASE "Create"$m.coUtput
+           SHOW GET m.cpRefix DISABLE
+           SHOW GET m.ctAblename ENABLE
+      OTHERWISE
+           SHOW GET m.cpRefix DISABLE
+           SHOW GET m.ctAblename DISABLE
+ ENDCASE
+ RETURN .T.
+ENDFUNC
+*
+PROCEDURE _0280rhzrz
+ PRIVATE m.ltAble
+ IF "OK"$m.pbOkcancel .AND. m.ldBfview
+      DO ceEstrbuild
+ ENDIF
+ENDPROC
+*
+PROCEDURE _0280rhzs8
+ IF shOwdbf(alias()) && shOwdbf()
+      SHOW GETS
+ ENDIF
+ENDPROC
+*
+PROCEDURE _0280rhzsk
+ SHOW GET m.coUtput, 2 DISABLE
+ SHOW GET m.coUtput, 3 DISABLE
+ENDPROC
+*
+PROCEDURE _0280rhzsl
+ PRIVATE cuRrwind
+ STORE WOUTPUT() TO cuRrwind
+ SHOW GET m.pbDbf, 1 PROMPT m.cdBfname
+ IF NOT EMPTY(cuRrwind)
+      ACTIVATE WINDOW SAME (cuRrwind)
+ ENDIF
+ENDPROC
+*
+FUNCTION _0280rhzya
+ DO CASE
+      CASE "Field"$m.coUtput
+           SHOW GET m.cpRefix ENABLE
+           SHOW GET m.ctAblename DISABLE
+      CASE "Create"$m.coUtput
+           SHOW GET m.cpRefix DISABLE
+           SHOW GET m.ctAblename ENABLE
+      OTHERWISE
+           SHOW GET m.cpRefix DISABLE
+           SHOW GET m.ctAblename DISABLE
+ ENDCASE
+ RETURN .T.
+ENDFUNC
+*
+PROCEDURE _0280rhzyp
+ PRIVATE m.ltAble
+ IF "OK"$m.pbOkcancel .AND. m.ldBfview
+      DO ceEstrbuild
+ ENDIF
+ENDPROC
+*
+PROCEDURE _0280rhzz4
+ IF shOwdbf(alias()) && shOwdbf()
+      SHOW GETS
+ ENDIF
+ENDPROC
+*
+PROCEDURE _0280rhzzj
+ SHOW GET m.coUtput, 2 DISABLE
+ SHOW GET m.coUtput, 3 DISABLE
+ENDPROC
+*
+PROCEDURE _0280rhzzk
+ PRIVATE cuRrwind
+ STORE WOUTPUT() TO cuRrwind
+ SHOW GET m.pbDbf, 1 PROMPT m.cdBfname
+ IF NOT EMPTY(cuRrwind)
+      ACTIVATE WINDOW SAME (cuRrwind)
+ ENDIF
+ENDPROC
+*
+FUNCTION SHOWDBF
+ PARAMETER cpIckdbf
+ DO CASE
+      CASE _WINDOWS && DOS
+           PRIVATE coNerror, nsElect
+           PUSH KEY CLEAR
+           m.lrEturn = .F.
+           m.nsElect = SELECT()
+           IF EMPTY(cpIckdbf)
+                m.cpIckdbf = ""
+           ENDIF
+           m.coNerror = ON("ERROR")
+           ON ERROR M.CPICKDBF=""
+           
+           IF NOT used(m.cpIckdbf)  && FILE(m.cpIckdbf)
+                m.cpIckdbf = GETFILE("DBF|SCX|MNX|FRX",  ;
+                             "Structure listing for:")
+           m.nnEwselect = ALIAS()                  
+           ELSE
+            USE SHARED (m.cpIckdbf) AGAIN IN (m.nnEwselect) ALIAS (m.nnEwselect)
+           ENDIF
+                     
+           
+           ON ERROR &cOnError
+           IF "" <> m.cpIckdbf
+                m.nnEwselect = SELECT(1)
+                m.coNerror = ON("ERROR")
+                ON ERROR M.CPICKDBF=""
+                *USE SHARED (m.cpIckdbf) AGAIN IN (m.nnEwselect)
+                ON ERROR &cOnError
+                IF ""<>m.cpIckdbf
+                     SELECT (m.nnEwselect)
+                     m.cdBfname = PROPER(SUBSTR(DBF(), RAT("\", DBF())+1))
+                     m.caLias = ALIAS()
+                     DO ubUildlist
+                     USE IN (m.nnEwselect)
+                     m.lrEturn = .T.
+                ELSE
+                     WAIT WINDOW 'Error in choosing '+m.cpIckdbf
+                ENDIF
+           ENDIF
+           SELECT (m.nsElect)
+           POP KEY
+           RETURN lrEturn
+      CASE _DOS && _WINDOWS
+           PRIVATE coNerror, nsElect
+           PUSH KEY CLEAR
+           m.lrEturn = .F.
+           m.nsElect = SELECT()
+           IF EMPTY(cpIckdbf)
+                m.cpIckdbf = ""
+           ENDIF
+           m.coNerror = ON("ERROR")
+           ON ERROR M.CPICKDBF=""
+           IF NOT FILE(m.cpIckdbf)
+                m.cpIckdbf = GETFILE("DBF|SCX|MNX|FRX",  ;
+                             "Structure listing for:")
+           ENDIF
+           ON ERROR &cOnError
+           IF ""<>m.cpIckdbf
+                m.nnEwselect = SELECT(1)
+                m.coNerror = ON("ERROR")
+                ON ERROR M.CPICKDBF=""
+                USE SHARED (m.cpIckdbf) AGAIN IN (m.nnEwselect)
+                ON ERROR &cOnError
+                IF ""<>m.cpIckdbf
+                     SELECT (m.nnEwselect)
+                     m.cdBfname = PROPER(SUBSTR(DBF(), RAT("\", DBF())+1))
+                     m.caLias = ALIAS()
+                     DO ubUildlist
+                     USE IN (m.nnEwselect)
+                     m.lrEturn = .T.
+                ELSE
+                     WAIT WINDOW 'Error in choosing '+m.cpIckdbf
+                ENDIF
+           ENDIF
+           SELECT (m.nsElect)
+           POP KEY
+           RETURN lrEturn
+ ENDCASE
+ENDFUNC
+*
+PROCEDURE UBUILDLIST
+ DO CASE
+      CASE _DOS
+           PRIVATE m.i
+           PUSH KEY CLEAR
+           IF NOT EMPTY(DBF())
+                = AFIELDS(afList)
+                DO CASE
+                     CASE lnOptsort=1
+                     CASE lnOptsort=2
+                          = ASORT(afList)
+                     CASE lnOptsort=3
+                          = ASORT(afList, 2)
+                ENDCASE
+                DIMENSION aaFields[ALEN(afList, 1)]
+                FOR m.i = 1 TO ALEN(afList, 1)
+                     m.cbAr = "  "+PADR(afList(m.i,1), 12)+" "+afList(m.i, ;
+                              2)+" "+STR(afList(m.i,3), 3)+IIF(afList(m.i, ;
+                              4)<>0, ","+ALLTRIM(STR(afList(m.i,4), 3)), "")
+                     aaFields[m.i] = m.cbAr
+                ENDFOR
+                m.pbDbf = m.cdBfname
+                m.ldBfview = .T.
+                IF WVISIBLE("WCEEFLD")
+                     SHOW GET m.nfIelds
+                ENDIF
+           ELSE
+                m.ldBfview = .F.
+           ENDIF
+           POP KEY
+           RETURN
+      CASE _WINDOWS
+           PRIVATE m.i
+           PUSH KEY CLEAR
+           IF NOT EMPTY(DBF())
+                = AFIELDS(afList)
+                DO CASE
+                     CASE lnOptsort=1
+                     CASE lnOptsort=2
+                          = ASORT(afList)
+                     CASE lnOptsort=3
+                          = ASORT(afList, 2)
+                ENDCASE
+                DIMENSION aaFields[ALEN(afList, 1)]
+                FOR m.i = 1 TO ALEN(afList, 1)
+                     m.cbAr = "  "+PADR(afList(m.i,1), 12)+" "+afList(m.i, ;
+                              2)+" "+STR(afList(m.i,3), 3)+IIF(afList(m.i, ;
+                              4)<>0, ","+ALLTRIM(STR(afList(m.i,4), 3)), "")
+                     aaFields[m.i] = m.cbAr
+                ENDFOR
+                m.pbDbf = m.cdBfname
+                m.ldBfview = .T.
+                IF WVISIBLE("WCEEFLD")
+                     SHOW GET m.nfIelds
+                ENDIF
+           ELSE
+                m.ldBfview = .F.
+           ENDIF
+           POP KEY
+           RETURN
+ ENDCASE
+ENDPROC
+*
+FUNCTION TOGGLE
+ PARAMETER ltOggleon
+ DO CASE
+      CASE _DOS
+           PRIVATE lrEfresh, laLltag
+           IF NOT "NFIELDS"$VARREAD()
+                KEYBOARD "{SPACEBAR}" PLAIN
+                RETURN
+           ENDIF
+           PUSH KEY CLEAR
+           m.lrEfresh = .F.
+           IF PARAMETERS()=0
+                m.ltOggleon = EMPTY(LEFT(aaFields(m.nfIelds), 2))
+                m.lrEfresh = .T.
+           ENDIF
+           IF m.ltOggleon
+                aaFields[m.nfIelds] = "* "+ ;
+                        ALLTRIM(SUBSTR(aaFields(m.nfIelds), 2))
+                m.ntOgcount = m.ntOgcount+1
+           ELSE
+                aaFields[m.nfIelds] = SPACE(2)+ ;
+                        ALLTRIM(SUBSTR(aaFields(m.nfIelds), 2))
+                m.ntOgcount = m.ntOgcount-1
+           ENDIF
+           IF m.lrEfresh
+                IF m.nfIelds<ALEN(aaFields, 1)
+                     m.nfIelds = m.nfIelds+1
+                ENDIF
+                SHOW GET m.nfIelds
+                = toGoutopt()
+           ENDIF
+           POP KEY
+           RETURN .T.
+      CASE _WINDOWS
+           PRIVATE lrEfresh, laLltag
+           IF NOT "NFIELDS"$VARREAD()
+                KEYBOARD "{SPACEBAR}" PLAIN
+                RETURN
+           ENDIF
+           PUSH KEY CLEAR
+           m.lrEfresh = .F.
+           IF PARAMETERS()=0
+                m.ltOggleon = EMPTY(LEFT(aaFields(m.nfIelds), 2))
+                m.lrEfresh = .T.
+           ENDIF
+           IF m.ltOggleon
+                aaFields[m.nfIelds] = "* "+ ;
+                        ALLTRIM(SUBSTR(aaFields(m.nfIelds), 2))
+                m.ntOgcount = m.ntOgcount+1
+           ELSE
+                aaFields[m.nfIelds] = SPACE(2)+ ;
+                        ALLTRIM(SUBSTR(aaFields(m.nfIelds), 2))
+                m.ntOgcount = m.ntOgcount-1
+           ENDIF
+           IF m.lrEfresh
+                IF m.nfIelds<ALEN(aaFields, 1)
+                     m.nfIelds = m.nfIelds+1
+                ENDIF
+                SHOW GET m.nfIelds
+                = toGoutopt()
+           ENDIF
+           POP KEY
+           RETURN .T.
+ ENDCASE
+ENDFUNC
+*
+PROCEDURE TAGGROUP
+ PARAMETER loN
+ DO CASE
+      CASE _DOS
+           PRIVATE nbOokmark, i
+           m.nbOokmark = m.nfIelds
+           IF NOT "NFIELDS"$VARREAD()
+                RETURN
+           ENDIF
+           PUSH KEY CLEAR
+           FOR m.i = 1 TO ALEN(aaFields, 1)
+                m.nfIelds = m.i
+                DO toGgle WITH loN
+           ENDFOR
+           KEYBOARD "{Home}" PLAIN
+           IF m.loN
+                m.ntOgcount = ALEN(aaFields, 1)
+           ELSE
+                m.ntOgcount = 0
+           ENDIF
+           POP KEY
+           m.nfIelds = m.nbOokmark
+           SHOW GET m.nfIelds
+           = toGoutopt()
+           RETURN
+      CASE _WINDOWS
+           PRIVATE nbOokmark, i
+           m.nbOokmark = m.nfIelds
+           IF NOT "NFIELDS"$VARREAD()
+                RETURN
+           ENDIF
+           PUSH KEY CLEAR
+           FOR m.i = 1 TO ALEN(aaFields, 1)
+                m.nfIelds = m.i
+                DO toGgle WITH loN
+           ENDFOR
+           KEYBOARD "{Home}" PLAIN
+           IF m.loN
+                m.ntOgcount = ALEN(aaFields, 1)
+           ELSE
+                m.ntOgcount = 0
+           ENDIF
+           POP KEY
+           m.nfIelds = m.nbOokmark
+           SHOW GET m.nfIelds
+           = toGoutopt()
+           RETURN
+ ENDCASE
+ENDPROC
+*
+PROCEDURE TOGOUTOPT
+ DO CASE
+      CASE _DOS
+           IF m.ntOgcount>0
+                SHOW GET m.coUtput, 2 ENABLE
+                SHOW GET m.coUtput, 3 ENABLE
+           ELSE
+                SHOW GET m.coUtput, 2 DISABLE
+                SHOW GET m.coUtput, 3 DISABLE
+           ENDIF
+           SHOW GET m.coUtput
+           RETURN
+      CASE _WINDOWS
+           IF m.ntOgcount>0
+                SHOW GET m.coUtput, 2 ENABLE
+                SHOW GET m.coUtput, 3 ENABLE
+           ELSE
+                SHOW GET m.coUtput, 2 DISABLE
+                SHOW GET m.coUtput, 3 DISABLE
+           ENDIF
+           SHOW GET m.coUtput
+           RETURN
+ ENDCASE
+ENDPROC
+*
+PROCEDURE SHOWLIST
+ PARAMETER cdBfname
+ DO CASE
+      CASE _DOS
+           PUSH KEY CLEAR
+           IF NOT EMPTY(cdBfname)
+                PRIVATE cwTitle, acFields, nlEn, ctEmp, nrAnge
+                WAIT WINDOW NOWAIT 'Working...'+PROPER(cdBfname)
+                IF ""<>m.cdBfname
+                     m.ctEmpfile = LEFT(m.cdBfname, RAT(".", m.cdBfname))+"LST"
+                     m.cwTitle = m.cdBfname+" Structure Listing"
+                     IF LEFT(m.cwTitle, 1)$"_-"
+                          m.cwTitle = "The "+m.cwTitle
+                     ENDIF
+                     WAIT WINDOW NOWAIT 'Creating structure list for '+ ;
+                          m.cdBfname
+                     DO CASE
+                          CASE lnOptsort=1
+                          CASE lnOptsort=2
+                               = ASORT(afList)
+                          CASE lnOptsort=3
+                               = ASORT(afList, 2)
+                     ENDCASE
+                     m.nlEn = ALEN(afList, 1)
+                     m.nfIlehandle = FCREATE(m.ctEmpfile)
+                     IF m.nfIlehandle<>-1
+                          IF _WINDOWS
+                               DEFINE WINDOW wgEtstru AT 1, 0 SIZE 15, 40  ;
+                                      GROW FLOAT CLOSE ZOOM SHADOW TITLE  ;
+                                      m.cwTitle MINIMIZE SYSTEM
+                          ELSE
+                               DEFINE WINDOW wgEtstru AT 1, 0 SIZE 15, 40  ;
+                                      GROW FLOAT CLOSE ZOOM SHADOW TITLE  ;
+                                      m.cwTitle MINIMIZE SYSTEM COLOR SCHEME 10
+                          ENDIF
+                          m.ctEmp = "Structure for "+m.cdBfname
+                          = FPUTS(m.nfIlehandle, m.ctEmp)
+                          = FPUTS(m.nfIlehandle, REPLICATE("-", LEN(m.ctEmp)))
+                          m.nrAnge = (LEN(m.ctEmp)*2)+5
+                          FOR m.i = 1 TO m.nlEn
+                               m.csHowfield = ""
+                               m.ctEmp = PADR(afList(m.i,1), 12)+ ;
+                                afList(m.i,2)+" "+STR(afList(m.i,3), 3)+ ;
+                                " "+STR(afList(m.i,4), 3)+"  "+ ;
+                                shOwfield(m.csHowfield)
+                               = FPUTS(m.nfIlehandle, m.ctEmp)
+                          ENDFOR
+                          = FSEEK(m.nfIlehandle, 0, 0)
+                          = FCLOSE(m.nfIlehandle)
+                          MODIFY COMMAND &cTempFile NOEDIT WINDOW wgetstru RANGE nRange,nRange NOWAIT
+                          IF WEXIST(m.cwTitle)
+                               ZOOM WINDOW (m.cwTitle) MIN AUTO
+                          ENDIF
+                          RELEASE WINDOW wgEtstru
+                          WAIT CLEAR
+                     ENDIF
+                ELSE
+                     IF ""<>m.cdBfname
+                          = FCLOSE(m.nfIlehandle)
+                          WAIT WINDOW 'Could not create temp file: '+ ;
+                               m.ctEmpfile
+                     ELSE
+                          WAIT WINDOW 'Trouble in Paradise. No such #:'+ ;
+                               m.cdBfname
+                     ENDIF
+                ENDIF
+           ENDIF
+           POP KEY
+           RETURN
+      CASE _WINDOWS
+           PUSH KEY CLEAR
+           IF NOT EMPTY(cdBfname)
+                PRIVATE cwTitle, acFields, nlEn, ctEmp, nrAnge
+                WAIT WINDOW NOWAIT 'Working...'+PROPER(cdBfname)
+                IF ""<>m.cdBfname
+                     m.ctEmpfile = LEFT(m.cdBfname, RAT(".", m.cdBfname))+"LST"
+                     m.cwTitle = m.cdBfname+" Structure Listing"
+                     IF LEFT(m.cwTitle, 1)$"_-"
+                          m.cwTitle = "The "+m.cwTitle
+                     ENDIF
+                     WAIT WINDOW NOWAIT 'Creating structure list for '+ ;
+                          m.cdBfname
+                     DO CASE
+                          CASE lnOptsort=1
+                          CASE lnOptsort=2
+                               = ASORT(afList)
+                          CASE lnOptsort=3
+                               = ASORT(afList, 2)
+                     ENDCASE
+                     m.nlEn = ALEN(afList, 1)
+                     m.nfIlehandle = FCREATE(m.ctEmpfile)
+                     IF m.nfIlehandle<>-1
+                          IF _WINDOWS
+                               DEFINE WINDOW wgEtstru AT 1, 0 SIZE 15, 40  ;
+                                      GROW FLOAT CLOSE ZOOM SHADOW TITLE  ;
+                                      m.cwTitle MINIMIZE SYSTEM
+                          ELSE
+                               DEFINE WINDOW wgEtstru AT 1, 0 SIZE 15, 40  ;
+                                      GROW FLOAT CLOSE ZOOM SHADOW TITLE  ;
+                                      m.cwTitle MINIMIZE SYSTEM COLOR SCHEME 10
+                          ENDIF
+                          m.ctEmp = "Structure for "+m.cdBfname
+                          = FPUTS(m.nfIlehandle, m.ctEmp)
+                          = FPUTS(m.nfIlehandle, REPLICATE("-", LEN(m.ctEmp)))
+                          m.nrAnge = (LEN(m.ctEmp)*2)+5
+                          FOR m.i = 1 TO m.nlEn
+                               m.csHowfield = ""
+                               m.ctEmp = PADR(afList(m.i,1), 12)+ ;
+                                afList(m.i,2)+" "+STR(afList(m.i,3), 3)+ ;
+                                " "+STR(afList(m.i,4), 3)+"  "+ ;
+                                shOwfield(m.csHowfield)
+                               = FPUTS(m.nfIlehandle, m.ctEmp)
+                          ENDFOR
+                          = FSEEK(m.nfIlehandle, 0, 0)
+                          = FCLOSE(m.nfIlehandle)
+                          MODIFY COMMAND &cTempFile NOEDIT WINDOW wgetstru RANGE nRange,nRange NOWAIT
+                          IF WEXIST(m.cwTitle)
+                               ZOOM WINDOW (m.cwTitle) MIN AUTO
+                          ENDIF
+                          RELEASE WINDOW wgEtstru
+                          WAIT CLEAR
+                     ENDIF
+                ELSE
+                     IF ""<>m.cdBfname
+                          = FCLOSE(m.nfIlehandle)
+                          WAIT WINDOW 'Could not create temp file: '+ ;
+                               m.ctEmpfile
+                     ELSE
+                          WAIT WINDOW 'Trouble in Paradise. No such #:'+ ;
+                               m.cdBfname
+                     ENDIF
+                ENDIF
+           ENDIF
+           POP KEY
+           RETURN
+ ENDCASE
+ENDPROC
+*
+FUNCTION SHOWFIELD
+ PARAMETER cfIeld
+ DO CASE
+      CASE _DOS
+           PRIVATE ndEcimal, nbReak
+           IF _WINDOWS
+                PUSH KEY CLEAR
+                DO CASE
+                     CASE afList(i,2)="C"
+                          csHowfield = REPLICATE("X", afList(m.i,3))
+                     CASE afList(m.i,2)="N"
+                          IF afList(m.i,4)<>0
+                               m.nbReak = afList(i,3)-afList(m.i,4)
+                               m.ndEcimal = afList(m.i,4)
+                               m.csHowfield = REPLICATE("0", m.nbReak-1)+ ;
+                                "."+REPLICATE("0", m.ndEcimal)
+                          ELSE
+                               m.csHowfield = REPLICATE("0", afList(m.i,3))
+                          ENDIF
+                     CASE afList(m.i,2)="D"
+                          m.csHowfield = "00/00/00"
+                     CASE afList(m.i,2)="L"
+                          m.csHowfield = "Y"
+                ENDCASE
+                POP KEY
+           ENDIF
+           RETURN m.csHowfield
+      CASE _WINDOWS
+           PRIVATE ndEcimal, nbReak
+           IF _WINDOWS
+                PUSH KEY CLEAR
+                DO CASE
+                     CASE afList(i,2)="C"
+                          csHowfield = REPLICATE("X", afList(m.i,3))
+                     CASE afList(m.i,2)="N"
+                          IF afList(m.i,4)<>0
+                               m.nbReak = afList(i,3)-afList(m.i,4)
+                               m.ndEcimal = afList(m.i,4)
+                               m.csHowfield = REPLICATE("0", m.nbReak-1)+ ;
+                                "."+REPLICATE("0", m.ndEcimal)
+                          ELSE
+                               m.csHowfield = REPLICATE("0", afList(m.i,3))
+                          ENDIF
+                     CASE afList(m.i,2)="D"
+                          m.csHowfield = "00/00/00"
+                     CASE afList(m.i,2)="L"
+                          m.csHowfield = "Y"
+                ENDCASE
+                POP KEY
+           ENDIF
+           RETURN m.csHowfield
+ ENDCASE
+ENDFUNC
+*
+PROCEDURE RESETENV
+ DO CASE
+      CASE _DOS
+           ON ERROR &cError
+           SET MESSAGE TO (m.cmSg)
+           SET NOTIFY &cNotify
+           SET DELETED &cDeleted
+           SELECT (m.nsElect)
+           SET TALK &cTalk
+           SET ESCAPE &cSetEscape
+           IF TYPE("m.sCEEScreen")<>"U"
+                RESTORE SCREEN FROM m.scEescreen
+           ENDIF
+           RETURN
+      CASE _WINDOWS
+           ON ERROR &cError
+           SET MESSAGE TO (m.cmSg)
+           SET NOTIFY &cNotify
+           SET DELETED &cDeleted
+           SELECT (m.nsElect)
+           SET TALK &cTalk
+           SET ESCAPE &cSetEscape
+           IF TYPE("m.sCEEScreen")<>"U"
+                RESTORE SCREEN FROM m.scEescreen
+           ENDIF
+           RETURN
+ ENDCASE
+ENDPROC
+*
+PROCEDURE CEEERROR
+ PARAMETER neRrnum
+ DO CASE
+      CASE _DOS
+           PRIVATE leRrflag
+           m.leRrflag = .F.
+           ON ERROR
+           DO CASE
+                CASE INLIST(m.neRrnum, 5, 19, 20, 23, 26, 112, 114, 1124,  ;
+                     1683, 1707)
+                     m.leRrflag = .T.
+                CASE INLIST(m.neRrnum, 12, 13) .AND. (UPPER(MESSAGE(1))= ;
+                     'SET INDEX' .OR. (UPPER(MESSAGE(1))='USE' .AND.  ;
+                     UPPER(MESSAGE(1))<>'USE IN'))
+                     m.leRrflag = .T.
+                CASE INLIST(m.neRrnum, 15, 41, 1160)
+                     WAIT WINDOW "The error '"+MESSAGE()+"'"+CHR(13)+ ;
+                          " occurred while try to use database."
+                     m.leRrflag = .T.
+                CASE INLIST(m.neRrnum, 1, 202)
+                     WAIT WINDOW "Database could not be found."
+                     m.leRrflag = .T.
+                CASE m.neRrnum=108 .OR. m.neRrnum=1705
+                     WAIT WINDOW "Database being used by someone else."+ ;
+                          CHR(13)+"Please try again later."
+                     m.leRrflag = .T.
+                CASE m.neRrnum=1721
+                     WAIT WINDOW  ;
+                          "There are no free work areas to open EXPAND.DBF"
+                     m.leRrflag = .T.
+                OTHERWISE
+                     WAIT WINDOW "Error #"+LTRIM(STR(m.neRrnum))+":"+ ;
+                          MESSAGE()+CHR(13)+"Executing: "+LEFT(MESSAGE(1),  ;
+                          60)+IIF(LEN(MESSAGE(1))>60, ". . .", "")
+                     m.leRrflag = .T.
+           ENDCASE
+           IF m.leRrflag
+                DO reSetenv
+                POP KEY ALL
+                CANCEL
+           ENDIF
+           ON ERROR DO CEEERROR WITH ERROR()
+           RETURN
+      CASE _WINDOWS
+           PRIVATE leRrflag
+           m.leRrflag = .F.
+           ON ERROR
+           DO CASE
+                CASE INLIST(m.neRrnum, 5, 19, 20, 23, 26, 112, 114, 1124,  ;
+                     1683, 1707)
+                     m.leRrflag = .T.
+                CASE INLIST(m.neRrnum, 12, 13) .AND. (UPPER(MESSAGE(1))= ;
+                     'SET INDEX' .OR. (UPPER(MESSAGE(1))='USE' .AND.  ;
+                     UPPER(MESSAGE(1))<>'USE IN'))
+                     m.leRrflag = .T.
+                CASE INLIST(m.neRrnum, 15, 41, 1160)
+                     WAIT WINDOW "The error '"+MESSAGE()+"'"+CHR(13)+ ;
+                          " occurred while try to use database."
+                     m.leRrflag = .T.
+                CASE INLIST(m.neRrnum, 1, 202)
+                     WAIT WINDOW "Database could not be found."
+                     m.leRrflag = .T.
+                CASE m.neRrnum=108 .OR. m.neRrnum=1705
+                     WAIT WINDOW "Database being used by someone else."+ ;
+                          CHR(13)+"Please try again later."
+                     m.leRrflag = .T.
+                CASE m.neRrnum=1721
+                     WAIT WINDOW  ;
+                          "There are no free work areas to open EXPAND.DBF"
+                     m.leRrflag = .T.
+                OTHERWISE
+                     WAIT WINDOW "Error #"+LTRIM(STR(m.neRrnum))+":"+ ;
+                          MESSAGE()+CHR(13)+"Executing: "+LEFT(MESSAGE(1),  ;
+                          60)+IIF(LEN(MESSAGE(1))>60, ". . .", "")
+                     m.leRrflag = .T.
+           ENDCASE
+           IF m.leRrflag
+                DO reSetenv
+                POP KEY ALL
+                CANCEL
+           ENDIF
+           ON ERROR DO CEEERROR WITH ERROR()
+           RETURN
+ ENDCASE
+ENDPROC
+*
+PROCEDURE CEESTRBUILD
+ DO CASE
+      CASE _DOS
+           PRIVATE i
+           IF "Structure"$m.coUtput
+                = shOwlist(m.cdBfname)
+           ELSE
+                IF m.whAndle=0
+                     m.ciNdent = SPACE(2)
+                ELSE
+                     m.ciNdent = SPACE(_xEgetcol(m.whAndle)-1)
+                ENDIF
+                m.ltAble = "Table"$m.coUtput
+                IF m.ltAble
+                     IF EMPTY(m.ctAblename)
+                          m.ctAblename = "<<Fill In Table Name>>"
+                     ENDIF
+                     m.ciNdent = m.ciNdent+SPACE(2)
+                     m.cbUildstr = ""
+                ELSE
+                     DO CASE
+                          CASE "ALIAS"$m.cpRefix
+                               m.cfLdprefix = m.caLias+"."
+                          CASE "m."$cpRefix
+                               m.cfLdprefix = "m."
+                          OTHERWISE
+                               m.cfLdprefix = ""
+                     ENDCASE
+                     m.cbUildstr = ""
+                ENDIF
+                FOR m.i = 1 TO ALEN(aaFields, 1)
+                     IF "* "$LEFT(aaFields(m.i), 2)
+                          IF m.ltAble
+                               m.cfIeldlen = ""
+                               IF NOT afList(i,2)$'MDL'
+                                    m.cfIeldlen = ALLTRIM(STR(afList(m.i,3)))
+                                    IF afList(m.i,4)>0
+                                         m.cfIeldlen = m.cfIeldlen+","+ ;
+                                          ALLTRIM(STR(afList(m.i,4)))
+                                    ENDIF
+                                    m.cfIeldlen = "("+m.cfIeldlen+")"
+                               ENDIF
+                               m.cbUildstr = m.cbUildstr+PADR(afList(m.i, ;
+                                1), 12)+" "+afList(m.i,2)+m.cfIeldlen+ ;
+                                ", ;"+CHR(13)+CHR(10)+m.ciNdent
+                          ELSE
+                               m.cbUildstr = m.cbUildstr+cfLdprefix+ ;
+                                afList(m.i,1)+", ;"+CHR(13)+CHR(10)+m.ciNdent
+                          ENDIF
+                     ENDIF
+                ENDFOR
+                m.nlEndel = LEN(", ;"+CHR(13)+CHR(10)+m.ciNdent)
+                IF m.ltAble .AND. LEN(m.cbUildstr)>0
+                     m.cbUildstr = "CREATE TABLE "+ALLTRIM(m.ctAblename)+ ;
+                                   " ; "+CHR(13)+CHR(10)+m.ciNdent+"("+ ;
+                                   LEFT(m.cbUildstr, LEN(m.cbUildstr)- ;
+                                   m.nlEndel)+")"
+                ELSE
+                     m.cbUildstr = LEFT(m.cbUildstr, LEN(m.cbUildstr)- ;
+                                   m.nlEndel)
+                ENDIF
+                IF m.whAndle=0
+                     m.cbUildstr = STRTRAN(m.cbUildstr, m.ciNdent, "")
+                     KEYBOARD m.cbUildstr PLAIN
+                ELSE
+                     = _xEinsert(m.whAndle,m.cbUildstr,LEN(m.cbUildstr))
+                ENDIF
+           ENDIF
+           RETURN
+      CASE _WINDOWS
+           PRIVATE i
+           IF "Structure"$m.coUtput
+                = shOwlist(m.cdBfname)
+           ELSE
+                IF m.whAndle=0
+                     m.ciNdent = SPACE(2)
+                ELSE
+                     m.ciNdent = SPACE(_xEgetcol(m.whAndle)-1)
+                ENDIF
+                m.ltAble = "Table"$m.coUtput
+                IF m.ltAble
+                     IF EMPTY(m.ctAblename)
+                          m.ctAblename = "<<Fill In Table Name>>"
+                     ENDIF
+                     m.ciNdent = m.ciNdent+SPACE(2)
+                     m.cbUildstr = ""
+                ELSE
+                     DO CASE
+                          CASE "ALIAS"$m.cpRefix
+                               m.cfLdprefix = m.caLias+"."
+                          CASE "m."$cpRefix
+                               m.cfLdprefix = "m."
+                          OTHERWISE
+                               m.cfLdprefix = ""
+                     ENDCASE
+                     m.cbUildstr = ""
+                ENDIF
+                FOR m.i = 1 TO ALEN(aaFields, 1)
+                     IF "* "$LEFT(aaFields(m.i), 2)
+                          IF m.ltAble
+                               m.cfIeldlen = ""
+                               IF NOT afList(i,2)$'MDL'
+                                    m.cfIeldlen = ALLTRIM(STR(afList(m.i,3)))
+                                    IF afList(m.i,4)>0
+                                         m.cfIeldlen = m.cfIeldlen+","+ ;
+                                          ALLTRIM(STR(afList(m.i,4)))
+                                    ENDIF
+                                    m.cfIeldlen = "("+m.cfIeldlen+")"
+                               ENDIF
+                               m.cbUildstr = m.cbUildstr+PADR(afList(m.i, ;
+                                1), 12)+" "+afList(m.i,2)+m.cfIeldlen+ ;
+                                ", ;"+CHR(13)+CHR(10)+m.ciNdent
+                          ELSE
+                               m.cbUildstr = m.cbUildstr+cfLdprefix+ ;
+                                afList(m.i,1)+", ;"+CHR(13)+CHR(10)+m.ciNdent
+                          ENDIF
+                     ENDIF
+                ENDFOR
+                m.nlEndel = LEN(", ;"+CHR(13)+CHR(10)+m.ciNdent)
+                IF m.ltAble .AND. LEN(m.cbUildstr)>0
+                     m.cbUildstr = "CREATE TABLE "+ALLTRIM(m.ctAblename)+ ;
+                                   " ; "+CHR(13)+CHR(10)+m.ciNdent+"("+ ;
+                                   LEFT(m.cbUildstr, LEN(m.cbUildstr)- ;
+                                   m.nlEndel)+")"
+                ELSE
+                     m.cbUildstr = LEFT(m.cbUildstr, LEN(m.cbUildstr)- ;
+                                   m.nlEndel)
+                ENDIF
+                IF m.whAndle=0
+                     m.cbUildstr = STRTRAN(m.cbUildstr, m.ciNdent, "")
+                     KEYBOARD m.cbUildstr PLAIN
+                ELSE
+                     = _xEinsert(m.whAndle,m.cbUildstr,LEN(m.cbUildstr))
+                ENDIF
+           ENDIF
+           RETURN
+ ENDCASE
+ENDPROC
+*

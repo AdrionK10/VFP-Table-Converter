@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <RootNamespace>VFP_Table_Converter</RootNamespace>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <ApplicationIcon>foxio.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.5.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.5.0" />
+        <Content Include="VFP6\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="foxio.ico" />
+      <Resource Include="foxio.ico" />
+    </ItemGroup>
+
+</Project>

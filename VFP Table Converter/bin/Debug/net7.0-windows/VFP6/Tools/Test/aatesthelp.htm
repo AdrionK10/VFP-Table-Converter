@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Active Accessibility, Automated Test Harness</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2919.6307" name=GENERATOR></HEAD>
+<BODY link=#0000ff vLink=#800080><B><FONT size=5>
+<P>Active Accessibility, Automated Test Harness</P></B></FONT>
+<H3><A href="#INTRODUCTION">Introduction</A></H3>
+<H3><A href="#RUNNING_THE_TOOL">Running the 
+Tool</A></H3>
+<H3><A href="#FEATURES">Features</A></H3>
+<H3><A href="#RECORDER">Recorder</A></H3>
+<H3><A href="#PLAYBACK">Playback</A></H3>
+<H3><A href="#OUTSTANDING_ISSUES">Outstanding 
+Issues</A></H3>
+<H3><A href="#KNOWN_ISSUES">Known Issues</A></H3>
+<P><A name=INTRODUCTION></A></P>
+<H3>Introduction</H3>
+<P>The Automated Test Harness tool has been built on Microsoft Active 
+Accessibility (MSAA) technology. It can be used with all Visual Foxpro 
+applications.</P>
+<P>Following are the list of files used with the Automated Test Harness:</P>
+<DIR>
+<DIR>
+<UL><L1>
+  <P>AARECORD.SCX/SCT: The main form including the recording/playback logic.</P><L1>
+  <P>AAUTILS.VCX/VCT: The class library which has the class cstglobal. This is 
+  shared by different forms.</P><L1>
+  <P>AASCRIPTS.DBF/FPT: The event logging table.</P><L1>
+  <P>AATESTLOG.DBF/FPT The event logging table.</P>
+  <P>&nbsp;</P></UL></DIR></DIR>
+<H3><A name=RUNNING_THE_TOOL></A>Running the Tool</H3><FONT size=3>
+<P>To run the tool, do the following:</P>
+<OL></FONT>
+  <LI>The files are installed in the folder \Tools\Test\ folder under the VFP home directory. Run the main form AARECORD.SCX. Launch 
+  a new Visual FoxPro instance from the Fox button provided. To record the 
+  script, click Record button in the toolbar or select from Menu. You see a list of available applications. 
+  <LI>Select a Visual FoxPro application. You see a prompt to enter the "Test 
+  name" to identify the test. 
+  <LI>Now, its ready to record the events and you can enter the events you wish to record. To start with, 
+  enter the commands from command window or use the menu directly. Make sure you click the parent menu 
+  to select the submenu (such as Tools/Wizard). You cannot just move your mouse 
+  to select the sub menu, it should be clicked. 
+  <LI>When finished, click Stop. You can also pause and resume recording. 
+  <P>To view the recorded events log which has been selected or currently recorded, click View Log. 
+  <P>To stop the recording process, click Cancel. 
+  <P>To play back the scripts, select the script you want to run and click Play button. If the program detects an error, you 
+  see a prompt to wait. 
+  <P>To see the test log, select the Testlog tab.</P></LI></OL>
+<P><A name=FEATURES></A></P>
+<H3>Features</H3>
+<P>With the Automated Test Harness you can:</P>
+<LI>Work with all operations on the controls within a form 
+<LI>Call multiple forms 
+<LI>Use ActiveX controls, dialog boxes and @ to get within a window 
+<LI>Use hotkeys and special keys such as F2, pgdn, alt+S 
+<LI>Access menus and sub-menus while you record a menu item 
+<LI>Click the title bar (Controlbox, Closebox, Minbutton...) except in system 
+dialog boxes like MESSAGEBOX 
+<LI>Record by entering the commands from command window itself or selecting from the menu 
+<LI>The selections in the setings tab will affect the record and playback.
+<LI>The coverage logging can be set while testing using the settings in the settings tab.
+<LI>The testlog has the time taken to run the script and memory usage
+<UL></UL><FONT size=2>
+<P>&nbsp;<A name=RECORDER></A></P></FONT>
+<H3>Recorder</H3>
+<P>The recorder uses Visual FoxPro event logging to log all events, such as 
+mouse and keyboard.</P>
+<P><A name=PLAYBACK></A></P>
+<H3>Playback<FONT size=2> </H3></FONT>
+<P>The playback logic uses Active Accessibility in part to find the objects. The 
+program emulates output events using windows APIs and Visual FoxPro 
+functions. </P><FONT size=4>
+<P><A name=OUTSTANDING_ISSUES></A></P></FONT>
+<H3>Outstanding Issues</H3>
+<P>The following outstanding issues exist for the Automated Test Harness:</P>
+<LI>Because Visual FoxPro does not support keyboard commands such as shift+tab 
+or ctrl+tab, you cannot use them with this program. 
+<LI>If a you set the scrollbars property in a form, it may not play correctly 
+because the script does not capture the caption. 
+<LI>Clicking the title bar on dialog boxes such as MESSAGEBOX() may not work 
+because the positions are not consistent. 
+<UL></UL><FONT size=4>
+<P><A name=KNOWN_ISSUES></A></P></FONT>
+<H3>Known Issues</H3>
+<P>The following known issues exist for the Automated Test Harness:</P>
+<LI>Clicking the edges of menus or objects does not work consistently. 
+<LI>If the object position has been changed, the playback does not re-calculate 
+the new position. 
+<LI>The VFP window should be kept similar (although it may be maximized) during 
+record and playback since the events with respect to main desktop does not 
+always work. 
+<LI>You cannot use the mouse to drag and drop a window or an object.<FONT 
+size=2>&nbsp;
+<UL></UL></FONT></LI></BODY></HTML>

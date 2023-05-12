@@ -1,0 +1,74 @@
+
+FUNCTION MyAudit
+	LPARAMETERS tcTriggerType
+	local lcTime, lcFileName, lcCurTimeIndex, lcTxtFile, lcUserName, lcTable, lcCR, lcCRLF, lnField, lcFieldName, lcChanges, lcOldVal, lcNewVal
+
+	* Get current user
+	if VARTYPE(GCUSER) = "C" && if public variable for the user has been declared
+	  lcUserName = GCUSER
+	else
+	  lcUserName = "Unk"
+	endif
+	
+	* Get current table
+	lcTable = juststem(dbf())
+	
+	* Create a unique file name
+	lcTime = TTOC(datetime(), 1)
+	lcFileName = lcTime + "_" + lcUserName + "_" + lcTable
+	lcCurTimeIndex = 1
+	lcTxtFile = "C:\PortalFiles\logs\" + lcFileName + "_" + TRANSFORM(lcCurTimeIndex) + ".txt"
+	
+	DO WHILE NOT EMPTY(SYS(2000, lcTxtFile))
+		lcCurTimeIndex = lcCurTimeIndex + 1
+		lcTxtFile = "C:\Thrive-Logs\" + lcFileName + "_" + TRANSFORM(lcCurTimeIndex) + ".txt"
+	ENDDO
+	
+	* Initialize helper variables
+	lcCR = CHR(13)
+	lcCRLF = CHR(13) + CHR(10)
+	
+	lcChanges = "Table: 1" + lcCRLF + lcTable + lcCRLF;
+				+ "Type: 1" + lcCRLF + tcTriggerType + lcCRLF;
+				+ "User: 1" + lcCRLF + lcUserName + lcCRLF;
+				+ "Time: 1" + lcCRLF + lcTime + lcCRLF;
+				+ "Time Index: 1" + lcCRLF + TRANSFORM(lcCurTimeIndex) + lcCRLF
+	
+	DO CASE
+	CASE tcTriggerType = "D"
+		FOR lnField = 1 to fcount()
+			lcFieldName = field(lnField)
+			lcNewVal = transform(eval(lcFieldName))
+			
+			lcChanges = lcChanges + lcFieldName + ": " + TRANSFORM(OCCURS(lcCR, lcNewVal) + 1) + lcCRLF;
+						+ lcNewVal + lcCRLF
+		NEXT
+	CASE tcTriggerType = "I"
+		FOR lnField = 1 to fcount()
+			lcFieldName = field(lnField)
+			lcNewVal = transform(eval(lcFieldName))
+			
+			lcChanges = lcChanges + lcFieldName + ": " + TRANSFORM(OCCURS(lcCR, lcNewVal) + 1) + lcCRLF;
+						+ lcNewVal + lcCRLF
+		NEXT
+	CASE tcTriggerType = "U"
+		FOR lnField = 1 to fcount()
+			lcFieldName = field(lnField)
+			
+			lcOldVal = transform(oldval(lcFieldName))
+			lcNewVal = transform(eval(lcFieldName))
+			
+			if lcOldVal <> lcNewVal
+				lcChanges = lcChanges + lcFieldName + ": " + TRANSFORM(OCCURS(lcCR, lcOldVal) + 1) + " " + TRANSFORM(OCCURS(lcCR, lcNewVal) + 1) + lcCRLF;
+							+ lcOldVal + lcCRLF;
+							+ lcNewVal + lcCRLF
+			else
+				lcChanges = lcChanges + lcFieldName + ": " + TRANSFORM(OCCURS(lcCR, lcNewVal) + 1) + lcCRLF;
+							+ lcNewVal + lcCRLF
+			endif
+		NEXT
+	ENDCASE
+	
+	* Write to file
+	strtofile(lcChanges, lcTxtFile, .T.)
+ENDFUNC
