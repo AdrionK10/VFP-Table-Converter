@@ -15,4 +15,4 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.EnforceExtendedAnalyzerRules = 
 build_property.RootNamespace = VFP_Table_Converter
-build_property.ProjectDir = C:\Users\adrion\source\repos\VFP Table Converter\VFP Table Converter\VFP Table Converter\
+build_property.ProjectDir = C:\Users\adrion\source\repos\VFP Table Converter\Convert-To-VFP\VFP Table Converter\

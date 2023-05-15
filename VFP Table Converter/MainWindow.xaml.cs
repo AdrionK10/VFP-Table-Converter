@@ -22,15 +22,7 @@ namespace VFP_Table_Converter
             InitializeComponent();
 
             Vfp6Path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VFP6\\VFP6.exe");
-
-            if (File.Exists(Vfp6Path) && !string.IsNullOrWhiteSpace(txtVfpScript.Text))
-            {
-                btnRunVfpScript.IsEnabled = true;
-            }
-            else
-            {
-                btnRunVfpScript.IsEnabled = false;
-            }
+            btnRunVfpScript.IsEnabled = true;
         }
 
         private void BtnChooseFile_Click(object sender, RoutedEventArgs e)
@@ -152,15 +144,6 @@ namespace VFP_Table_Converter
             if (result == true)
             {
                 Vfp6Path = dlg.FileName;
-                if (File.Exists(Vfp6Path) && !string.IsNullOrWhiteSpace(txtVfpScript.Text))
-                {
-                    btnRunVfpScript.IsEnabled = true;
-                }
-                else
-                {
-                    btnRunVfpScript.IsEnabled = false;
-                }
-
                 MessageBox.Show("VFP 6 executable located successfully.");
             }
         }
@@ -190,15 +173,6 @@ namespace VFP_Table_Converter
             var vfpScript = ConvertToVfpScript(csFileContent, customTableName);
 
             txtVfpScript.Text = vfpScript;
-
-            if (File.Exists(Vfp6Path) && !string.IsNullOrWhiteSpace(txtVfpScript.Text))
-            {
-                btnRunVfpScript.IsEnabled = true;
-            }
-            else
-            {
-                btnRunVfpScript.IsEnabled = false;
-            }
         }
 
         private string ConvertToVfpScript(string csFileContent, string customTableName)
@@ -226,7 +200,8 @@ namespace VFP_Table_Converter
                     .Contains("id", StringComparison.CurrentCultureIgnoreCase));
 
             // Generate VFP table structure
-            vfpScriptBuilder.AppendLine($"OPEN DATABASE \"{DatabasePath}\" EXCLUSIVE");
+            vfpScriptBuilder.AppendLine("CD \"C:\\Thrive\\sfdata\\\"");
+            vfpScriptBuilder.AppendLine($"OPEN DATABASE \"{DatabasePath}\" SHARED");
             vfpScriptBuilder.AppendLine();
             vfpScriptBuilder.AppendLine($"CREATE TABLE {customTableName} ;");
 
@@ -236,12 +211,12 @@ namespace VFP_Table_Converter
                 var propertyName = properties[i].Identifier.ValueText;
                 var vfpType = FindType(properties[i].Type.ToString());
                 var abbreviatedPropertyName = Abbreviate(propertyName);
-                vfpScriptBuilder.AppendLine($"\t{(i == 0 ? "(" : "")}{abbreviatedPropertyName} {vfpType}{(i < properties.Count - 1 ? ", ;" : ")")}");
+                vfpScriptBuilder.AppendLine($"\t{(i == 0 ? "(" : "")}{abbreviatedPropertyName} {vfpType}{(i < properties.Count - 1 ? abbreviatedPropertyName.Equals(Abbreviate(tagProperty?? ""))? $" PRIMARY KEY DEFAULT SysgenPk(\"{customTableName}\") ," : ", ;" : ")")}");
             }
 
             vfpScriptBuilder.AppendLine();
-            vfpScriptBuilder.AppendLine($"USE {customTableName}");
-            vfpScriptBuilder.AppendLine($"INDEX ON {Abbreviate(tagProperty ?? "")} TAG {Abbreviate(tagProperty ?? "")}");
+            vfpScriptBuilder.AppendLine("USE sysgenpk");
+            vfpScriptBuilder.AppendLine($"INSERT INTO sysgenpk (table, current) VALUES ('{customTableName}', 0)");
             vfpScriptBuilder.AppendLine();
             vfpScriptBuilder.AppendLine("CLOSE DATABASE");
 
@@ -251,6 +226,7 @@ namespace VFP_Table_Converter
         private string FindType(string type)
         {
             var vfpType = "";
+            type = type.Replace("?", "");
             switch (type)
             {
                 case "int":

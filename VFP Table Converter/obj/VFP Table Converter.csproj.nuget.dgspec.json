@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter.csproj": {}
+    "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\Convert-To-VFP\\VFP Table Converter\\VFP Table Converter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter.csproj": {
+    "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\Convert-To-VFP\\VFP Table Converter\\VFP Table Converter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter.csproj",
+        "projectUniqueName": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\Convert-To-VFP\\VFP Table Converter\\VFP Table Converter.csproj",
         "projectName": "VFP Table Converter",
-        "projectPath": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter.csproj",
+        "projectPath": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\Convert-To-VFP\\VFP Table Converter\\VFP Table Converter.csproj",
         "packagesPath": "C:\\Users\\adrion\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter\\obj\\",
+        "outputPath": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\Convert-To-VFP\\VFP Table Converter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adrion\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -68,7 +68,12 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

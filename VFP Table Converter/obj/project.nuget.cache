@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fPhzYhiFT+YwJa+JQtjBBmZaE9Zpg8Pl2fR4tESTe+wRTnIPfu4Qromqpp653n10fd7xErptD8xIBmk5Cw79Tw==",
+  "dgSpecHash": "cR1XvgssmUn6WCPPhrxxTgxFcbiwjlgWz/Xz+zU7jIHhWP0nm0HCFSzW0eODQzKan/bBMt3aMi67Oad2J+P3tA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter\\VFP Table Converter.csproj",
+  "projectFilePath": "C:\\Users\\adrion\\source\\repos\\VFP Table Converter\\Convert-To-VFP\\VFP Table Converter\\VFP Table Converter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adrion\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\adrion\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

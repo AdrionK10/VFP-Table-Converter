@@ -19,4 +19,4 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = VFP_Table_Converter
-build_property.ProjectDir = C:\Users\adrion\source\repos\VFP Table Converter\VFP Table Converter\VFP Table Converter\
+build_property.ProjectDir = C:\Users\adrion\source\repos\VFP Table Converter\Convert-To-VFP\VFP Table Converter\
